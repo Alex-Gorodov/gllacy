@@ -9,7 +9,7 @@ import { CatalogPage } from "../../pages/catalog/catalog";
 import { ShippingPage } from "../../pages/shipping/shipping";
 import { AboutPage } from "../../pages/about/about";
 
-function App() {
+export function App() {
   return (
     <HistoryRouter history={browserHistory} basename="/">
       <Provider store={store}>
@@ -23,5 +23,3 @@ function App() {
     </HistoryRouter>
   );
 }
-
-export default App;
