@@ -18,6 +18,7 @@ export function SlideItem({slide}: SlideProps): JSX.Element {
   const isSliderMoving = useSelector((state: RootState) => state.slider.isMoving)
   const imageClassName = cn('slide__image', {
     'slide__image--animated' : isSliderMoving,
+    'slide__image--loading' : !usePageLoaded(),    
   })
 
   const dispatch = useDispatch();
@@ -29,7 +30,7 @@ export function SlideItem({slide}: SlideProps): JSX.Element {
       <p className="slide__description">{slide.description}</p>
       <button className="slide__add-to-cart-btn button">Order</button>
       <div className='slide__image-wrapper'>
-        <img className={imageClassName} src={slide.image} alt={slide.title} width="306" height="507" style={{transform: usePageLoaded() ? 'translateY(0)' : 'translateY(-200px)', opacity: usePageLoaded() ? '1' : '0'}}/>
+        <img className={imageClassName} src={slide.image} alt={slide.title} width="306" height="507"/>
         <div className="slider__next-slides">
           <InactiveSlide onChangeSlide={() => dispatch(setActiveSlide({ activeSlide: activeSlide < sliderItems.length - 1 ? sliderItems[activeSlide + 1].id : sliderItems[0].id }))} slide={activeSlide < sliderItems.length - 1 ? sliderItems[activeSlide + 1] : sliderItems[0]} />
           <InactiveSlide onChangeSlide={() => dispatch(setActiveSlide({ activeSlide: activeSlide < sliderItems.length - 2 ? sliderItems[activeSlide + 2].id : sliderItems[activeSlide - 1].id }))} slide={activeSlide < sliderItems.length - 2 ? sliderItems[activeSlide + 2] : sliderItems[activeSlide - 1]} />
