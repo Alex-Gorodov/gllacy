@@ -1,0 +1,44 @@
+@import '../../style'
+
+.burger-btn
+  display: flex
+  width: 40px
+  height: 20px
+  background-color: transparent
+  border: none
+  order: -1
+  cursor: pointer
+  z-index: $z-burger-btn
+  &:hover
+    opacity: 0.6
+  &__line
+    position: relative
+    display: block
+    width: 30px
+    height: 3px
+    border-radius: 4px
+    background-color: $basic-extra-light
+    &::after
+      position: relative
+      top: 11px
+      display: block
+      width: 30px
+      height: 3px
+      border-radius: 4px
+      background-color: $basic-extra-light
+      content: ''
+    &::before
+      position: relative
+      top: 7px
+      display: block
+      width: 30px
+      height: 3px
+      border-radius: 4px
+      background-color: $basic-extra-light 
+      content: ''
+    &--active
+      transform: rotate(45deg) translateY(4px)
+      &::before
+        transform: translateX(-300px)
+      &::after
+        transform: rotate(-90deg) translateX(14px)

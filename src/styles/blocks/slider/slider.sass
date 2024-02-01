@@ -1,0 +1,80 @@
+@import '../button'
+@import '../../../style'
+@import './pagination'
+
+.slider
+  display: flex
+  align-items: center
+  gap: 100px
+  &__wrapper
+    position: relative
+  &__buttons
+    position: absolute
+    top: 240px
+    right: -19px
+    width: 350px
+    display: flex
+    justify-content: space-between
+  &__btn
+    width: 38px
+    height: 38px
+    display: flex
+    justify-content: center
+    align-items: center
+    border: 2px solid $basic-extra-light
+    color: $basic-extra-light
+    transition: 0.3s
+  &__next-slides
+    display: flex
+    gap: 80px
+    position: absolute
+    top: 50%
+    left: 100%
+    transform: translate(100px, -50%)
+  &__next-slide
+    position: relative
+    opacity: 0.5
+    cursor: pointer
+    &--animated img
+      transform: translateX(-300px)
+    &::before
+      content: ""
+      display: block
+      width: 100px
+      height: 100px
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+      background-color: rgba(252, 252, 252, 0.3)
+      border-radius: 50%
+      z-index: $z-before
+    &:hover
+      opacity: 1
+      &::before
+        opacity: 0.75
+  @media(max-width: $desktop-only)
+    position: relative
+    &__wrapper
+      display: flex
+      flex-direction: column
+      margin: auto
+    &__buttons
+      top: 50%
+      right: 50%
+      transform: translate(50%, calc(-50% + 1em))
+    &__next-slides
+      position: absolute
+      width: 200%
+      display: flex
+      flex-direction: row-reverse
+      justify-content: space-between
+      top: 50%
+      left: 0
+      transform: translate(-25%, -40%)
+  @media(max-width: $mobile)
+    &__next-slides
+      width: 100%
+      top: 85%
+      left: 50%
+      transform: translate(-50%, -40%)

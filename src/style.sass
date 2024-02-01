@@ -1,0 +1,78 @@
+$basic-extra-dark: #2d3440
+$basic-dark: #565c66
+$basic-neutral: #b9b9b9
+$basic-light: #e7e7e7
+$basic-extra-light: #fcfcfc
+
+$special-extra-bright: #ff2f64
+$special-bright: #ff4a78
+$special-neutral: #ff7799
+$special-light: #feafc3
+$special-extra-light: #ffcbd8
+$special-blue: #69a9ff
+$special-yellow: #fcc850
+
+$status-error: #ea5454
+$status-warning: #fd912e
+$status-success: #00e484
+
+$desktop-only: 1250px
+$tablet: 1054px
+$mobile: 600px
+
+$z-before: -1
+$z-pagination: 5
+$z-mobile-menu: 10
+$z-burger-btn: 15
+  
+@mixin list-reset
+  padding: 0
+  margin: 0
+  list-style-type: none
+
+@mixin font-regular
+  font-family: "Inter", "Arial", sans-serif
+  font-weight: 400
+
+@mixin font-bold
+  font-family: "Inter", "Arial", sans-serif
+  font-weight: 700
+
+@mixin font-black
+  font-family: "Inter", "Arial", sans-serif
+  font-weight: 900
+
+*,
+*::before,
+*::after
+  box-sizing: border-box
+  transition: 0.4s
+  
+html
+  @include font-regular
+  height: 100%
+
+body
+  min-height: 100%
+  display: flex
+  flex-direction: column
+  max-width: 1366px
+  margin: auto
+  padding-inline: 20px
+  background-color: $special-light
+  color: $basic-extra-dark
+  transition: 0.3s
+
+.visually-hidden
+  position: absolute
+
+  width: 1px
+  height: 1px
+  margin: -1px
+  border: 0
+  padding: 0
+
+  basic-extra-light-space: nowrap
+  clip-path: inset(100%)
+  clip: rect(0 0 0 0)
+  overflow: hidden

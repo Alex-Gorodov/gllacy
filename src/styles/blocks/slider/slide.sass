@@ -1,0 +1,84 @@
+@import '../../../style'
+
+.slide
+  max-width: 803px
+  display: grid
+  grid-template-columns: auto 312px
+  grid-template-rows: 2fr 1fr 2fr
+  align-items: center
+  margin-left: 5%
+
+  &__title
+    padding-right: 40px
+    grid-column: 1
+    align-self: end
+    font-size: 36px
+    line-height: 46px
+    font-weight: 900
+
+  &__description
+    padding-right: 40px
+    grid-column: 1
+    align-self: start
+
+  &__add-to-cart-btn
+    position: relative
+    grid-column: 1
+    width: 140px
+    height: 32px
+    align-self: start
+    background-color: $basic-extra-light
+    outline: 4px solid rgba($basic-extra-light, 50%)
+    &:hover
+      background-color: rgba($basic-extra-light, 50%)
+      outline: 2px solid $basic-extra-light
+    &:active
+      outline: 2px solid $basic-extra-dark
+    &:focus-visible
+      color: $basic-extra-dark
+      outline: 2px solid $basic-extra-dark
+  &__image
+    &--animated
+      transform: scale(0.261, 0.296)
+      opacity: 0
+    &-wrapper
+      position: relative
+      grid-column: 2
+      grid-row: 1/4
+      &::before
+        content: ""
+        display: block
+        width: 312px
+        height: 312px
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+        background-color: rgba(252, 252, 252, 0.3)
+        border-radius: 50%
+        z-index: $z-before
+      
+
+  @media(max-width: $desktop-only)
+    grid-template-columns: 1fr
+    grid-template-rows: 8em 1fr min-content
+    justify-items: center
+    margin: 0
+    &__title
+      max-width: 100%
+      padding: 0
+      grid-row: 1
+      align-self: start
+      font-size: 26px
+      line-height: 40px
+      text-align: center
+    &__description
+      max-width: 520px
+      padding: 0
+      text-align: center
+      grid-row: 3
+      align-self: start
+    &__image-wrapper
+      grid-column: 1
+      grid-row: 2
+    &__add-to-cart-btn
+      align-self: center

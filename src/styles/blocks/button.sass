@@ -1,0 +1,24 @@
+@import "./../../style"
+
+.button
+  background-color: rgba($basic-extra-light, 0.3)
+  border: none
+  border-radius: 26px
+  padding: 8px 20px
+  cursor: pointer
+  transition: 0.3s
+  &:hover
+    background-color: $basic-extra-light
+    border-color: rgba($basic-extra-light, 50%)
+    color: $basic-extra-dark
+  &:active
+    border-color: $basic-extra-dark
+  &:focus-visible
+    border-color: $basic-extra-dark
+    color: $basic-extra-dark
+    outline: none
+
+  &--circle
+    width: 32px
+    height: 32px
+    padding: 8px
