@@ -51,6 +51,11 @@ export function Header(): JSX.Element{
         :
         <button className="header__burger burger-btn" onClick={() => setMenuOpened(!isMenuOpened)}>
           <span className={burgerBtnClassName}></span>
+          <span className="visually-hidden">
+            {
+              isMenuOpened ? 'close menu' : 'open menu'
+            }
+          </span>
         </button>
       }
     </header>
