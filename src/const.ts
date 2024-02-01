@@ -1,8 +1,8 @@
 export enum AppRoute {
-  Root = '/',
-  Catalog = '/catalog',
-  Shipping = '/shipping',
-  About = '/about'
+  Root = '/gllacy/',
+  Catalog = '/gllacy/catalog',
+  Shipping = '/gllacy/shipping',
+  About = '/gllacy/about'
 }
 
 export enum BackgroundColors {

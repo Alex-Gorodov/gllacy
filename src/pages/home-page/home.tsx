@@ -7,7 +7,6 @@ export function HomePage() {
       <Header/>
       <main>
         <Slider/>
-        <p>test-test-test</p>
       </main>
     </>
   );
