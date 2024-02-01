@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/gllacy/static/css/main.857b7bf9.css",
+    "main.js": "/gllacy/static/js/main.50de2376.js",
+    "static/js/787.b7171baf.chunk.js": "/gllacy/static/js/787.b7171baf.chunk.js",
+    "static/media/logo.svg": "/gllacy/static/media/logo.43ca59eeeb1a053c6e084b23f99839a8.svg",
+    "static/media/cart.svg": "/gllacy/static/media/cart.47e5f919d8e7d5c31d9f1be3f3fa082a.svg",
+    "static/media/login.svg": "/gllacy/static/media/login.29b1ea6687d1f18e33755b0dd985cddf.svg",
+    "static/media/search.svg": "/gllacy/static/media/search.3ade7be7d90bab040c99fb22deecc287.svg",
+    "index.html": "/gllacy/index.html",
+    "static/media/slider-arrow-prev.svg": "/gllacy/static/media/slider-arrow-prev.513d6848cb3d078072545473a823aeb3.svg",
+    "static/media/slider-arrow-next.svg": "/gllacy/static/media/slider-arrow-next.7dabf49da5c17c8710becab8411ba38d.svg",
+    "main.857b7bf9.css.map": "/gllacy/static/css/main.857b7bf9.css.map",
+    "main.50de2376.js.map": "/gllacy/static/js/main.50de2376.js.map",
+    "787.b7171baf.chunk.js.map": "/gllacy/static/js/787.b7171baf.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.857b7bf9.css",
+    "static/js/main.50de2376.js"
+  ]
+}
