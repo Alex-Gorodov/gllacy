@@ -1,28 +1,26 @@
-import { RootState } from "../../../store/RootState";
-import '../../../styles/blocks/slider/slider.sass';
-import '../../../styles/blocks/slider/slide.sass';
-import { Slide } from "../../../types/slide";
-import { useDispatch, useSelector } from "react-redux";
-import cn from 'classnames';
-import { sliderItems } from "../../../mocks/slider";
 import { setActiveSlide } from "../../../store/slider/slider-actions";
 import { useResizeListener } from "../../../hooks/useResizeListener";
 import { InactiveSlide } from "../inactive-slide/inactive-slide";
-import { usePageLoaded } from "../../../hooks/usePageLoaded";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../../store/RootState";
+import { sliderItems } from "../../../mocks/slider";
+import '../../../styles/blocks/slider/slider.sass';
+import '../../../styles/blocks/slider/slide.sass';
+import { Slide } from "../../../types/slide";
+import cn from 'classnames';
 
 type SlideProps = {
   slide: Slide;
 }
 
 export function SlideItem({slide}: SlideProps): JSX.Element {
-  const isSliderMoving = useSelector((state: RootState) => state.slider.isMoving)
-  const imageClassName = cn('slide__image', {
-    'slide__image--animated' : isSliderMoving,
-    'slide__image--loading' : !usePageLoaded(),    
-  })
-
+  const isSliderMoving = useSelector((state: RootState) => state.slider.isMoving);
   const dispatch = useDispatch();
   const activeSlide = useSelector((state: RootState) => state.slider.activeSlide);
+
+  const imageClassName = cn('slide__image', {
+    'slide__image--loading': isSliderMoving,
+  });
 
   return (
     <div className="slider__item slide">

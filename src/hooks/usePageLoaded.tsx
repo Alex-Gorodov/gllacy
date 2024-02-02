@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export const usePageLoaded = (): boolean => {
+const usePageLoaded = (): boolean => {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
 
   useEffect(() => {
@@ -17,3 +17,5 @@ export const usePageLoaded = (): boolean => {
 
   return isPageLoaded;
 };
+
+export default usePageLoaded;
