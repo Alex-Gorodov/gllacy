@@ -10,6 +10,8 @@ import { Slide } from "../../../types/slide";
 import cn from 'classnames';
 import { ReactComponent as ArrowNext } from "../../../img/icons/slider-arrow-next.svg";
 import { ReactComponent as ArrowPrev } from "../../../img/icons/slider-arrow-prev.svg";
+import { Pagination } from "../pagination";
+import { Social } from "../../social/social";
 
 type SlideProps = {
   slide: Slide;
@@ -46,6 +48,16 @@ export function SlideItem({slide}: SlideProps): JSX.Element {
           <InactiveSlide onChangeSlide={() => dispatch(setActiveSlide({ activeSlide: activeSlide < sliderItems.length - 2 ? sliderItems[activeSlide + 2].id : sliderItems[activeSlide - 1].id }))} slide={activeSlide < sliderItems.length - 2 ? sliderItems[activeSlide + 2] : sliderItems[activeSlide - 1]} />
         </div>
       </div>
+      {
+        useResizeListener() < 1250
+        ?
+        <div className="slider__bottom">
+          <Pagination/>
+          <Social/>
+        </div>
+        :
+        ''
+      }
     </div>
   )
 }

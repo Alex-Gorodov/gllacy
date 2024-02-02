@@ -1,5 +1,6 @@
 
 import { SlideItem } from "../slide-item/slide-item";
+import { useResizeListener } from "../../../hooks/useResizeListener";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/RootState";
 import { sliderItems } from "../../../mocks/slider";
@@ -15,10 +16,16 @@ export function Slider(): JSX.Element {
     <div className="slider">
       <div className="slider__wrapper">
         <SlideItem slide={sliderItems[activeSlide]} key={sliderItems[activeSlide].title}/>
-        <div className="slider__bottom">
-          <Pagination/>
-          <Social/>
-        </div>
+        {
+          useResizeListener() >= 1250
+          ?
+          <div className="slider__bottom">
+            <Pagination/>
+            <Social/>
+          </div>
+          :
+          ''
+        }
       </div>
     </div>
   )
