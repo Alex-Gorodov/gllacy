@@ -8,6 +8,8 @@ import '../../../styles/blocks/slider/slider.sass';
 import '../../../styles/blocks/slider/slide.sass';
 import { Slide } from "../../../types/slide";
 import cn from 'classnames';
+import { ReactComponent as ArrowNext } from "../../../img/icons/slider-arrow-next.svg";
+import { ReactComponent as ArrowPrev } from "../../../img/icons/slider-arrow-prev.svg";
 
 type SlideProps = {
   slide: Slide;
@@ -29,27 +31,20 @@ export function SlideItem({slide}: SlideProps): JSX.Element {
       <button className="slide__add-to-cart-btn button">Order</button>
       <div className='slide__image-wrapper'>
         <img className={imageClassName} src={slide.image} alt={slide.title} width="306" height="507"/>
+        <div className="slider__buttons">
+          <button className="slider__btn button button--circle" onClick={() => dispatch(setActiveSlide({activeSlide: activeSlide - 1}))}>
+            <ArrowPrev/>
+            <span className="visually-hidden">previous slide</span>
+          </button>
+          <button className="slider__btn button button--circle" onClick={() => dispatch(setActiveSlide({activeSlide: activeSlide + 1}))}>
+            <ArrowNext/>
+            <span className="visually-hidden">next slide</span>
+          </button>
+        </div>
         <div className="slider__next-slides">
           <InactiveSlide onChangeSlide={() => dispatch(setActiveSlide({ activeSlide: activeSlide < sliderItems.length - 1 ? sliderItems[activeSlide + 1].id : sliderItems[0].id }))} slide={activeSlide < sliderItems.length - 1 ? sliderItems[activeSlide + 1] : sliderItems[0]} />
           <InactiveSlide onChangeSlide={() => dispatch(setActiveSlide({ activeSlide: activeSlide < sliderItems.length - 2 ? sliderItems[activeSlide + 2].id : sliderItems[activeSlide - 1].id }))} slide={activeSlide < sliderItems.length - 2 ? sliderItems[activeSlide + 2] : sliderItems[activeSlide - 1]} />
         </div>
-      {
-        useResizeListener() < 1250
-        ?
-          <div className="slider__pagination pagination">
-            <button className={activeSlide === 0 ? 'pagination__btn pagination__btn--active' : 'pagination__btn'} onClick={() => dispatch(setActiveSlide({activeSlide: 0}))}>
-              <span className="visually-hidden">turn to first slide</span>
-            </button>
-            <button className={activeSlide === 1 ? 'pagination__btn pagination__btn--active' : 'pagination__btn'} onClick={() => dispatch(setActiveSlide({activeSlide: 1}))}>
-              <span className="visually-hidden">turn to second slide</span>
-            </button>
-            <button className={activeSlide === 2 ? 'pagination__btn pagination__btn--active' : 'pagination__btn'} onClick={() => dispatch(setActiveSlide({activeSlide: 2}))}>
-              <span className="visually-hidden">turn to third slide</span>
-            </button>
-          </div>
-        :
-        ''
-      }
       </div>
     </div>
   )
