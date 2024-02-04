@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/gllacy/static/css/main.49fbccd4.css",
-    "main.js": "/gllacy/static/js/main.d0ead7bc.js",
+    "main.css": "/gllacy/static/css/main.472f631a.css",
+    "main.js": "/gllacy/static/js/main.2cb51e9c.js",
     "static/media/logo.svg": "/gllacy/static/media/logo.43ca59eeeb1a053c6e084b23f99839a8.svg",
     "static/media/Instagram.svg": "/gllacy/static/media/Instagram.a048d2ec0b675527be458604a09ec896.svg",
     "static/media/vk.svg": "/gllacy/static/media/vk.cffb7a6aa5ac29629209e49ad46484e9.svg",
@@ -12,11 +12,11 @@
     "static/media/slider-arrow-prev.svg": "/gllacy/static/media/slider-arrow-prev.513d6848cb3d078072545473a823aeb3.svg",
     "static/media/slider-arrow-next.svg": "/gllacy/static/media/slider-arrow-next.7dabf49da5c17c8710becab8411ba38d.svg",
     "static/media/facebook.svg": "/gllacy/static/media/facebook.18ce47ddc8ba909b2c5a0a2930c1328a.svg",
-    "main.49fbccd4.css.map": "/gllacy/static/css/main.49fbccd4.css.map",
-    "main.d0ead7bc.js.map": "/gllacy/static/js/main.d0ead7bc.js.map"
+    "main.472f631a.css.map": "/gllacy/static/css/main.472f631a.css.map",
+    "main.2cb51e9c.js.map": "/gllacy/static/js/main.2cb51e9c.js.map"
   },
   "entrypoints": [
-    "static/css/main.49fbccd4.css",
-    "static/js/main.d0ead7bc.js"
+    "static/css/main.472f631a.css",
+    "static/js/main.2cb51e9c.js"
   ]
 }
