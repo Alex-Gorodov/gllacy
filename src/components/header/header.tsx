@@ -18,16 +18,18 @@ export function Header(): JSX.Element{
   const burgerBtnClassName = cn('burger-btn__line', {
     'burger-btn__line--active' : isMenuOpened
   })
-  const mobileHeaderClassName = cn('header__wrapper', {
+  const mobileHeaderWrapperClassName = cn('header__wrapper', {
     'header__wrapper--opened' : isMenuOpened
   })
+
+  isMenuOpened ? document.body.style.overflow = 'hidden' : document.body.style.overflow = ''
 
   return (
     <header className="header">
       <Link to={AppRoute.Root} className="navigation__logo">
         <Logo />
       </Link>
-      <div className={mobileHeaderClassName}>
+      <div className={mobileHeaderWrapperClassName}>
         <Navigation/>
         <div className="header__user-nav user-navigation">
           <button className="user-navigation__btn button button--circle">
