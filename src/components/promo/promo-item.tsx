@@ -1,4 +1,5 @@
 import { Promo } from "../../types/promo";
+import "../../styles/blocks/promo/promo-item.sass"
 
 type PromoItemProps = {
   item: Promo;
@@ -6,10 +7,11 @@ type PromoItemProps = {
 
 export function PromoItem({item}: PromoItemProps): JSX.Element {
   return (
-    <div className="promo">
-      <h3 className="promo__title">{item.title}</h3>
-      <p className="promo__description">{item.description}</p>
-      <img src={item.image} alt={item.title} />
-    </div>
+    <li className="promo__item promo-item">
+      <h3 className="promo-item__title">{item.title}</h3>
+      <p className="promo-item__description">{item.description}</p>
+      <img className="promo-item__image" src={item.image} alt={item.title} />
+      <button className="promo-item__btn button">I want a present</button>
+    </li>
   )
 }

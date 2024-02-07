@@ -1,0 +1,17 @@
+@import "../../../style"
+  
+.promo-item
+  display: grid
+  grid-template-columns: 2fr 1fr
+  padding: 40px
+  background-color: $special-neutral
+  border-radius: 16px
+  // background-image: url("../../../img/promo/promo-1.png")
+  &__description
+    grid-column: 1
+  &__btn
+    justify-self: start
+    background-color: $basic-extra-light
+    outline: 4px solid rgba(252, 252, 252, 0.5)
+  &__image
+    grid-column: 2
