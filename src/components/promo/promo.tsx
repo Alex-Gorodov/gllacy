@@ -5,7 +5,7 @@ import "../../styles/blocks/promo/promo.sass"
 export function Promo(): JSX.Element {
   return (
     <div className="promo">
-      <h2>Order ice cream and receive gifts!</h2>
+      <h2 className="promo__title">Order ice cream and receive gifts!</h2>
       <ul className="promo__list">
         {
           promoItems.map((item) => {

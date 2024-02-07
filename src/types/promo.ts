@@ -3,4 +3,5 @@ export type Promo = {
   title: string;
   description: string;
   image: string;
+  imageSize: number[];
 }
