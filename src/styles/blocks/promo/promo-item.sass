@@ -22,9 +22,15 @@
   &__btn
     grid-column: 1
     justify-self: start
-    background-color: $basic-extra-light
     outline: 4px solid rgba(252, 252, 252, 0.5)
   &__image
     position: absolute
     right: 10px
     bottom: 0
+  @media (max-width: $mobile)
+    overflow: hidden
+    &__image
+      right: 50%
+      transform: translateX(100%)
+      z-index: $z-before
+      opacity: 0.4
