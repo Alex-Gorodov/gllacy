@@ -1,0 +1,32 @@
+@import "../../style"
+  
+.advantages
+  padding: 24px
+  border-radius: 16px
+  background-image: url("/img/advantages-bg.png")
+  background-repeat: no-repeat
+  background-position: center
+  background-size: cover
+  &__wrapper
+    background-color: $basic-extra-light
+    padding: 56px 40px
+    border-radius: 16px
+  &__title
+    margin: 0
+  &__list
+    @include list-reset
+    display: grid
+    justify-content: center
+    grid-template-columns: repeat(auto-fit, minmax(260px, 420px))
+    gap: 40px 30px
+    @media (max-width: $mobile)
+      row-gap: 20px
+
+.advantage
+  max-width: 506px
+  display: flex
+  align-items: flex-start
+  gap: 16px
+  &__description
+    margin: 0
+

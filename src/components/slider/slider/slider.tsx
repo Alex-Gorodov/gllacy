@@ -13,7 +13,7 @@ export function Slider(): JSX.Element {
   const activeSlide = useSelector((state: RootState) => state.slider.activeSlide);
 
   return(
-    <div className="slider">
+    <section className="slider section">
       <div className="slider__wrapper">
         <SlideItem slide={sliderItems[activeSlide]} key={sliderItems[activeSlide].title}/>
         {
@@ -27,6 +27,6 @@ export function Slider(): JSX.Element {
           ''
         }
       </div>
-    </div>
+    </section>
   )
 }

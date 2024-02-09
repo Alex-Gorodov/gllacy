@@ -1,11 +1,12 @@
 import { promoItems } from "../../mocks/promo";
-import { PromoItem } from "./promo-item";
 import "../../styles/blocks/promo/promo.sass"
+import "../../styles/blocks/section.sass"
+import { PromoItem } from "./promo-item";
 
 export function Promo(): JSX.Element {
   return (
-    <div className="promo">
-      <h2 className="promo__title">Order ice cream and receive gifts!</h2>
+    <section className="promo section">
+      <h2 className="section__title">Order ice cream and receive gifts!</h2>
       <ul className="promo__list">
         {
           promoItems.map((item) => {
@@ -13,6 +14,6 @@ export function Promo(): JSX.Element {
           })
         }
       </ul>
-    </div>
+    </section>
   )
 }

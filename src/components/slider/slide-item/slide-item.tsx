@@ -1,3 +1,5 @@
+import { ReactComponent as ArrowNext } from "../../../img/icons/slider-arrow-next.svg";
+import { ReactComponent as ArrowPrev } from "../../../img/icons/slider-arrow-prev.svg";
 import { setActiveSlide } from "../../../store/slider/slider-actions";
 import { useResizeListener } from "../../../hooks/useResizeListener";
 import { InactiveSlide } from "../inactive-slide/inactive-slide";
@@ -7,11 +9,9 @@ import { sliderItems } from "../../../mocks/slider";
 import '../../../styles/blocks/slider/slider.sass';
 import '../../../styles/blocks/slider/slide.sass';
 import { Slide } from "../../../types/slide";
-import cn from 'classnames';
-import { ReactComponent as ArrowNext } from "../../../img/icons/slider-arrow-next.svg";
-import { ReactComponent as ArrowPrev } from "../../../img/icons/slider-arrow-prev.svg";
-import { Pagination } from "../pagination";
 import { Social } from "../../social/social";
+import { Pagination } from "../pagination";
+import cn from 'classnames';
 
 type SlideProps = {
   slide: Slide;

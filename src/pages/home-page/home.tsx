@@ -1,4 +1,6 @@
+import { Advantages } from "../../components/advantages/advantages";
 import { Header } from "../../components/header/header";
+import { MainPageShop } from "../../components/main-page-shop/main-page-shop";
 import { Promo } from "../../components/promo/promo";
 import { Slider } from "../../components/slider/slider/slider";
 
@@ -9,6 +11,8 @@ export function HomePage() {
       <main>
         <Slider/>
         <Promo/>
+        <MainPageShop/>
+        <Advantages/>
       </main>
     </>
   );

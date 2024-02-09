@@ -1,0 +1,34 @@
+@import "../../style"
+  
+.product
+  position: relative
+  padding: 76px 40px 28px
+  border-radius: 8px
+  background-color: $basic-extra-light
+  text-align: center
+  &__image
+    position: absolute
+    top: 0
+    left: 50%
+    transform: translate(-50%, -50%)
+  &__price
+    &-wrapper
+      display: flex
+      justify-content: space-between
+      align-items: center
+  &__btn
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 32px
+    height: 32px
+    border: none
+    background-color: $special-extra-bright
+    border-radius: 50%
+    color: $basic-extra-light
+    transition: 0.3s
+    cursor: pointer
+    &:hover
+      background-color: $basic-extra-light
+      box-shadow: 0 0 0 2px $special-extra-bright inset
+      color: $special-extra-bright
