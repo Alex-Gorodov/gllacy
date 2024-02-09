@@ -1,22 +1,24 @@
 {
   "files": {
-    "main.css": "/gllacy/static/css/main.40277a58.css",
-    "main.js": "/gllacy/static/js/main.a857921a.js",
+    "main.css": "/gllacy/static/css/main.cd2a21de.css",
+    "main.js": "/gllacy/static/js/main.b5aee5ab.js",
+    "static/media/advantages-bg.png": "/gllacy/static/media/advantages-bg.fe9b3fce09a56c7ca461.png",
     "static/media/logo.svg": "/gllacy/static/media/logo.43ca59eeeb1a053c6e084b23f99839a8.svg",
     "static/media/Instagram.svg": "/gllacy/static/media/Instagram.a048d2ec0b675527be458604a09ec896.svg",
     "static/media/vk.svg": "/gllacy/static/media/vk.cffb7a6aa5ac29629209e49ad46484e9.svg",
     "static/media/cart.svg": "/gllacy/static/media/cart.47e5f919d8e7d5c31d9f1be3f3fa082a.svg",
+    "static/media/product-cart.svg": "/gllacy/static/media/product-cart.2e7bd412546938353d4ab0fc84ec8f90.svg",
     "static/media/login.svg": "/gllacy/static/media/login.29b1ea6687d1f18e33755b0dd985cddf.svg",
     "index.html": "/gllacy/index.html",
     "static/media/search.svg": "/gllacy/static/media/search.3ade7be7d90bab040c99fb22deecc287.svg",
     "static/media/slider-arrow-prev.svg": "/gllacy/static/media/slider-arrow-prev.513d6848cb3d078072545473a823aeb3.svg",
     "static/media/slider-arrow-next.svg": "/gllacy/static/media/slider-arrow-next.7dabf49da5c17c8710becab8411ba38d.svg",
     "static/media/facebook.svg": "/gllacy/static/media/facebook.18ce47ddc8ba909b2c5a0a2930c1328a.svg",
-    "main.40277a58.css.map": "/gllacy/static/css/main.40277a58.css.map",
-    "main.a857921a.js.map": "/gllacy/static/js/main.a857921a.js.map"
+    "main.cd2a21de.css.map": "/gllacy/static/css/main.cd2a21de.css.map",
+    "main.b5aee5ab.js.map": "/gllacy/static/js/main.b5aee5ab.js.map"
   },
   "entrypoints": [
-    "static/css/main.40277a58.css",
-    "static/js/main.a857921a.js"
+    "static/css/main.cd2a21de.css",
+    "static/js/main.b5aee5ab.js"
   ]
 }
