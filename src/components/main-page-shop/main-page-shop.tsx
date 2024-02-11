@@ -12,7 +12,7 @@ export function MainPageShop(): JSX.Element {
         {
           shopItems.slice(0,4).map((item) => {
             return (
-              <li className="products__item product">
+              <li className="products__item product" key={item._id.$oid}>
                 <img className="product__image" src={item.img} alt={item.name} width={168} height={168}/>
                 <h4 className="product__title">{item.name}</h4>
                 <p className="product__description">{item.description}</p>

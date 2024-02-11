@@ -10,7 +10,7 @@ export function Advantages(): JSX.Element {
           {
             advantages.map((item) => {
               return (
-              <li className="advantage">
+              <li className="advantage" key={`main page shop - ${item.id}`}>
                 <img src={item.image} alt="" />
                 <p className="advantage__description">{item.description}</p>
               </li>

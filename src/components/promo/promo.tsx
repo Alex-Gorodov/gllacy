@@ -10,7 +10,7 @@ export function Promo(): JSX.Element {
       <ul className="promo__list">
         {
           promoItems.map((item) => {
-            return <PromoItem item={item}/>
+            return <PromoItem item={item} key={item.title}/>
           })
         }
       </ul>
