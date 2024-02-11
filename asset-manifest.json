@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/gllacy/static/css/main.cd2a21de.css",
-    "main.js": "/gllacy/static/js/main.b5aee5ab.js",
+    "main.css": "/gllacy/static/css/main.a3513c8c.css",
+    "main.js": "/gllacy/static/js/main.c4e21333.js",
     "static/media/advantages-bg.png": "/gllacy/static/media/advantages-bg.fe9b3fce09a56c7ca461.png",
     "static/media/logo.svg": "/gllacy/static/media/logo.43ca59eeeb1a053c6e084b23f99839a8.svg",
     "static/media/Instagram.svg": "/gllacy/static/media/Instagram.a048d2ec0b675527be458604a09ec896.svg",
@@ -14,11 +14,11 @@
     "static/media/slider-arrow-prev.svg": "/gllacy/static/media/slider-arrow-prev.513d6848cb3d078072545473a823aeb3.svg",
     "static/media/slider-arrow-next.svg": "/gllacy/static/media/slider-arrow-next.7dabf49da5c17c8710becab8411ba38d.svg",
     "static/media/facebook.svg": "/gllacy/static/media/facebook.18ce47ddc8ba909b2c5a0a2930c1328a.svg",
-    "main.cd2a21de.css.map": "/gllacy/static/css/main.cd2a21de.css.map",
-    "main.b5aee5ab.js.map": "/gllacy/static/js/main.b5aee5ab.js.map"
+    "main.a3513c8c.css.map": "/gllacy/static/css/main.a3513c8c.css.map",
+    "main.c4e21333.js.map": "/gllacy/static/js/main.c4e21333.js.map"
   },
   "entrypoints": [
-    "static/css/main.cd2a21de.css",
-    "static/js/main.b5aee5ab.js"
+    "static/css/main.a3513c8c.css",
+    "static/js/main.c4e21333.js"
   ]
 }
