@@ -77,3 +77,26 @@ body
   clip-path: inset(100%)
   clip: rect(0 0 0 0)
   overflow: hidden
+
+.title
+  margin: 0
+  &--2
+    font-size: 32px
+    line-height: 46px
+    @media (max-width: $mobile)
+      font-size: 20px
+  &--3
+    font-size: 24px
+    line-height: 30px
+  &--4
+    font-size: 20px
+    line-height: 24px
+  &--section
+    max-width: 850px
+    margin-inline: auto
+    margin-bottom: 56px
+    text-align: center
+
+.link
+  text-decoration: none
+  display: inline-block

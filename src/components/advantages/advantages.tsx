@@ -5,7 +5,7 @@ export function Advantages(): JSX.Element {
   return(
     <section className="advantages section">
       <div className="advantages__wrapper">
-        <h2 className="advantages__title section__title">Glacie's store is an online and offline store selling its own ice cream by weight.</h2>
+        <h2 className="title title--2 title--section">Glacie's store is an online and offline store selling its own ice cream by weight.</h2>
         <ul className="advantages__list">
           {
             advantages.map((item) => {
