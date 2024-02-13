@@ -1,0 +1,33 @@
+@import "../../style"
+
+.delivery
+  display: grid
+  min-height: 534px
+  padding: 64px
+  padding-left: 100px
+  grid-template-columns: repeat(auto-fit, minmax(240px, 500px))
+  gap: 135px
+  border-radius: 16px
+  align-items: center
+  background-image: url('../../img/delivery-bg.png')
+  background-repeat: no-repeat
+  background-size: cover
+  @media (max-width: $tablet)
+    padding: 20px
+    gap: 40px
+    background-position: left
+  &__text-wrapper
+    display: flex
+    flex-direction: column
+    gap: 24px
+  &__title
+    margin: 0
+    grid-column: 1
+    text-align: left
+  &__description
+    grid-column: 1
+    margin: 0
+  &__form
+    grid-column: 2
+    @media (max-width: $tablet)
+      grid-column: 1

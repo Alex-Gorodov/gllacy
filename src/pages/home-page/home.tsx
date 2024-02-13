@@ -1,9 +1,10 @@
 import { Advantages } from "../../components/advantages/advantages";
 import { Articles } from "../../components/articles/articles";
 import { Header } from "../../components/header/header";
-import { MainPageShop } from "../../components/main-page-shop/main-page-shop";
+import { ShopSection } from "../../components/shop-section/shop-section";
 import { Promo } from "../../components/promo/promo";
 import { Slider } from "../../components/slider/slider/slider";
+import { DeliverySection } from "../../components/delivery-section/delivery-section";
 
 export function HomePage() {
   return (
@@ -12,9 +13,10 @@ export function HomePage() {
       <main>
         <Slider/>
         <Promo/>
-        <MainPageShop/>
+        <ShopSection/>
         <Advantages/>
         <Articles/>
+        <DeliverySection/>
       </main>
     </>
   );

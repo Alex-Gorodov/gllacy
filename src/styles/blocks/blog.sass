@@ -8,6 +8,9 @@
   grid-template-columns: 200px minmax(120px, 370px)
   border-radius: 26px
   background-image: url("../../img/blog-bg.png")
+  background-repeat: no-repeat
+  background-position: center
+  background-size: cover
   &__subtitle
     display: inline-block
     color: $basic-dark
@@ -17,6 +20,9 @@
   &__link
     text-decoration: none
     display: inline-block
+    &:hover
+      text-decoration: underline
+      text-decoration-color: $basic-extra-dark
     &:focus-visible
       outline: none
       text-decoration: underline

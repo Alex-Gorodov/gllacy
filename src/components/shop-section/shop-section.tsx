@@ -4,7 +4,7 @@ import "../../styles/blocks/product.sass"
 import "../../styles/blocks/products.sass"
 import "../../styles/blocks/section.sass"
 
-export function MainPageShop(): JSX.Element {
+export function ShopSection(): JSX.Element {
   return (
     <section className="products section">
       <h2 className="title title--2 title--section products__title">Try our most popular ice cream flavors</h2>
