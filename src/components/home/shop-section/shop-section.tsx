@@ -1,8 +1,8 @@
-import { shopItems } from "../../mocks/shopItems";
-import {ReactComponent as CartIcon} from './../../img/icons/product-cart.svg'
-import "../../styles/blocks/product.sass"
-import "../../styles/blocks/products.sass"
-import "../../styles/blocks/section.sass"
+import { shopItems } from "../../../mocks/shopItems";
+import {ReactComponent as CartIcon} from './../../../img/icons/product-cart.svg'
+import "../../../styles/blocks/product.sass"
+import "../../../styles/blocks/products.sass"
+import "../../../styles/blocks/section.sass"
 
 export function ShopSection(): JSX.Element {
   return (

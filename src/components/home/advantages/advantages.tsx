@@ -1,5 +1,5 @@
-import { advantages } from "../../mocks/advantages"
-import "../../styles/blocks/advantages.sass"
+import { advantages } from "../../../mocks/advantages"
+import "../../../styles/blocks/advantages.sass"
 
 export function Advantages(): JSX.Element {
   return(

@@ -1,5 +1,5 @@
-import "../../styles/blocks/subscribe.sass"
-import "../../styles/blocks/subscribe-form.sass"
+import "../../../styles/blocks/subscribe.sass"
+import "../../../styles/blocks/subscribe-form.sass"
 
 export function SubscribeArticle(): JSX.Element {
   return (
