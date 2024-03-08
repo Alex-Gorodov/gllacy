@@ -9,7 +9,7 @@ import { CatalogPage } from "../../pages/catalog/catalog";
 import { ShippingPage } from "../../pages/shipping/shipping";
 import { AboutPage } from "../../pages/about/about";
 import { SuccessPage } from "../../pages/success/success";
-import { NotFoundPage } from "../../pages/notFoundPage/notFoundPage";
+import { NotFoundPage } from "../../pages/not-found-page/not-found-page";
 
 export function App() {
   return (
