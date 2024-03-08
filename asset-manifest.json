@@ -1,10 +1,12 @@
 {
   "files": {
-    "main.css": "/gllacy/static/css/main.95137066.css",
-    "main.js": "/gllacy/static/js/main.38eb4710.js",
+    "main.css": "/gllacy/static/css/main.448a052c.css",
+    "main.js": "/gllacy/static/js/main.f95e3913.js",
     "static/media/advantages-bg.png": "/gllacy/static/media/advantages-bg.fe9b3fce09a56c7ca461.png",
     "static/media/delivery-bg.png": "/gllacy/static/media/delivery-bg.ba4caf07fd4af1a21bc2.png",
+    "static/media/contact-bg.png": "/gllacy/static/media/contact-bg.d5dfc1c140076c814cbb.png",
     "static/media/blog-bg.png": "/gllacy/static/media/blog-bg.164e159775d55d8a05cb.png",
+    "static/media/not-found.jpg": "/gllacy/static/media/not-found.91bcb4766f6233af49c1.jpg",
     "static/media/subscribe-bg.png": "/gllacy/static/media/subscribe-bg.d5dd34548048be48b8ef.png",
     "static/media/logo.svg": "/gllacy/static/media/logo.43ca59eeeb1a053c6e084b23f99839a8.svg",
     "static/media/Instagram.svg": "/gllacy/static/media/Instagram.a048d2ec0b675527be458604a09ec896.svg",
@@ -17,11 +19,11 @@
     "static/media/slider-arrow-prev.svg": "/gllacy/static/media/slider-arrow-prev.513d6848cb3d078072545473a823aeb3.svg",
     "static/media/slider-arrow-next.svg": "/gllacy/static/media/slider-arrow-next.7dabf49da5c17c8710becab8411ba38d.svg",
     "static/media/facebook.svg": "/gllacy/static/media/facebook.18ce47ddc8ba909b2c5a0a2930c1328a.svg",
-    "main.95137066.css.map": "/gllacy/static/css/main.95137066.css.map",
-    "main.38eb4710.js.map": "/gllacy/static/js/main.38eb4710.js.map"
+    "main.448a052c.css.map": "/gllacy/static/css/main.448a052c.css.map",
+    "main.f95e3913.js.map": "/gllacy/static/js/main.f95e3913.js.map"
   },
   "entrypoints": [
-    "static/css/main.95137066.css",
-    "static/js/main.38eb4710.js"
+    "static/css/main.448a052c.css",
+    "static/js/main.f95e3913.js"
   ]
 }
