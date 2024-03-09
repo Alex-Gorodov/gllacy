@@ -5,7 +5,6 @@ import { Spinner } from "../../spinner/spinner";
 
 export function DeliverySection(): JSX.Element {
   const inputRef = useRef<HTMLInputElement>(null);
-    
   const today = new Date();
   const formattedDate = today.toISOString().slice(0, 10);
 
@@ -40,6 +39,7 @@ export function DeliverySection(): JSX.Element {
     const dateValue = (document.getElementById('delivery-date') as HTMLInputElement)?.value;
     const phoneValue = (document.getElementById('delivery-phone') as HTMLInputElement)?.value;
     const addressValue = (document.getElementById('delivery-address') as HTMLInputElement)?.value;
+
   
     if (dateValue && phoneValue.length === 11 && /^[a-zA-Z\s,'\-]+,\s*\d+,\s*[a-zA-Z\s\-]+$/.test(addressValue)) {
       setFormSent(true);
@@ -97,7 +97,7 @@ export function DeliverySection(): JSX.Element {
             </label>
             <label className="delivery-form__input-wrapper delivery-form__input-wrapper--address" htmlFor="delivery-address">
               Address
-              <input className="delivery-form__input" type="text" name="delivery-address" id="delivery-address" placeholder="Hertzel, 17, Tel-Aviv" pattern="^[a-zA-Z\s,'\-]+,\s*\d+,\s*[a-zA-Z\s\-]+$" required/>
+              <input className="delivery-form__input" name="delivery-address" id="delivery-address" placeholder="Hertzel, 17, Tel-Aviv" pattern="^[a-zA-Z\s,'\-]+,\s*\d+,\s*[a-zA-Z\s\-]+$" required/>
             </label>
             <button className="delivery-form__btn button" onClick={submit}>Send</button>
           </>
