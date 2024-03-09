@@ -6,7 +6,6 @@ export enum AppRoute {
   Shipping = '/gllacy/shipping',
   About = '/gllacy/about',
   Blog = '/gllacy/blog',
-  Success = '/gllacy/success'
 }
 
 export enum BackgroundColors {

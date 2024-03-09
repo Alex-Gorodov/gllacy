@@ -1,0 +1,45 @@
+@import '../../style'
+  
+.catalog
+  margin-top: 140px
+  &-pagination
+    @include list-reset
+    display: flex
+    gap: 16px
+    align-items: center
+    &__btn
+      position: relative
+      padding: 0
+      border: none
+      background-color: transparent
+      cursor: pointer
+      &--active::after
+        position: absolute
+        top: 50%
+        left: 50%
+        display: block
+        width: 24px
+        height: 24px
+        background-color: $basic-extra-light
+        transform: translate(-50%, -50%)
+        border-radius: 50%
+        z-index: -1
+        content: ""
+
+  &__buttons-wrapper
+    max-width: 1170px
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    margin: 20px auto
+    @media (max-width: $mobile)
+      grid-template-columns: repeat(2, 1fr)
+    & button
+      grid-column: 2
+      @media (max-width: $mobile)
+        grid-column: 1
+
+    & ul
+      grid-column: 3
+      justify-self: self-end
+      @media (max-width: $mobile)
+        grid-column: 2

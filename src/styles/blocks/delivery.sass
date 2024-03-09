@@ -5,7 +5,7 @@
   min-height: 534px
   padding: 64px
   padding-left: 100px
-  grid-template-columns: repeat(auto-fit, minmax(240px, 500px))
+  grid-template-columns: 1.8fr 2.5fr
   gap: 135px
   border-radius: 16px
   align-items: center
@@ -16,7 +16,9 @@
     padding: 20px
     gap: 40px
     background-position: left
+    grid-template-columns: 1fr
   &__text-wrapper
+    max-width: 352px
     display: flex
     flex-direction: column
     gap: 24px
@@ -36,3 +38,5 @@
     grid-column: 2
     @media (max-width: $tablet)
       grid-column: 1
+  &__success-message
+    grid-column: 1 / 2

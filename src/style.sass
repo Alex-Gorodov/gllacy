@@ -48,9 +48,9 @@ $z-burger-btn: 15
   0%
     transform: translateX(0)
   10%, 30%, 50%, 70%, 90%
-    transform: translateX(-5px)
+    transform: translateX(-3px)
   20%, 40%, 60%, 80%
-    transform: translateX(5px)
+    transform: translateX(3px)
   100%
     transform: translateX(0)
 
@@ -64,15 +64,18 @@ html
   height: 100%
 
 body
+  background-color: $special-light
+  color: $basic-extra-dark
+  transition: 0.3s
+
+.page-container
   min-height: 100%
   display: flex
   flex-direction: column
   max-width: 1366px
   margin: auto
   padding-inline: 20px
-  background-color: $special-light
-  color: $basic-extra-dark
-  transition: 0.3s
+
 
 .visually-hidden
   position: absolute

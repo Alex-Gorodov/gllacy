@@ -1,9 +1,11 @@
-import { Header } from "../../components/header/header";
+import { Layout } from "../../components/layout/layout";
 
 export function ShippingPage(): JSX.Element {
   return(
     <>
-      <Header/>
+      <Layout hasNav={true}>
+        <main style={{flexGrow: 1}}></main>
+      </Layout>
     </>
   )
 }

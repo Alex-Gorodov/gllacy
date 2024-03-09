@@ -11,7 +11,7 @@ export function ContactSection(): JSX.Element {
         <address className="contact__bold">Hertzel, 52, Tel-Aviv</address>
         <p className="contact__description">For orders by phone:</p>
         <Link className="contact__bold" to="tel:037770077">03-777-0077</Link>
-        <span className="contact__subtitle">(from 10 to 20 daily)</span>
+        <span className="contact__subtitle">(from 9 to 22 daily)</span>
         <button className="contact__btn button">Feedback form</button>
       </div>
     </section>

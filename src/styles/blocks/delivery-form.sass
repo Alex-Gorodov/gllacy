@@ -1,6 +1,7 @@
 @import "../../style"
   
 .delivery-form
+  min-height: 340px
   display: grid
   padding: 40px
   border-radius: 8px
@@ -8,9 +9,19 @@
   gap: 16px 20px
   background-color: $basic-extra-light
   box-shadow: 0 15px 40px 0 rgba($basic-extra-dark, 12%)
+  transition: 0.3s
+  &__legend
+    grid-column: 1 / 3
+    @media (max-width: $mobile)
+      grid-column: 1
   &--error
     animation-name: error-animation
     animation-duration: 0.5s
+  &--sent
+    min-height: 200px
+    justify-items: center
+    grid-template-columns: 1fr
+    transition: 0.3s
 
   @media (max-width: $tablet)
     grid-template-columns: 1fr
@@ -30,10 +41,6 @@
     display: flex
     flex-direction: column
     gap: 8px
-    &--legend
-      grid-column: 1 / 3
-      @media (max-width: $mobile)
-        grid-column: 1
     &--date
       grid-column: 1
     &--phone

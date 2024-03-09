@@ -2,18 +2,21 @@
   
 .product
   position: relative
-  display: flex
-  flex-direction: column
+  display: grid
+  grid-template-rows: 50px 60px 32px
   justify-content: space-between
   padding: 76px 40px 28px
   border-radius: 8px
   background-color: $basic-extra-light
   text-align: center
+  gap: 8px
   &__image
     position: absolute
     top: -20px
     left: 50%
     transform: translate(-50%, -50%)
+  &__description
+    margin: 0
   &__price
     &-wrapper
       display: flex

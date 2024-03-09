@@ -13,7 +13,11 @@ import { AppRoute } from '../../const'
 import { useState } from 'react'
 import cn from 'classnames'
 
-export function Header(): JSX.Element{
+type HeaderProps = {
+  hasNav?: boolean;
+}
+
+export function Header({hasNav}: HeaderProps): JSX.Element{
   const [isMenuOpened, setMenuOpened] = useState(false);
   const burgerBtnClassName = cn('burger-btn__line', {
     'burger-btn__line--active' : isMenuOpened
@@ -29,7 +33,7 @@ export function Header(): JSX.Element{
       <Link to={AppRoute.Root} className="navigation__logo">
         <Logo />
       </Link>
-      <div className={mobileHeaderWrapperClassName}>
+      {hasNav && <div className={mobileHeaderWrapperClassName}>
         <Navigation/>
         <div className="header__user-nav user-navigation">
           <button className="user-navigation__btn button button--circle">
@@ -45,9 +49,9 @@ export function Header(): JSX.Element{
             Cart
           </button>
         </div>
-      </div>
+      </div>}
       {
-        useResizeListener() > 1250
+        useResizeListener() > 1250 && hasNav
         ?
         ''
         :

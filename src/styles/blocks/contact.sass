@@ -9,6 +9,8 @@
   background-repeat: no-repeat
   background-position: center
   background-size: cover
+  @media (max-width: $mobile)
+    padding: 44px
   &__text-wrapper
     display: flex
     flex-direction: column
@@ -18,6 +20,8 @@
     border-radius: 8px
     box-shadow: 0 8px 16px 0 rgba($basic-extra-dark, 12%)
     background-color: $basic-extra-light
+    @media (max-width: $mobile)
+      padding: 40px 20px
   &__description
     margin: 0
   &__bold
