@@ -342,5 +342,285 @@ export const shopItems: ShopItem[] = [
     description: "Coffee flavored ice cream with almonds and fudge",
     price: 3.8,
     img: process.env.PUBLIC_URL + "/img/shop/item-2.png"
+  },
+  {
+    _id: {
+      $oid: "65c51b1e91ea1662c851c2c2"
+    },
+    name: "Pistachio Almond",
+    description: "Pistachio flavored ice cream with almond pieces",
+    price: 3.9,
+    img: process.env.PUBLIC_URL + "/img/shop/item-3.png"
+  },
+  {
+    _id: {
+      $oid: "65c51b1e91ea1662c851c2c3"
+    },
+    name: "Strawberry Cheesecake",
+    description: "Creamy ice cream with strawberry swirls and cheesecake pieces",
+    price: 3.7,
+    img: process.env.PUBLIC_URL + "/img/shop/item-4.png"
+  },
+  {
+    _id: {
+      $oid: "65c51b1e91ea1662c851c2c4"
+    },
+    name: "Peach Cobbler",
+    description: "Peach flavored ice cream with cobbler crumbles",
+    price: 3.8,
+    img: process.env.PUBLIC_URL + "/img/shop/item-5.png"
+  },
+  {
+    _id: {
+      $oid: "65c51b1e91ea1662c851c2c5"
+    },
+    name: "Chocolate Fudge Brownie",
+    description: "Chocolate ice cream with fudge swirls and brownie chunks",
+    price: 3.9,
+    img: process.env.PUBLIC_URL + "/img/shop/item-6.png"
+  },
+  {
+    _id: {
+      $oid: "65c51b1e91ea1662c851c2c6"
+    },
+    name: "Key Lime Pie",
+    description: "Creamy ice cream with key lime flavor and graham cracker pieces",
+    price: 3.7,
+    img: process.env.PUBLIC_URL + "/img/shop/item-7.png"
+  },
+  {
+    _id: {
+      $oid: "65c51b1e91ea1662c851c2c7"
+    },
+    name: "Toasted Marshmallow",
+    description: "Marshmallow flavored ice cream with toasted marshmallow swirls",
+    price: 3.6,
+    img: process.env.PUBLIC_URL + "/img/shop/item-8.png"
+  },
+  {
+    _id: {
+      $oid: "65c51b1e91ea1662c851c2c8"
+    },
+    name: "Apple Pie",
+    description: "Apple flavored ice cream with pie crust pieces",
+    price: 3.8,
+    img: process.env.PUBLIC_URL + "/img/shop/item-9.png"
+  },
+  {
+    _id: {
+      $oid: "65c51b1e91ea1662c851c2c9"
+    },
+    name: "Peanut Butter Banana",
+    description: "Creamy ice cream with peanut butter and banana flavor",
+    price: 3.9,
+    img: process.env.PUBLIC_URL + "/img/shop/item-10.png"
+  },
+  {
+    _id: {
+      $oid: "65c51b1e91ea1662c851c2ca"
+    },
+    name: "Black Forest",
+    description: "Chocolate ice cream with cherry pieces and chocolate chunks",
+    price: 3.7,
+    img: process.env.PUBLIC_URL + "/img/shop/item-11.png"
+  },
+  {
+    _id: {
+      $oid: "65c51b1e91ea1662c851c2cb"
+    },
+    name: "Butterfinger",
+    description: "Creamy ice cream with Butterfinger candy pieces",
+    price: 3.6,
+    img: process.env.PUBLIC_URL + "/img/shop/item-12.png"
+  },
+  {
+    _id: {
+      $oid: "65c51b1e91ea1662c851c2cc"
+    },
+    name: "Cookies 'n Cream",
+    description: "Vanilla ice cream with Oreo cookie pieces",
+    price: 3.7,
+    img: process.env.PUBLIC_URL + "/img/shop/item-1.png"
+  },
+  {
+    _id: {
+      $oid: "65c51b1e91ea1662c851c2cd"
+    },
+    name: "Mint Oreo",
+    description: "Mint flavored ice cream with Oreo cookie pieces",
+    price: 3.8,
+    img: process.env.PUBLIC_URL + "/img/shop/item-2.png"
+  },
+  {
+    _id: {
+      $oid: "65c51b1e91ea1662c851c2ce"
+    },
+    name: "Pumpkin Spice",
+    description: "Pumpkin flavored ice cream with spices",
+    price: 3.9,
+    img: process.env.PUBLIC_URL + "/img/shop/item-3.png"
+  },
+  {
+    _id: {
+      $oid: "65c51b1e91ea1662c851c2cf"
+    },
+    name: "Caramel Swirl",
+    description: "Creamy ice cream with caramel swirls",
+    price: 3.7,
+    img: process.env.PUBLIC_URL + "/img/shop/item-4.png"
+  },
+  {
+    _id: {
+      $oid: "65c51b1e91ea1662c851c2d0"
+    },
+    name: "Chocolate Chip Cookie Dough",
+    description: "Vanilla ice cream with chunks of chocolate chip cookie dough",
+    price: 3.8,
+    img: process.env.PUBLIC_URL + "/img/shop/item-5.png"
+  },
+  {
+    _id: {
+      $oid: "65c51b1e91ea1662c851c2d1"
+    },
+    name: "Rainbow Sherbet",
+    description: "Assorted fruit flavored sherbet",
+    price: 3.6,
+    img: process.env.PUBLIC_URL + "/img/shop/item-6.png"
+  },
+  {
+    _id: {
+      $oid: "65c51b1e91ea1662c851c2d2"
+    },
+    name: "Mango Tango",
+    description: "Mango flavored ice cream with a hint of lime",
+    price: 3.7,
+    img: process.env.PUBLIC_URL + "/img/shop/item-7.png"
+  },
+  {
+    _id: {
+      $oid: "65c51b1e91ea1662c851c2d3"
+    },
+    name: "Caramel Macchiato",
+    description: "Coffee flavored ice cream with caramel swirls",
+    price: 3.9,
+    img: process.env.PUBLIC_URL + "/img/shop/item-8.png"
+  },
+  {
+    _id: {
+      $oid: "65c51b1e91ea1662c851c2d4"
+    },
+    name: "Cotton Candy Explosion",
+    description: "Cotton candy flavored ice cream with popping candy",
+    price: 3.8,
+    img: process.env.PUBLIC_URL + "/img/shop/item-9.png"
+  },
+  {
+    _id: {
+      $oid: "65c51b1e91ea1662c851c2d5"
+    },
+    name: "Nutella Swirl",
+    description: "Creamy ice cream with swirls of Nutella",
+    price: 3.7,
+    img: process.env.PUBLIC_URL + "/img/shop/item-10.png"
+  },
+  {
+    _id: {
+      $oid: "65c51b1e91ea1662c851c2d6"
+    },
+    name: "Mint Mojito",
+    description: "Mint flavored ice cream with a hint of lime and rum",
+    price: 3.9,
+    img: process.env.PUBLIC_URL + "/img/shop/item-11.png"
+  },
+  {
+    _id: {
+      $oid: "65c51b1e91ea1662c851c2d7"
+    },
+    name: "Blue Moon",
+    description: "Blue colored ice cream with fruity flavors",
+    price: 3.6,
+    img: process.env.PUBLIC_URL + "/img/shop/item-12.png"
+  },
+  {
+    _id: {
+      $oid: "65c51b1e91ea1662c851c2d8"
+    },
+    name: "Honey Lavender",
+    description: "Honey flavored ice cream with lavender infusion",
+    price: 3.7,
+    img: process.env.PUBLIC_URL + "/img/shop/item-1.png"
+  },
+  {
+    _id: {
+      $oid: "65c51b1e91ea1662c851c2d9"
+    },
+    name: "Cinnamon Toast Crunch",
+    description: "Cinnamon flavored ice cream with pieces of Cinnamon Toast Crunch cereal",
+    price: 3.8,
+    img: process.env.PUBLIC_URL + "/img/shop/item-2.png"
+  },
+  {
+    _id: {
+      $oid: "65c51b1e91ea1662c851c2da"
+    },
+    name: "Horchata",
+    description: "Horchata flavored ice cream with cinnamon and rice milk",
+    price: 3.7,
+    img: process.env.PUBLIC_URL + "/img/shop/item-3.png"
+  },
+  {
+    _id: {
+      $oid: "65c51b1e91ea1662c851c2db"
+    },
+    name: "Cookie Dough Blizzard",
+    description: "Vanilla ice cream with chunks of cookie dough and chocolate fudge",
+    price: 3.9,
+    img: process.env.PUBLIC_URL + "/img/shop/item-4.png"
+  },
+  {
+    _id: {
+      $oid: "65c51b1e91ea1662c851c2dc"
+    },
+    name: "Cherry Almond",
+    description: "Cherry flavored ice cream with almond slices",
+    price: 3.8,
+    img: process.env.PUBLIC_URL + "/img/shop/item-5.png"
+  },
+  {
+    _id: {
+      $oid: "65c51b1e91ea1662c851c2dd"
+    },
+    name: "Mocha Chip",
+    description: "Coffee flavored ice cream with chocolate chips",
+    price: 3.7,
+    img: process.env.PUBLIC_URL + "/img/shop/item-6.png"
+  },
+  {
+    _id: {
+      $oid: "65c51b1e91ea1662c851c2de"
+    },
+    name: "Almond Joy",
+    description: "Coconut flavored ice cream with almond pieces and chocolate chunks",
+    price: 3.9,
+    img: process.env.PUBLIC_URL + "/img/shop/item-7.png"
+  },
+  {
+    _id: {
+      $oid: "65c51b1e91ea1662c851c2df"
+    },
+    name: "Pina Colada",
+    description: "Pineapple and coconut flavored ice cream",
+    price: 3.6,
+    img: process.env.PUBLIC_URL + "/img/shop/item-8.png"
+  },
+  {
+    _id: {
+      $oid: "65c51b1e91ea1662c851c2e0"
+    },
+    name: "Chocolate Hazelnut",
+    description: "Chocolate ice cream with hazelnut pieces",
+    price: 3.8,
+    img: process.env.PUBLIC_URL + "/img/shop/item-9.png"
   }
+  
 ]

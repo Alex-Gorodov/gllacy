@@ -25,7 +25,7 @@ export function Catalog(): JSX.Element {
         }
       </ul>
       <div className="catalog__buttons-wrapper">
-        <button className="button button--white" disabled={shownGoods >= shopItems.length} onClick={() => {setShownGoods(shownGoods + 12); setPageNumber(Math.floor(shopItems.length / shownGoods))}}>show more</button>
+        <button className="button button--white" disabled={shownGoods >= shopItems.length} onClick={() => {setShownGoods(shownGoods + 12); setPageNumber(Math.floor(pageNumbers.length - 1))}}>show more</button>
         <ul className="catalog-pagination">
 
           <li>
