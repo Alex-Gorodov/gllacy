@@ -6,4 +6,5 @@ export type ShopItem = {
   description: string;
   price: number;
   img: string;
+  amountInCart?: number;
 }

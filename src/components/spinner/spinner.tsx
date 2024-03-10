@@ -6,7 +6,7 @@ export function Spinner(): JSX.Element {
       height={60}
       width={60}
       radius={5}
-      color="#4fa94d"
+      color="#ff4a78"
       ariaLabel="ball-triangle-loading"
       wrapperStyle={{}}
       wrapperClass=""

@@ -10,7 +10,7 @@ export function SubscribeArticle(): JSX.Element {
           <label className="subscribe-form__input-wrapper" htmlFor="email">
             <input className="subscribe-form__input" type="email" name="e-mail" id="email" placeholder="email@example.com"/>
           </label>
-          <button className="subscribe-form__btn button" type="submit">Send</button>
+          <button className="subscribe-form__btn button button--red" type="submit">Send</button>
         </form>
       </div>
     </article>

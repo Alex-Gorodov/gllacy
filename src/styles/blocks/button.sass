@@ -22,6 +22,20 @@
   &--white
     background-color: #fcfcfc
     outline: 4px solid rgba(252, 252, 252, 0.5)
+  &--red
+    background-color: $special-extra-bright
+    color: $basic-extra-light
+    box-shadow: 0px 0px 0px 4px rgba($special-extra-bright, 30%)
+    &:hover
+      box-shadow: 0px 0px 0px 4px $special-extra-bright
+    &:focus-visible
+      box-shadow: 0px 0px 0px 4px $special-extra-bright
+      background-color: $basic-extra-light
+      color: $basic-extra-dark
+    &:active
+      box-shadow: 0px 0px 0px 4px $basic-extra-dark
+    @media (max-width: $mobile)
+      grid-column: 1
   &--circle
     width: 32px
     height: 32px

@@ -12,7 +12,7 @@ export function ShopSection(): JSX.Element {
         {
           shopItems.slice(0,4).map((item) => {
             return (
-              <Good item={item}/>
+              <Good item={item} key={item._id.$oid}/>
             )
           })
         }

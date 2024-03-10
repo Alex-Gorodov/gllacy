@@ -10,6 +10,7 @@ import '../../styles/blocks/button.sass'
 import '../../styles/blocks/header.sass'
 import { Link } from 'react-router-dom'
 import { AppRoute } from '../../const'
+import { Cart } from '../cart/cart';
 import { useState } from 'react'
 import cn from 'classnames'
 
@@ -25,6 +26,8 @@ export function Header({hasNav}: HeaderProps): JSX.Element{
   const mobileHeaderWrapperClassName = cn('header__wrapper', {
     'header__wrapper--opened' : isMenuOpened
   })
+
+  const [isCartOpened, setIsCartOpened] = useState(false);
 
   isMenuOpened ? document.body.style.overflow = 'hidden' : document.body.style.overflow = ''
 
@@ -44,10 +47,11 @@ export function Header({hasNav}: HeaderProps): JSX.Element{
             <LoginIcon/>
             Enter
           </button>
-          <button className="user-navigation__btn button">
+          <button className="user-navigation__btn button" onClick={() => setIsCartOpened(!isCartOpened)}>
             <CartIcon/>
             Cart
           </button>
+          <Cart isCartOpened={isCartOpened}/>
         </div>
       </div>}
       {

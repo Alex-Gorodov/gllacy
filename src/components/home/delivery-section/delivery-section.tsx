@@ -39,20 +39,23 @@ export function DeliverySection(): JSX.Element {
     const dateValue = (document.getElementById('delivery-date') as HTMLInputElement)?.value;
     const phoneValue = (document.getElementById('delivery-phone') as HTMLInputElement)?.value;
     const addressValue = (document.getElementById('delivery-address') as HTMLInputElement)?.value;
+    const spinnerTime = Math.random() * 5000;
 
+    console.log(spinnerTime);
+    
   
     if (dateValue && phoneValue.length === 11 && /^[a-zA-Z\s,'\-]+,\s*\d+,\s*[a-zA-Z\s\-]+$/.test(addressValue)) {
       setFormSent(true);
       setShowSpinner(true);
       setTimeout(() => {
         setShowSpinner(false);
-      }, 500);
+      }, spinnerTime);
       setFormClassName('delivery__form delivery-form delivery-form--sent');
     } else {
       setFormClassName('delivery__form delivery-form delivery-form--error');
       setTimeout(() => {
         setFormClassName('delivery__form delivery-form');
-      }, 500);
+      }, spinnerTime);
     }
   };
 
@@ -75,7 +78,7 @@ export function DeliverySection(): JSX.Element {
                 <>    
                   <p className="delivery__success-message">Thank you for submitting. We will contact you shortly to confirm your order.</p>
                   <button
-                    className="delivery-form__btn button"
+                    className="delivery-form__btn button button--red"
                     onClick={() => {
                       setFormSent(false)
                       setFormClassName('delivery__form delivery-form')
@@ -99,7 +102,7 @@ export function DeliverySection(): JSX.Element {
               Address
               <input className="delivery-form__input" name="delivery-address" id="delivery-address" placeholder="Hertzel, 17, Tel-Aviv" pattern="^[a-zA-Z\s,'\-]+,\s*\d+,\s*[a-zA-Z\s\-]+$" required/>
             </label>
-            <button className="delivery-form__btn button" onClick={submit}>Send</button>
+            <button className="delivery-form__btn button button--red" onClick={submit}>Send</button>
           </>
         }
       </form>
