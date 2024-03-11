@@ -2,15 +2,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/RootState";
 import cn from 'classnames';
 import '../../styles/blocks/cart.sass';
-import { removeFromCart } from "../../store/page/page-actions";
+import { removeFromCart, toggleCart } from "../../store/page/page-actions";
+import { useResizeListener } from "../../hooks/useResizeListener";
 
-type CartProps = {
-  isCartOpened?: boolean;
-}
-
-export function Cart({ isCartOpened }: CartProps): JSX.Element {
+export function Cart(): JSX.Element {
   const dispatch = useDispatch();
   const cartItems = useSelector((state: RootState) => state.page.cartItems);
+  const isCartOpened = useSelector((state: RootState) => state.page.isCartOpened);
   const cartClassName = cn('cart', {
     'cart--opened': isCartOpened
   });
@@ -19,7 +17,13 @@ export function Cart({ isCartOpened }: CartProps): JSX.Element {
 
   return (
     <div className={cartClassName}>
-      <h3 className="cart__title title title--3">Cart</h3>
+      <div style={{width: '100%', display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between'}}>
+        <h3 className="cart__title title title--3">Cart</h3>
+        {
+          useResizeListener() <= 1250 && 
+          <button onClick={() => dispatch(toggleCart({isOpened: false}))}>x</button>
+        }
+      </div>
       <ul className="cart__list">
         {cartItems.map((item) => {
           const itemPrice = item.amountInCart ? item.amountInCart : 1;

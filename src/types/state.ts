@@ -6,7 +6,7 @@ export type State = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 
 export type PageState = {
-  // activeSlide: number;
+  isCartOpened: boolean;
   cartItems: ShopItem[];
 }
 

@@ -13,21 +13,25 @@ import { AppRoute } from '../../const'
 import { Cart } from '../cart/cart';
 import { useState } from 'react'
 import cn from 'classnames'
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../store/RootState';
+import { toggleCart } from '../../store/page/page-actions';
 
 type HeaderProps = {
   hasNav?: boolean;
 }
 
 export function Header({hasNav}: HeaderProps): JSX.Element{
+  const dispatch = useDispatch();
   const [isMenuOpened, setMenuOpened] = useState(false);
+  const cartItems = useSelector((state: RootState) => state.page.cartItems);
   const burgerBtnClassName = cn('burger-btn__line', {
     'burger-btn__line--active' : isMenuOpened
   })
   const mobileHeaderWrapperClassName = cn('header__wrapper', {
     'header__wrapper--opened' : isMenuOpened
   })
-
-  const [isCartOpened, setIsCartOpened] = useState(false);
+  const isCartOpened = useSelector((state: RootState) => state.page.isCartOpened);
 
   isMenuOpened ? document.body.style.overflow = 'hidden' : document.body.style.overflow = ''
 
@@ -47,11 +51,16 @@ export function Header({hasNav}: HeaderProps): JSX.Element{
             <LoginIcon/>
             Enter
           </button>
-          <button className="user-navigation__btn button" onClick={() => setIsCartOpened(!isCartOpened)}>
+          <button className="user-navigation__btn button" onClick={() => {
+            dispatch(toggleCart({isOpened: !isCartOpened}))
+            setMenuOpened(false)
+            }}>
             <CartIcon/>
-            Cart
+            {
+              cartItems.length > 0 ? `${cartItems.length} items` : 'Empty'
+            }
           </button>
-          <Cart isCartOpened={isCartOpened}/>
+          <Cart/>
         </div>
       </div>}
       {

@@ -2,17 +2,25 @@
   
 .cart
   position: absolute
+  @media (max-width: calc($desktop - 1px))
+    position: fixed
   top: 42px
   right: 0
   display: none
   padding: 48px
   border-radius: 4px
+  color: $basic-extra-dark
   background-color: $basic-extra-light
   box-shadow: 0 15px 40px 0 rgba($basic-extra-dark, 12%)
   z-index: 10
   &--opened
     display: block
-    mix-width: 360px
+    min-width: 360px
+    @media (max-width: calc($desktop - 1px))
+      min-width: unset
+      padding: 24px 16px
+      top: 100px
+      right: 10px
   &__list
     @include list-reset
     display: flex
