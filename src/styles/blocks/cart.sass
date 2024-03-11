@@ -17,7 +17,6 @@
     display: block
     min-width: 360px
     @media (max-width: calc($desktop - 1px))
-      min-width: unset
       padding: 24px 16px
       top: 100px
       right: 10px
@@ -38,6 +37,11 @@
   &__checkout
     display: flex
     justify-content: space-between
+  &__close-btn
+    border: none
+    background-color: transparent
+    color: $basic-extra-dark
+    cursor: pointer
 
 .cart-item
   display: grid
@@ -64,3 +68,4 @@
     border: none
     background-color: transparent
     cursor: pointer
+    color: $basic-extra-dark

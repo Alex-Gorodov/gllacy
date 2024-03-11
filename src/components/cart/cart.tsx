@@ -4,6 +4,7 @@ import cn from 'classnames';
 import '../../styles/blocks/cart.sass';
 import { removeFromCart, toggleCart } from "../../store/page/page-actions";
 import { useResizeListener } from "../../hooks/useResizeListener";
+import { ReactComponent as CloseCross} from '../../img/icons/cross.svg'
 
 export function Cart(): JSX.Element {
   const dispatch = useDispatch();
@@ -21,7 +22,9 @@ export function Cart(): JSX.Element {
         <h3 className="cart__title title title--3">Cart</h3>
         {
           useResizeListener() <= 1250 && 
-          <button onClick={() => dispatch(toggleCart({isOpened: false}))}>x</button>
+          <button className="cart__close-btn" onClick={() => dispatch(toggleCart({isOpened: false}))}>
+            <CloseCross/>
+          </button>
         }
       </div>
       <ul className="cart__list">
@@ -35,7 +38,9 @@ export function Cart(): JSX.Element {
                 <p className="cart-item__price">{item.amountInCart} kg x {item.price.toFixed(2)}$</p>
               </div>
               <p className="cart-item__cost">{(itemPrice * item.price).toFixed(2)} $</p>
-              <button className="cart-item__remove-btn" onClick={() => dispatch(removeFromCart({ item }))}>x</button>
+              <button className="cart-item__remove-btn" onClick={() => dispatch(removeFromCart({ item }))}>
+                <CloseCross/>
+              </button>
             </li>
           );
         })}
