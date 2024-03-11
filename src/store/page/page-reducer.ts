@@ -23,17 +23,13 @@ export const PageReducer = createReducer(initialState, (builder) => {
     
       if (existingItemIndex !== -1) {
         const existingItem = state.cartItems[existingItemIndex];
-        // Проверяем, что объект существует и имеет свойство amountInCart
         if (existingItem && existingItem.amountInCart !== undefined) {
-          existingItem.amountInCart++;
+          existingItem.amountInCart += 0.5;
         } else {
-          // Возможно, что объект существует, но не имеет свойства amountInCart
-          // В этом случае устанавливаем это свойство в 1
-          state.cartItems[existingItemIndex].amountInCart = 1;
+          state.cartItems[existingItemIndex].amountInCart = 0.5;
         }
       } else {
-        // Такого товара нет в корзине, добавляем его
-        const newItem = { ...item, amountInCart: 1 };
+        const newItem = { ...item, amountInCart: 0.5 };
         state.cartItems.push(newItem);
       }
     })

@@ -17,7 +17,7 @@ export function Good({item}: ShopItemProps): JSX.Element {
       <p className="product__description">{item.description}</p>
       <div className="product__price-wrapper">
         <strong className="product__price">{item.price.toFixed(2)} $/kg</strong>
-        <button className="product__btn" onClick={() => dispatch(addToCart({item: {...item, amountInCart: 1}}))}>
+        <button className="product__btn" onClick={() => dispatch(addToCart({item: {...item, amountInCart: 1}}))} title={`Add 1/2 kg of ${item.name} to cart`}>
           <CartIcon/>  
         </button>
       </div>
