@@ -19,7 +19,7 @@ $status-success: #00e484
 $btn-outline: 4px solid rgba(252, 252, 252, 0.5)
 
 $desktop: 1250px
-$tablet: 1054px
+$tablet: 768px
 $mobile: 600px
 
 $z-before: -1
@@ -62,11 +62,16 @@ $z-burger-btn: 15
 html
   @include font-regular
   height: 100%
+  overflow-x: hidden
+  margin: 0
 
 body
   background-color: $special-light
   color: $basic-extra-dark
   transition: 0.3s
+  overflow-x: hidden
+  margin: 0
+  
 
 .page-container
   min-height: 100%
