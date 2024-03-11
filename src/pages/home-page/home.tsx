@@ -11,7 +11,7 @@ export function HomePage() {
   return (
     <>
       <Layout hasNav={true}>
-        <main>
+        <main className="main">
           <Slider/>
           <Promo/>
           <ShopSection/>

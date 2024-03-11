@@ -6,7 +6,7 @@ export function CatalogPage(): JSX.Element {
   
   return(
     <Layout hasNav={true}>
-      <main className="catalog products">
+      <main className="main catalog products">
         <Catalog/>
       </main>
     </Layout>
