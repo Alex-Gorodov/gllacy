@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { AppRoute } from "../../const";
+import { AppRoute, MOBILE_WIDTH } from "../../const";
 import { useState, useEffect } from "react";
 import cn from 'classnames';
 import { useResizeListener } from "../../hooks/useResizeListener";
@@ -43,7 +43,7 @@ export function Navigation(): JSX.Element {
     <nav className="navigation">
       <ul className="navigation__list">
         {
-          useResizeListener() < 1250 &&
+          useResizeListener() < MOBILE_WIDTH &&
           <li className="navigation__item">
             <Link to={AppRoute.Root} className={pageClassName(AppRoute.Root)} onClick={() => {
               dispatch(setCatalogType({type: null}));

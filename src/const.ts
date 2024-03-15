@@ -14,3 +14,7 @@ export enum BackgroundColors {
   secondSlide = '#69a9ff',
   thirdSlide = '#fcc850'
 }
+
+export const ITEMS_BY_PAGE = 12;
+
+export const MOBILE_WIDTH = 1250;

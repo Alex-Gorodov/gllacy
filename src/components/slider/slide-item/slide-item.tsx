@@ -10,6 +10,7 @@ import { Slide } from "../../../types/slide";
 import { Social } from "../../social/social";
 import { Pagination } from "../pagination";
 import cn from 'classnames';
+import { MOBILE_WIDTH } from "../../../const";
 
 type SlideProps = {
   slide: Slide;
@@ -47,7 +48,7 @@ export function SlideItem({slide}: SlideProps): JSX.Element {
         </div>
       </div>
       {
-        useResizeListener() < 1250
+        useResizeListener() < MOBILE_WIDTH
         ?
         <div className="slider__bottom">
           <Pagination/>

@@ -62,12 +62,17 @@
     flex-direction: column
     background-color: $basic-extra-light
     z-index: $z-mobile-menu
+    @media (max-width: $tablet)
+      width: 75vw
+      left: -30vw
 
   &__type
     padding: 8px 16px
     color: $basic-extra-dark
     text-decoration: none
     text-transform: capitalize
+    @media (max-width: $tablet)
+      text-align: center
     &--active
       background-color: $special-bright
     &:hover

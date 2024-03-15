@@ -5,7 +5,7 @@ import { useResizeListener } from '../../hooks/useResizeListener'
 import { ReactComponent as Logo } from './../../logo.svg';
 import { Navigation } from '../navigation/navigation'
 import { Link } from 'react-router-dom'
-import { AppRoute } from '../../const'
+import { AppRoute, MOBILE_WIDTH } from '../../const'
 import { Cart } from '../cart/cart';
 import cn from 'classnames'
 import { useDispatch, useSelector } from 'react-redux';
@@ -59,7 +59,7 @@ export function Header({hasNav}: HeaderProps): JSX.Element{
         </div>
       </div>}
       {
-        useResizeListener() > 1250 && hasNav
+        useResizeListener() > MOBILE_WIDTH && hasNav
         ?
         ''
         :

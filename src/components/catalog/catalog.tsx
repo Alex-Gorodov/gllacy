@@ -6,7 +6,7 @@ import { Good } from "../home/shop-section/good";
 import { useState } from "react";
 import cn from 'classnames';
 import { Link } from 'react-router-dom';
-import { AppRoute } from '../../const';
+import { AppRoute, ITEMS_BY_PAGE } from '../../const';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/RootState';
 import { setCatalogType } from '../../store/page/page-actions';
@@ -17,7 +17,7 @@ export function Catalog(): JSX.Element {
 
   const dispatch = useDispatch();
   const iceCreamType = useSelector((state: RootState) => state.page.catalogType);
-  const [itemsByPage, setItemsByPage] = useState(12);
+  const [itemsByPage, setItemsByPage] = useState(ITEMS_BY_PAGE);
   const [pagesNum, setPagesNum] = useState(Math.round(
     iceCreamType === IceCreamTypes.All
     ?
@@ -66,9 +66,9 @@ export function Catalog(): JSX.Element {
             className="button button--white"
             disabled={pagesAmount.length < 2}
             onClick={() => {
-              setItemsByPage(itemsByPage + 12);
+              setItemsByPage(itemsByPage + ITEMS_BY_PAGE);
               const filteredItems = shopItems.filter((item) => item.type === iceCreamType);
-              setPagesNum(Math.ceil(filteredItems.length / (itemsByPage + 12)));
+              setPagesNum(Math.ceil(filteredItems.length / (itemsByPage + ITEMS_BY_PAGE)));
             }}
           >
             Show more
