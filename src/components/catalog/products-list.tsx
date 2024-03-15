@@ -7,56 +7,41 @@ import { useState } from "react";
 import cn from 'classnames';
 import { Link } from 'react-router-dom';
 import { AppRoute } from '../../const';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../store/RootState';
+import { setCatalogType } from '../../store/page/page-actions';
 
 export function ProductsList(): JSX.Element {
 
   const [page, setPage] = useState(1);
-  const [iceCreamType, setIceCreamType] = useState(IceCreamTypes.All);
-  const [shownGoods, setShownGoods] = useState(12);
-  const [pagesNum, setPagesNum] = useState(Math.round(shopItems.length / shownGoods));
-  const pagesAmount = Array.from({ length: Math.ceil(iceCreamType === IceCreamTypes.All ? shopItems.length / shownGoods : pagesNum) }, (_, index) => index + 1);
-  const iceCreamTypesArray: IceCreamTypes[] = Object.values(IceCreamTypes);
 
-  const changeTypeHandler = (type: IceCreamTypes) => {
-    setIceCreamType(type);
-    setPage(1);
-    setShownGoods(12);
-    const filteredItems = shopItems.filter((item) => item.type === type);
-    setPagesNum(Math.ceil(filteredItems.length / shownGoods));
-  };
+  const dispatch = useDispatch();
+  const iceCreamType = useSelector((state: RootState) => state.page.catalogType)
+  const [shownGoods, setShownGoods] = useState(12);
+  const [pagesNum, setPagesNum] = useState(Math.round(
+    iceCreamType === IceCreamTypes.All
+    ?
+    Math.ceil(shopItems.length / shownGoods)
+    :
+    Math.ceil(shopItems.filter((item) => item.type === iceCreamType).length / shownGoods)
+  ));
+
+  const pagesAmount = Array.from({ length: Math.ceil(iceCreamType === IceCreamTypes.All ? shopItems.length / shownGoods : pagesNum) }, (_, index) => index + 1);
 
   return (
     <>
-      <>
-        <ul className="catalog__breadcrumbs breadcrumbs">
-          <li className="breadcrumbs__item">
-            <Link className="breadcrumbs__link" to={AppRoute.Root}>Main</Link>
-          </li>
-          <li className="breadcrumbs__item">
-            <Link className="breadcrumbs__link" to={AppRoute.Catalog} onClick={() => setIceCreamType(IceCreamTypes.All)}>Catalog</Link>
-          </li>
-          <li className="breadcrumbs__item">
-            <Link className="breadcrumbs__link breadcrumbs__link--active" to="#">{iceCreamType}</Link>
-          </li>
-        </ul>
-        <div className="catalog__types-wrapper">
-          {
-            iceCreamTypesArray.map((type) => {
-              return (
-                <Link 
-                  className={`catalog__type ${type === iceCreamType ? 'catalog__type--active' : ''}`}
-                  to={AppRoute.Catalog}
-                  onClick={() => {changeTypeHandler(type)}}
-                  key={`type-${type}`}
-                >
-                  {type}
-                </Link>
-              )
-            })
-          }
-        </div>
-        <h2 className="title title--2 catalog__title">{iceCreamType} Ice Cream</h2>
-      </>
+      <ul className="catalog__breadcrumbs breadcrumbs">
+        <li className="breadcrumbs__item">
+          <Link className="breadcrumbs__link" to={AppRoute.Root}>Main</Link>
+        </li>
+        <li className="breadcrumbs__item">
+          <Link className="breadcrumbs__link" to={AppRoute.Catalog} onClick={() => dispatch(setCatalogType({type: IceCreamTypes.All}))}>Catalog</Link>
+        </li>
+        <li className="breadcrumbs__item">
+          <Link className="breadcrumbs__link breadcrumbs__link--active" to="#">{iceCreamType}</Link>
+        </li>
+      </ul>
+      <h2 className="title title--2 catalog__title">{iceCreamType} Ice Cream</h2>
       <ul className="products__list">
         {
           iceCreamType === IceCreamTypes.All
@@ -83,8 +68,6 @@ export function ProductsList(): JSX.Element {
             onClick={() => {
               setShownGoods(shownGoods + 12);
               const filteredItems = shopItems.filter((item) => item.type === iceCreamType);
-              console.log(filteredItems.length);
-              
               setPagesNum(Math.ceil(filteredItems.length / (shownGoods + 12)));
             }}
           >

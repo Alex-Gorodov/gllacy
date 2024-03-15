@@ -1,14 +1,16 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { PageState } from "../../types/state";
-import { addToCart, removeFromCart, toggleCart } from "./page-actions";
+import { addToCart, removeFromCart, setCatalogType, toggleCart } from "./page-actions";
 import { shopItems } from "../../mocks/shopItems";
+import { IceCreamTypes } from "../../types/shopItem";
 
 const initialState: PageState = {
   cartItems: [
     {...shopItems[0], amountInCart: 1},
     {...shopItems[3], amountInCart: 1.5},
   ],
-  isCartOpened: false
+  isCartOpened: false,
+  catalogType: IceCreamTypes.All,
 }
 
 export const PageReducer = createReducer(initialState, (builder) => {
@@ -33,9 +35,12 @@ export const PageReducer = createReducer(initialState, (builder) => {
         state.cartItems.push(newItem);
       }
     })
-    
     .addCase(removeFromCart, (state, action) => {
       const {item} = action.payload;
       state.cartItems = state.cartItems.filter(cartItem => (cartItem.id !== item.id))
+    })
+    .addCase(setCatalogType, (state, action) => {
+      const {type} = action.payload;
+      state.catalogType = type;
     })
 })

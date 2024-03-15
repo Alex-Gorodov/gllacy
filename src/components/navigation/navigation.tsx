@@ -3,10 +3,18 @@ import { AppRoute } from "../../const";
 import { useState, useEffect } from "react";
 import cn from 'classnames';
 import { useResizeListener } from "../../hooks/useResizeListener";
+import { IceCreamTypes } from "../../types/shopItem";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../store/RootState";
+import { setCatalogType } from "../../store/page/page-actions";
 
 export function Navigation(): JSX.Element {
   const location = useLocation();
   const [activePage, setActivePage] = useState<string | null>(null);
+  const iceCreamTypesArray: IceCreamTypes[] = Object.values(IceCreamTypes);
+  const catalogType = useSelector((state: RootState) => state.page.catalogType);
+  const dispatch = useDispatch();
+  const [typesShowed, setTypesShowed] = useState(false);
 
   useEffect(() => {
     const pathname = location.pathname;
@@ -24,6 +32,11 @@ export function Navigation(): JSX.Element {
       'navigation__link--active': activePage === page,
     });
 
+  const catalogTypeChangeHandler = (type: IceCreamTypes) => {
+    dispatch(setCatalogType({type: type}));
+    setTypesShowed(false);
+  }
+
   return (
     <nav className="navigation">
       <ul className="navigation__list">
@@ -34,7 +47,32 @@ export function Navigation(): JSX.Element {
           </li>
         }
         <li className="navigation__item">
-          <Link to={AppRoute.Catalog} className={pageClassName(AppRoute.Catalog)}>Catalog</Link>
+          <Link
+            to={AppRoute.Catalog}
+            className={pageClassName(AppRoute.Catalog)}
+            onMouseEnter={() => setTypesShowed(!typesShowed)}
+          >
+            Catalog
+          </Link>
+            {
+              typesShowed &&
+              <div className="catalog__types-wrapper">
+                {
+                  iceCreamTypesArray.map((type) => {
+                    return (
+                      <Link 
+                        className={`catalog__type ${type === catalogType ? 'catalog__type--active' : ''}`}
+                        to={AppRoute.Catalog}
+                        onClick={() => catalogTypeChangeHandler(type)}
+                        key={`type-${type}`}
+                      >
+                        {type}
+                      </Link>
+                    )
+                  })
+                }
+              </div>
+            }
         </li>
         <li className="navigation__item">
           <Link to={AppRoute.Shipping} className={pageClassName(AppRoute.Shipping)}>Shipping and payment</Link>

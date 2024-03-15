@@ -34,7 +34,6 @@
         cursor: auto
 
   &__buttons-wrapper
-    // max-width: 1170px
     display: grid
     grid-template-columns: repeat(3, 1fr)
     margin-bottom: 20px
@@ -54,14 +53,22 @@
         justify-self: center
 
   &__types-wrapper
+    position: absolute
+    top: 40px
+    left: -10px
     display: flex
-    gap: 20px
+    border-radius: 4px
+    padding: 0
+    flex-direction: column
+    background-color: $basic-extra-light
+    z-index: $z-mobile-menu
 
   &__type
-    padding: 2px 4px
-    border-radius: 8px
+    padding: 8px 16px
     color: $basic-extra-dark
     text-decoration: none
     text-transform: capitalize
     &--active
-      background-color: $basic-extra-light
+      background-color: $special-extra-light
+    &:hover
+      background-color: $special-neutral
