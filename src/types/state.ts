@@ -8,7 +8,8 @@ export type AppDispatch = typeof store.dispatch;
 export type PageState = {
   isCartOpened: boolean;
   cartItems: ShopItem[];
-  catalogType: IceCreamTypes;
+  catalogType: IceCreamTypes | null;
+  isMenuOpened: boolean;
 }
 
 export type SliderState = {

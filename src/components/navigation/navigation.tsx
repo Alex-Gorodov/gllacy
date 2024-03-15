@@ -6,7 +6,7 @@ import { useResizeListener } from "../../hooks/useResizeListener";
 import { IceCreamTypes } from "../../types/shopItem";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/RootState";
-import { setCatalogType } from "../../store/page/page-actions";
+import { setCatalogType, toggleMobileMenu } from "../../store/page/page-actions";
 
 export function Navigation(): JSX.Element {
   const location = useLocation();
@@ -15,6 +15,7 @@ export function Navigation(): JSX.Element {
   const catalogType = useSelector((state: RootState) => state.page.catalogType);
   const dispatch = useDispatch();
   const [typesShowed, setTypesShowed] = useState(false);
+  const isMenuOpened = useSelector((state: RootState) => state.page.isMenuOpened);
 
   useEffect(() => {
     const pathname = location.pathname;
@@ -34,6 +35,7 @@ export function Navigation(): JSX.Element {
 
   const catalogTypeChangeHandler = (type: IceCreamTypes) => {
     dispatch(setCatalogType({type: type}));
+    dispatch(toggleMobileMenu({isOpened: !isMenuOpened}))
     setTypesShowed(false);
   }
 
@@ -43,7 +45,10 @@ export function Navigation(): JSX.Element {
         {
           useResizeListener() < 1250 &&
           <li className="navigation__item">
-            <Link to={AppRoute.Root} className={pageClassName(AppRoute.Root)}>Home</Link>
+            <Link to={AppRoute.Root} className={pageClassName(AppRoute.Root)} onClick={() => {
+              dispatch(setCatalogType({type: null}));
+              dispatch(toggleMobileMenu({isOpened: !isMenuOpened}))
+            }}>Home</Link>
           </li>
         }
         <li className="navigation__item">
@@ -51,6 +56,10 @@ export function Navigation(): JSX.Element {
             to={AppRoute.Catalog}
             className={pageClassName(AppRoute.Catalog)}
             onMouseEnter={() => setTypesShowed(!typesShowed)}
+            onClick={() => {
+              dispatch(toggleMobileMenu({isOpened: !isMenuOpened}));
+              dispatch(setCatalogType({type: IceCreamTypes.All}))
+            }}
           >
             Catalog
           </Link>
@@ -64,6 +73,8 @@ export function Navigation(): JSX.Element {
                         className={`catalog__type ${type === catalogType ? 'catalog__type--active' : ''}`}
                         to={AppRoute.Catalog}
                         onClick={() => catalogTypeChangeHandler(type)}
+                        onMouseLeave={() => setTypesShowed(false)}
+                        onMouseEnter={() => setTypesShowed(true)}
                         key={`type-${type}`}
                       >
                         {type}
@@ -75,10 +86,16 @@ export function Navigation(): JSX.Element {
             }
         </li>
         <li className="navigation__item">
-          <Link to={AppRoute.Shipping} className={pageClassName(AppRoute.Shipping)}>Shipping and payment</Link>
+          <Link to={AppRoute.Shipping} className={pageClassName(AppRoute.Shipping)} onClick={() => {
+            dispatch(setCatalogType({type: null}))
+            dispatch(toggleMobileMenu({isOpened: !isMenuOpened}))
+          }}>Shipping and payment</Link>
         </li>
         <li className="navigation__item">
-          <Link to={AppRoute.About} className={pageClassName(AppRoute.About)}>About company</Link>
+          <Link to={AppRoute.About} className={pageClassName(AppRoute.About)} onClick={() => {
+            dispatch(setCatalogType({type: null}))
+            dispatch(toggleMobileMenu({isOpened: !isMenuOpened}))
+          }}>About company</Link>
         </li>
         <li className="navigation__item navigation__item--phone">
           <Link to="tel:041234567" className="navigation__link">(04) 123-4567</Link>

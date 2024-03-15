@@ -7,4 +7,6 @@ export const removeFromCart = createAction<{item: ShopItem}>('page/removeFromCar
 
 export const toggleCart = createAction<{isOpened: boolean}>('page/toggleCart');
 
-export const setCatalogType = createAction<{type: IceCreamTypes}>('page/setCatalogType');
+export const setCatalogType = createAction<{type: IceCreamTypes | null}>('page/setCatalogType');
+
+export const toggleMobileMenu = createAction<{isOpened: boolean}>('page/toggleMobileMenu');

@@ -7,11 +7,10 @@ import { Navigation } from '../navigation/navigation'
 import { Link } from 'react-router-dom'
 import { AppRoute } from '../../const'
 import { Cart } from '../cart/cart';
-import { useState } from 'react'
 import cn from 'classnames'
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/RootState';
-import { toggleCart } from '../../store/page/page-actions';
+import { setCatalogType, toggleCart, toggleMobileMenu } from '../../store/page/page-actions';
 
 type HeaderProps = {
   hasNav?: boolean;
@@ -19,7 +18,7 @@ type HeaderProps = {
 
 export function Header({hasNav}: HeaderProps): JSX.Element{
   const dispatch = useDispatch();
-  const [isMenuOpened, setMenuOpened] = useState(false);
+  const isMenuOpened = useSelector((state: RootState) => state.page.isMenuOpened);
   const cartItems = useSelector((state: RootState) => state.page.cartItems);
   const burgerBtnClassName = cn('burger-btn__line', {
     'burger-btn__line--active' : isMenuOpened
@@ -33,7 +32,7 @@ export function Header({hasNav}: HeaderProps): JSX.Element{
 
   return (
     <header className="header">
-      <Link to={AppRoute.Root} className="navigation__logo">
+      <Link to={AppRoute.Root} className="navigation__logo" onClick={() => dispatch(setCatalogType({type: null}))}>
         <Logo />
       </Link>
       {hasNav && <div className={mobileHeaderWrapperClassName}>
@@ -49,7 +48,7 @@ export function Header({hasNav}: HeaderProps): JSX.Element{
           </button>
           <button className="user-navigation__btn button" onClick={() => {
             dispatch(toggleCart({isOpened: !isCartOpened}))
-            setMenuOpened(false)
+            dispatch(toggleMobileMenu({isOpened: !isMenuOpened}))
             }}>
             <CartIcon/>
             {
@@ -64,7 +63,7 @@ export function Header({hasNav}: HeaderProps): JSX.Element{
         ?
         ''
         :
-        <button className="header__burger burger-btn" onClick={() => setMenuOpened(!isMenuOpened)}>
+        <button className="header__burger burger-btn" onClick={() => dispatch(toggleMobileMenu({isOpened: !isMenuOpened}))}>
           <span className={burgerBtnClassName}></span>
           <span className="visually-hidden">
             {
