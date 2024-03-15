@@ -1,5 +1,4 @@
 import { Promo } from "../../types/promo";
-import "../../styles/blocks/promo/promo-item.sass"
 
 type PromoItemProps = {
   item: Promo;

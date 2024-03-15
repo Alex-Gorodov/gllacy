@@ -1,0 +1,21 @@
+@import '../../style'
+
+.breadcrumbs
+  @include list-reset
+  display: flex
+  margin-bottom: 20px
+  &__item
+    display: flex
+    align-items: center
+    &:not(:last-child)::after
+      display: inline-block
+      width: 7px
+      height: 6px
+      margin: 0 12px
+      background-image: url("../../img/icons/breadcrumbs-arrow.svg")
+      content: ""
+  &__link
+    color: $basic-extra-dark
+    text-transform: capitalize
+    &--active
+      text-decoration: none

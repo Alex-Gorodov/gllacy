@@ -4,10 +4,6 @@ import {ReactComponent as CartIcon} from './../../img/icons/cart.svg'
 import { useResizeListener } from '../../hooks/useResizeListener'
 import { ReactComponent as Logo } from './../../logo.svg';
 import { Navigation } from '../navigation/navigation'
-import '../../styles/blocks/user-navigation.sass'
-import '../../styles/blocks/burger-btn.sass'
-import '../../styles/blocks/button.sass'
-import '../../styles/blocks/header.sass'
 import { Link } from 'react-router-dom'
 import { AppRoute } from '../../const'
 import { Cart } from '../cart/cart';

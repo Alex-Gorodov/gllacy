@@ -1,6 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
 import { AppRoute } from "../../const";
-import '../../styles/blocks/navigation.sass';
 import { useState, useEffect } from "react";
 import cn from 'classnames';
 import { useResizeListener } from "../../hooks/useResizeListener";
@@ -44,7 +43,7 @@ export function Navigation(): JSX.Element {
           <Link to={AppRoute.About} className={pageClassName(AppRoute.About)}>About company</Link>
         </li>
         <li className="navigation__item navigation__item--phone">
-          <Link to="tel:88005558628" className="navigation__link">+7 800 555-86-28</Link>
+          <Link to="tel:041234567" className="navigation__link">(04) 123-4567</Link>
         </li>
       </ul>
     </nav>

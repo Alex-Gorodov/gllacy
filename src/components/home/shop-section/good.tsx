@@ -11,7 +11,7 @@ export function Good({item}: ShopItemProps): JSX.Element {
   const dispatch = useDispatch();
 
   return (
-    <li className="products__item product" key={item._id.$oid}>
+    <li className="products__item product" key={item.id}>
       <img className="product__image" src={item.img} alt={item.name} width={168} height={168}/>
       <h4 className="title title--4">{item.name}</h4>
       <p className="product__description">{item.description}</p>

@@ -1,5 +1,4 @@
-import "../../../styles/blocks/delivery-form.sass"
-import "../../../styles/blocks/delivery.sass"
+
 import { useRef, useState } from 'react';
 import { Spinner } from "../../spinner/spinner";
 

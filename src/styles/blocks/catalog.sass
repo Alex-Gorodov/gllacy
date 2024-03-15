@@ -1,7 +1,9 @@
 @import '../../style'
   
 .catalog
-  margin-top: 140px
+  &__title.title
+    margin-bottom: 140px
+    text-transform: capitalize
   &-pagination
     @include list-reset
     display: flex
@@ -9,6 +11,7 @@
     align-items: center
     &__btn
       position: relative
+      display: flex
       padding: 0
       border: none
       background-color: transparent
@@ -26,21 +29,39 @@
         border-radius: 50%
         z-index: -1
         content: ""
+      &:disabled
+        color: rgba($basic-extra-dark, 50%)
+        cursor: auto
 
   &__buttons-wrapper
-    max-width: 1170px
+    // max-width: 1170px
     display: grid
     grid-template-columns: repeat(3, 1fr)
-    margin: 20px auto
+    margin-bottom: 20px
     @media (max-width: $mobile)
-      grid-template-columns: repeat(2, 1fr)
+      grid-template-columns: 1fr
+      gap: 20px
+      justify-items: center
     & button
       grid-column: 2
       @media (max-width: $mobile)
         grid-column: 1
-
     & ul
       grid-column: 3
       justify-self: self-end
       @media (max-width: $mobile)
-        grid-column: 2
+        grid-column: 1
+        justify-self: center
+
+  &__types-wrapper
+    display: flex
+    gap: 20px
+
+  &__type
+    padding: 2px 4px
+    border-radius: 8px
+    color: $basic-extra-dark
+    text-decoration: none
+    text-transform: capitalize
+    &--active
+      background-color: $basic-extra-light

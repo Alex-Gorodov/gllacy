@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import '../../../styles/blocks/button.sass'
-import '../../../styles/blocks/contact.sass'
 
 export function ContactSection(): JSX.Element {
   return(

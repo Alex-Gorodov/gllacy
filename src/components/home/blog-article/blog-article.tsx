@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom"
-import "../../../styles/blocks/blog.sass"
 import { AppRoute } from "../../../const"
 
 export function BlogArticle(): JSX.Element {

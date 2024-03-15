@@ -1,6 +1,4 @@
 import { promoItems } from "../../mocks/promo";
-import "../../styles/blocks/promo/promo.sass"
-import "../../styles/blocks/section.sass"
 import { PromoItem } from "./promo-item";
 
 export function Promo(): JSX.Element {

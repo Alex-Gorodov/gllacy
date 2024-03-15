@@ -19,7 +19,7 @@ export const PageReducer = createReducer(initialState, (builder) => {
     })
     .addCase(addToCart, (state, action) => {
       const { item } = action.payload;
-      const existingItemIndex = state.cartItems.findIndex(cartItem => cartItem._id.$oid === item._id.$oid);
+      const existingItemIndex = state.cartItems.findIndex(cartItem => cartItem.id === item.id);
     
       if (existingItemIndex !== -1) {
         const existingItem = state.cartItems[existingItemIndex];
@@ -36,6 +36,6 @@ export const PageReducer = createReducer(initialState, (builder) => {
     
     .addCase(removeFromCart, (state, action) => {
       const {item} = action.payload;
-      state.cartItems = state.cartItems.filter(cartItem => (cartItem._id.$oid !== item._id.$oid))
+      state.cartItems = state.cartItems.filter(cartItem => (cartItem.id !== item.id))
     })
 })

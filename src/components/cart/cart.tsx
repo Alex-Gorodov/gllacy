@@ -1,9 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/RootState";
 import cn from 'classnames';
-import '../../styles/blocks/cart.sass';
 import { removeFromCart, toggleCart } from "../../store/page/page-actions";
-import { useResizeListener } from "../../hooks/useResizeListener";
 import { ReactComponent as CloseCross} from '../../img/icons/cross.svg'
 
 export function Cart(): JSX.Element {
@@ -11,7 +9,8 @@ export function Cart(): JSX.Element {
   const cartItems = useSelector((state: RootState) => state.page.cartItems);
   const isCartOpened = useSelector((state: RootState) => state.page.isCartOpened);
   const cartClassName = cn('cart', {
-    'cart--opened': isCartOpened
+    'cart--opened': isCartOpened,
+    'cart--empty' : cartItems.length === 0
   });
 
   const totalCost = cartItems.reduce((acc, item) => acc + (item.amountInCart ? item.amountInCart * item.price : item.price), 0);
@@ -21,7 +20,12 @@ export function Cart(): JSX.Element {
       {
         cartItems.length < 1
         ?
-        <h6 className="title title--6" style={{textAlign: 'center'}}>Your cart is currently empty</h6>
+        <>
+          <h6 className="title title--6" style={{textAlign: 'center', marginBottom: '28px'}}>Your cart is currently empty</h6>
+          <button className="cart__close-btn" onClick={() => dispatch(toggleCart({isOpened: false}))}>
+            <CloseCross/>
+          </button>
+        </>
         :
         <>
           <div style={{width: '100%', display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between'}}>
@@ -34,7 +38,7 @@ export function Cart(): JSX.Element {
             {cartItems.map((item) => {
               const itemPrice = item.amountInCart ? item.amountInCart : 1;
               return (
-                <li className="cart__item cart-item" key={item._id.$oid}>
+                <li className="cart__item cart-item" key={item.id}>
                   <img src={item.img} alt={item.name} width={46} height={46}/>
                   <div className="cart-item__text-wrapper">
                     <h4 className="title title--6">{item.name}</h4>

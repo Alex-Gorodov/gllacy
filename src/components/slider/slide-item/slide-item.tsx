@@ -6,8 +6,6 @@ import { InactiveSlide } from "../inactive-slide/inactive-slide";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../store/RootState";
 import { sliderItems } from "../../../mocks/slider";
-import '../../../styles/blocks/slider/slider.sass';
-import '../../../styles/blocks/slider/slide.sass';
 import { Slide } from "../../../types/slide";
 import { Social } from "../../social/social";
 import { Pagination } from "../pagination";

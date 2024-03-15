@@ -4,8 +4,6 @@ import { useResizeListener } from "../../../hooks/useResizeListener";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/RootState";
 import { sliderItems } from "../../../mocks/slider";
-import '../../../styles/blocks/slider/slider.sass'
-import '../../../styles/blocks/slider/social.sass'
 import { Pagination } from "../pagination";
 import { Social } from "../../social/social";
 
