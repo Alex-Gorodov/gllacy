@@ -20,8 +20,12 @@
     color: $basic-extra-dark
     outline: none
   &--white
-    background-color: #fcfcfc
+    background-color: $basic-extra-light
     outline: 4px solid rgba(252, 252, 252, 0.5)
+    &:disabled
+      background-color: $basic-light
+      color: $basic-neutral
+      font-weight: normal
   &--red
     background-color: $special-extra-bright
     color: $basic-extra-light
