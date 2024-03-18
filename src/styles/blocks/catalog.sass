@@ -7,28 +7,33 @@
   &-pagination
     @include list-reset
     display: flex
-    gap: 16px
+    gap: 8px
     align-items: center
     &__btn
       position: relative
       display: flex
-      padding: 0
+      padding: 5px
       border: none
       background-color: transparent
       color: $basic-extra-dark
       cursor: pointer
-      &--active::after
+      &::after
         position: absolute
         top: 50%
         left: 50%
         display: block
         width: 24px
         height: 24px
-        background-color: $basic-extra-light
+        background-color: transparent
         transform: translate(-50%, -50%)
         border-radius: 50%
+        transition: 0.3s
         z-index: -1
         content: ""
+      &--active::after
+        background-color: $basic-extra-light
+      &:hover:enabled::after
+        background-color: rgba($basic-extra-light, 40%)
       &:disabled
         color: rgba($basic-extra-dark, 50%)
         cursor: auto
@@ -77,3 +82,12 @@
       background-color: $special-bright
     &:hover
       background-color: $special-neutral
+
+  &__load-btn
+    position: relative
+
+  &__spinner
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(50px, -50%)

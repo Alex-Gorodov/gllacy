@@ -58,7 +58,8 @@ export function Navigation(): JSX.Element {
             onMouseEnter={() => setTypesShowed(!typesShowed)}
             onClick={() => {
               dispatch(toggleMobileMenu({isOpened: !isMenuOpened}));
-              dispatch(setCatalogType({type: IceCreamTypes.All}))
+              dispatch(setCatalogType({type: IceCreamTypes.All}));
+              if (typesShowed) setTypesShowed(false);
             }}
           >
             Catalog
@@ -71,7 +72,12 @@ export function Navigation(): JSX.Element {
                     return (
                       <Link 
                         className={`catalog__type ${type === catalogType ? 'catalog__type--active' : ''}`}
-                        to={AppRoute.Catalog}
+                        to={
+                          type === IceCreamTypes.All
+                          ? AppRoute.Catalog
+                          :
+                          `${AppRoute.Catalog}/${type}`
+                        }
                         onClick={() => catalogTypeChangeHandler(type)}
                         onMouseLeave={() => setTypesShowed(false)}
                         onMouseEnter={() => setTypesShowed(true)}

@@ -18,3 +18,5 @@ export enum BackgroundColors {
 export const ITEMS_BY_PAGE = 12;
 
 export const MOBILE_WIDTH = 1250;
+
+export const SPINNER_TIMEOUT = Math.random() * 5000;

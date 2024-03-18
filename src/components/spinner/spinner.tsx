@@ -1,16 +1,21 @@
-import { BallTriangle } from "react-loader-spinner";
+import { Oval } from "react-loader-spinner";
 
-export function Spinner(): JSX.Element {
+type SpinnerProps = {
+  size: string;
+  color: string;
+}
+
+export function Spinner({size, color}: SpinnerProps): JSX.Element {
   return (
-    <BallTriangle
-      height={60}
-      width={60}
-      radius={5}
-      color="#ff4a78"
-      ariaLabel="ball-triangle-loading"
+    <Oval
+      visible={true}
+      height={size}
+      width={size}
+      color={color}
+      secondaryColor="rgba(45,52,64, 40%)"
+      ariaLabel="oval-loading"
       wrapperStyle={{}}
       wrapperClass=""
-      visible={true}
-      />
+    />
   )
 }

@@ -2,10 +2,13 @@
 
 .button
   @include font-bold
+  // display: flex
+  // justify-content: center
   background-color: rgba($basic-extra-light, 0.3)
   border: none
   border-radius: 26px
   padding: 8px 20px
+  gap: 10px
   cursor: pointer
   color: $basic-extra-dark
   transition: 0.3s
@@ -22,10 +25,14 @@
   &--white
     background-color: $basic-extra-light
     outline: 4px solid rgba(252, 252, 252, 0.5)
+    &:hover:enabled
+      background-color: rgba($basic-extra-light, 50%)
+      outline: 4px solid rgba(252, 252, 252)
     &:disabled
+      @include font-regular
       background-color: $basic-light
       color: $basic-neutral
-      font-weight: normal
+      cursor: auto
   &--red
     background-color: $special-extra-bright
     color: $basic-extra-light

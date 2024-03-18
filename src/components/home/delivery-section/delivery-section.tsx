@@ -1,6 +1,7 @@
 
 import { useRef, useState } from 'react';
 import { Spinner } from "../../spinner/spinner";
+import { SPINNER_TIMEOUT } from '../../../const';
 
 export function DeliverySection(): JSX.Element {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -38,23 +39,19 @@ export function DeliverySection(): JSX.Element {
     const dateValue = (document.getElementById('delivery-date') as HTMLInputElement)?.value;
     const phoneValue = (document.getElementById('delivery-phone') as HTMLInputElement)?.value;
     const addressValue = (document.getElementById('delivery-address') as HTMLInputElement)?.value;
-    const spinnerTime = Math.random() * 5000;
 
-    console.log(spinnerTime);
-    
-  
     if (dateValue && phoneValue.length === 11 && /^[a-zA-Z\s,'\-]+,\s*\d+,\s*[a-zA-Z\s\-]+$/.test(addressValue)) {
       setFormSent(true);
       setShowSpinner(true);
       setTimeout(() => {
         setShowSpinner(false);
-      }, spinnerTime);
+      }, SPINNER_TIMEOUT);
       setFormClassName('delivery__form delivery-form delivery-form--sent');
     } else {
       setFormClassName('delivery__form delivery-form delivery-form--error');
       setTimeout(() => {
         setFormClassName('delivery__form delivery-form');
-      }, spinnerTime);
+      }, SPINNER_TIMEOUT);
     }
   };
 
@@ -72,7 +69,7 @@ export function DeliverySection(): JSX.Element {
             {
               showSpinner
                 ?
-                <Spinner/>
+                <Spinner size='80' color='#2d3440'/>
                 :
                 <>    
                   <p className="delivery__success-message">Thank you for submitting. We will contact you shortly to confirm your order.</p>

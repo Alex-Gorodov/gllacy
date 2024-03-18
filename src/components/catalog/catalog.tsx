@@ -6,10 +6,11 @@ import { Good } from "../home/shop-section/good";
 import { useState } from "react";
 import cn from 'classnames';
 import { Link } from 'react-router-dom';
-import { AppRoute, ITEMS_BY_PAGE } from '../../const';
+import { AppRoute, ITEMS_BY_PAGE, SPINNER_TIMEOUT } from '../../const';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/RootState';
 import { setCatalogType } from '../../store/page/page-actions';
+import { Spinner } from '../spinner/spinner';
 
 export function Catalog(): JSX.Element {
 
@@ -17,6 +18,7 @@ export function Catalog(): JSX.Element {
 
   const dispatch = useDispatch();
   const iceCreamType = useSelector((state: RootState) => state.page.catalogType);
+  const [isLoading, setIsLoading] = useState(false);
   const [itemsByPage, setItemsByPage] = useState(ITEMS_BY_PAGE);
   const [pagesNum, setPagesNum] = useState(Math.round(
     iceCreamType === IceCreamTypes.All
@@ -26,7 +28,7 @@ export function Catalog(): JSX.Element {
     Math.ceil(shopItems.filter((item) => item.type === iceCreamType).length / itemsByPage)
   ));
 
-  const pagesAmount = Array.from({ length: Math.ceil(iceCreamType === IceCreamTypes.All ? shopItems.length / itemsByPage : pagesNum) }, (_, index) => index + 1);
+  const pagesAmount = Array.from({ length: Math.ceil(iceCreamType === IceCreamTypes.All ? shopItems.length / itemsByPage : pagesNum) }, (_, index) => index + 1);  
 
   return (
     <>
@@ -63,25 +65,56 @@ export function Catalog(): JSX.Element {
         itemsByPage &&
         <div className="catalog__buttons-wrapper">
           <button
-            className="button button--white"
+            className="button button--white catalog__load-btn"
             disabled={pagesAmount.length < 2}
             onClick={() => {
-              setItemsByPage(itemsByPage + ITEMS_BY_PAGE);
-              const filteredItems = shopItems.filter((item) => item.type === iceCreamType);
-              setPagesNum(Math.ceil(filteredItems.length / (itemsByPage + ITEMS_BY_PAGE)));
+              setIsLoading(true);
+              setTimeout(() => {
+                setIsLoading(false);
+                setItemsByPage(itemsByPage + ITEMS_BY_PAGE);
+                const filteredItems = shopItems.filter((item) => item.type === iceCreamType);
+                setPagesNum(Math.ceil(filteredItems.length / (itemsByPage + ITEMS_BY_PAGE)));
+              }, SPINNER_TIMEOUT);
             }}
           >
             Show more
+            {
+              isLoading && 
+              <span className='catalog__spinner'>
+                <Spinner size='20' color='#2d3440'/>
+              </span>
+              
+            }
           </button>
           <ul className="catalog-pagination">
-
-            <li>
-              <button className="catalog-pagination__btn" onClick={() => setPage(page - 1)} disabled={page <= 1}>
-                <SliderArrowPrev/>
-              </button>
-            </li>
             {
-              pagesAmount.map((pageNumber) => {
+              pagesNum > 5 &&
+              <li>
+                <button className="catalog-pagination__btn" onClick={() => setPage(page - 1)} disabled={page <= 1}>
+                  <SliderArrowPrev/>
+                </button>
+              </li>
+            }
+            {
+              page < 5 ?
+              pagesAmount.slice(0,5).map((pageNumber) => {
+                const paginationBtnClassName = cn('catalog-pagination__btn', {
+                  'catalog-pagination__btn--active': page === pageNumber
+                });
+                return (
+                  <li key={`page-${pageNumber}`}>
+                    <button
+                      className={paginationBtnClassName}
+                      data-pagination={pageNumber}
+                      onClick={() => setPage(pageNumber)}
+                    >
+                      {pageNumber}
+                    </button>
+                  </li>
+                );
+              })
+              :
+              pagesAmount.slice(pagesNum - 5, pagesNum).map((pageNumber) => {
                 const paginationBtnClassName = cn('catalog-pagination__btn', {
                   'catalog-pagination__btn--active': page === pageNumber
                 });
@@ -98,11 +131,14 @@ export function Catalog(): JSX.Element {
                 );
               })
             }
-            <li>
-              <button className="catalog-pagination__btn" onClick={() => setPage(page + 1)} disabled={page >= pagesNum}>
-                <SliderArrowNext/>
-              </button>
-            </li>
+            {
+              pagesNum > 5 &&
+              <li>
+                <button className="catalog-pagination__btn" onClick={() => setPage(page + 1)} disabled={page >= pagesNum}>
+                  <SliderArrowNext/>
+                </button>
+              </li>
+            }
           </ul>
         </div>
       }
