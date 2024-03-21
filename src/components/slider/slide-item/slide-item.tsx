@@ -11,6 +11,8 @@ import { Social } from "../../social/social";
 import { Pagination } from "../pagination";
 import cn from 'classnames';
 import { MOBILE_WIDTH } from "../../../const";
+import { addToCart } from "../../../store/page/page-actions";
+import { shopItems } from "../../../mocks/shopItems";
 
 type SlideProps = {
   slide: Slide;
@@ -29,7 +31,7 @@ export function SlideItem({slide}: SlideProps): JSX.Element {
     <div className="slider__item slide">
       <h2 className="slide__title">{slide.title}</h2>
       <p className="slide__description">{slide.description}</p>
-      <button className="slide__add-to-cart-btn button button--white">Order</button>
+      <button className="slide__add-to-cart-btn button button--white" onClick={() => dispatch(addToCart({item: shopItems[activeSlide]}))}>Order</button>
       <div className='slide__image-wrapper'>
         <img className={imageClassName} src={slide.image} alt={slide.title} width="306" height="507"/>
         <div className="slider__buttons">

@@ -5,14 +5,16 @@
     @include list-reset
     display: flex
     align-items: center
-    gap: 30px
+    gap: 50px
     padding-right: 16px
 
   &__item
     position: relative
+    text-align: center
     &--phone
       @include font-bold
       margin-left: auto
+      white-space: nowrap
 
   &__logo
     transition: 0.3s
@@ -21,7 +23,7 @@
     &:hover,
     &:focus-visible
       filter: drop-shadow(2px 4px 6px black)
-  @media(max-width: $desktop)
+  @media(max-width: $tablet)
     &__logo
       justify-self: end
       margin-right: 0
@@ -32,7 +34,7 @@
     position: relative
     display: block
     color: $basic-extra-dark
-    line-height: 36px
+    line-height: 20px
     text-decoration: none
     outline: none
     &::before
@@ -68,7 +70,7 @@
         background-color: rgba($special-bright, 50%)
 
 
-  @media(max-width: $desktop)
+  @media(max-width: $tablet)
     align-self: center
     &__list
       flex-direction: column

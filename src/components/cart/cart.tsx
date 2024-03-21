@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/RootState";
 import cn from 'classnames';
 import { removeFromCart, toggleCart } from "../../store/page/page-actions";
-import { ReactComponent as CloseCross} from '../../img/icons/cross.svg'
+import { ReactComponent as CloseCross} from '../../img/icons/cross.svg';
 
 export function Cart(): JSX.Element {
   const dispatch = useDispatch();

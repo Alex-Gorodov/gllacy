@@ -5,7 +5,7 @@ import { useResizeListener } from '../../hooks/useResizeListener'
 import { ReactComponent as Logo } from './../../logo.svg';
 import { Navigation } from '../navigation/navigation'
 import { Link } from 'react-router-dom'
-import { AppRoute, MOBILE_WIDTH } from '../../const'
+import { AppRoute, MOBILE_WIDTH, OVERFLOW_WIDTH } from '../../const'
 import { Cart } from '../cart/cart';
 import cn from 'classnames'
 import { useDispatch, useSelector } from 'react-redux';
@@ -28,12 +28,17 @@ export function Header({hasNav}: HeaderProps): JSX.Element{
   })
   const isCartOpened = useSelector((state: RootState) => state.page.isCartOpened);
 
+  const isMobileSize = useResizeListener() > MOBILE_WIDTH;
+
+  const isShortNames = useResizeListener() > OVERFLOW_WIDTH;
+
   isMenuOpened ? document.body.style.overflow = 'hidden' : document.body.style.overflow = ''
 
   return (
     <header className="header">
       <Link to={AppRoute.Root} className="navigation__logo" onClick={() => dispatch(setCatalogType({type: null}))}>
         <Logo />
+        <span className="visually-hidden">Go to home page</span>
       </Link>
       {hasNav && <div className={mobileHeaderWrapperClassName}>
         <Navigation/>
@@ -44,7 +49,9 @@ export function Header({hasNav}: HeaderProps): JSX.Element{
           </button>
           <button className="user-navigation__btn button">
             <LoginIcon/>
-            Enter
+            {
+              isShortNames ? 'Enter' : ''
+            }
           </button>
           <button className="user-navigation__btn button" onClick={() => {
             dispatch(toggleCart({isOpened: !isCartOpened}))
@@ -52,14 +59,18 @@ export function Header({hasNav}: HeaderProps): JSX.Element{
             }}>
             <CartIcon/>
             {
+              isShortNames
+              ?
               cartItems.length > 0 ? `${cartItems.length} items` : 'Empty'
+              :
+              ''
             }
           </button>
           <Cart/>
         </div>
       </div>}
       {
-        useResizeListener() > MOBILE_WIDTH && hasNav
+        isMobileSize && hasNav
         ?
         ''
         :

@@ -2,7 +2,8 @@
 
 .header
   width: 100%
-  // max-width: 1170px
+  max-width: 1170px
+  margin: auto
   display: grid
   grid-template-columns: min-content auto
   align-items: center
@@ -11,7 +12,8 @@
     display: grid
     grid-template-columns: auto min-content
     transition: 0.3s
-  @media(max-width: $desktop)
+    align-items: center
+  @media(max-width: $tablet)
     &__wrapper
       position: absolute
       top: -100vh

@@ -10,3 +10,5 @@ export const toggleCart = createAction<{isOpened: boolean}>('page/toggleCart');
 export const setCatalogType = createAction<{type: IceCreamTypes | null}>('page/setCatalogType');
 
 export const toggleMobileMenu = createAction<{isOpened: boolean}>('page/toggleMobileMenu');
+
+export const toggleModal = createAction<{isOpened: boolean}>('page/toggleModal');

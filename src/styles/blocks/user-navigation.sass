@@ -3,6 +3,7 @@
 .user-navigation
   position: relative
   display: flex
+  align-items: center
   margin-left: auto
   gap: 16px
   &__btn
@@ -10,13 +11,14 @@
     align-items: center
     gap: 6px
     white-space: nowrap
-    @media(max-width: $desktop)
+    max-height: 32px
+    @media(max-width: $tablet)
       &:first-of-type
         margin-right: auto
     &:focus-visible
       box-shadow: 0px 0px 0px 2px $basic-extra-dark inset
     &:active
       box-shadow: 0px 0px 0px 2px $basic-extra-dark inset
-  @media(max-width: $desktop)
+  @media(max-width: $tablet)
     width: 100%
     margin: 0

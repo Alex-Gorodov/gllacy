@@ -27,9 +27,7 @@
   @media (max-width: $tablet)
     grid-template-columns: 1fr
   &__input
-    padding: 14px 16px
-    border: 1px solid $basic-neutral
-    border-radius: 4px
+    @include form-input
     &[type="date"]
       color: $basic-neutral
       -webkit-appearance: textfield

@@ -1,6 +1,6 @@
 export function SubscribeArticle(): JSX.Element {
   return (
-    <article className="subscribe">
+    <article className="article subscribe">
       <div className="subscribe__wrapper">
         <p className="subscribe__description">Subscribe to our sweet newsletter and always be keep abreast of all the delicious things that happen here. We promise not to spam or send any unnecessary nonsense. Honestly =)</p>
         <form className="subscribe__form subscribe-form" action="" method="post">

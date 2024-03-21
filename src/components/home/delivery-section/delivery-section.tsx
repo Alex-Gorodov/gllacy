@@ -10,7 +10,7 @@ export function DeliverySection(): JSX.Element {
 
   const [formClassName, setFormClassName] = useState('delivery__form delivery-form');
   const [isFormSent, setFormSent] = useState(false);
-  const [showSpinner, setShowSpinner] = useState(false)
+  const [showSpinner, setShowSpinner] = useState(false);
   
   const typePhone = (e: React.ChangeEvent<HTMLInputElement>) => {
     let value = e.target.value;
@@ -40,7 +40,7 @@ export function DeliverySection(): JSX.Element {
     const phoneValue = (document.getElementById('delivery-phone') as HTMLInputElement)?.value;
     const addressValue = (document.getElementById('delivery-address') as HTMLInputElement)?.value;
 
-    if (dateValue && phoneValue.length === 11 && /^[a-zA-Z\s,'\-]+,\s*\d+,\s*[a-zA-Z\s\-]+$/.test(addressValue)) {
+    if (dateValue && phoneValue.length === 11 && /^[a-zA-Z\s,']+,\s*\d+,\s*[a-zA-Z\s]+$/.test(addressValue)) {
       setFormSent(true);
       setShowSpinner(true);
       setTimeout(() => {

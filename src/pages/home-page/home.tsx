@@ -1,5 +1,5 @@
 import { DeliverySection } from "../../components/home/delivery-section/delivery-section";
-import { ContactSection } from "../../components/home/contact-section/contact-section";
+import { FeedbackSection } from "../../components/home/feedback-section/feedback-section";
 import { ShopSection } from "../../components/home/shop-section/shop-section";
 import { Advantages } from "../../components/home/advantages/advantages";
 import { Articles } from "../../components/home/articles/articles";
@@ -18,7 +18,7 @@ export function HomePage() {
           <Advantages/>
           <Articles/>
           <DeliverySection/>
-          <ContactSection/>
+          <FeedbackSection/>
         </main>
       </Layout>
     </>

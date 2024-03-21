@@ -10,6 +10,7 @@ export type PageState = {
   cartItems: ShopItem[];
   catalogType: IceCreamTypes | null;
   isMenuOpened: boolean;
+  isModalOpened: boolean;
 }
 
 export type SliderState = {
