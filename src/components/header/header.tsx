@@ -11,6 +11,8 @@ import cn from 'classnames'
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/RootState';
 import { setCatalogType, toggleCart, toggleMobileMenu } from '../../store/page/page-actions';
+import { useState } from 'react';
+import { Search } from '../search/search';
 
 type HeaderProps = {
   hasNav?: boolean;
@@ -26,6 +28,8 @@ export function Header({hasNav}: HeaderProps): JSX.Element{
   const mobileHeaderWrapperClassName = cn('header__wrapper', {
     'header__wrapper--opened' : isMenuOpened
   })
+
+  const [isSearchOpen, setSearchOpen] = useState(false);
   const isCartOpened = useSelector((state: RootState) => state.page.isCartOpened);
 
   const isMobileSize = useResizeListener() > MOBILE_WIDTH;
@@ -43,10 +47,13 @@ export function Header({hasNav}: HeaderProps): JSX.Element{
       {hasNav && <div className={mobileHeaderWrapperClassName}>
         <Navigation/>
         <div className="header__user-nav user-navigation">
-          <button className="user-navigation__btn button button--circle">
+          <button className="user-navigation__btn button button--circle" onClick={() => setSearchOpen(!isSearchOpen)}>
             <SearchIcon/>
             <span className="visually-hidden">Search</span>
           </button>
+          {
+            isSearchOpen && <Search/>
+          }
           <button className="user-navigation__btn button">
             <LoginIcon/>
             {
@@ -68,7 +75,8 @@ export function Header({hasNav}: HeaderProps): JSX.Element{
           </button>
           <Cart/>
         </div>
-      </div>}
+      </div>
+      }
       {
         isMobileSize && hasNav
         ?

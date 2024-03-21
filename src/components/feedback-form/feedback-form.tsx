@@ -77,7 +77,12 @@ export function FeedBackForm(): JSX.Element {
           <>
             {!showSpinner &&
               <>
-                <p>Thank you{firstWord} for your feedback!</p>
+                {
+                  firstWord ?
+                  <p className='feedback__reaction'>Thank you{firstWord} for your feedback!</p>
+                  :
+                  <p className='feedback__reaction'>You sent an anonymous message, perhaps you have something to hide, but nevertheless, thanks for the feedback!</p>
+                }
                 <button className="button button--red" onClick={(e) => handleResetForm(e)}>Close</button> 
               </>
             }

@@ -23,6 +23,8 @@ export function Navigation(): JSX.Element {
         pathname === AppRoute.Shipping ||
         pathname === AppRoute.About) {
       setActivePage(pathname);
+    } else if (pathname === AppRoute.CatalogCreamy || pathname === AppRoute.CatalogSorbet) {
+      setActivePage(AppRoute.Catalog)
     } else {
       setActivePage(null);
     }
@@ -78,7 +80,7 @@ export function Navigation(): JSX.Element {
                           :
                           `${AppRoute.Catalog}/${type}`
                         }
-                        onClick={() => catalogTypeChangeHandler(type)}
+                        onClick={() => {catalogTypeChangeHandler(type); setActivePage(AppRoute.Catalog)}}
                         onMouseLeave={() => setTypesShowed(false)}
                         onMouseEnter={() => setTypesShowed(true)}
                         key={`type-${type}`}

@@ -1,0 +1,21 @@
+@import "../../style"
+@import "./search-item"
+
+.search
+  &__result
+    @include list-reset
+    position: absolute
+    top: 36px
+    right: 0
+    display: flex
+    flex-direction: column
+    gap: 16px
+    max-height: 200px
+    padding: 20px
+    overflow-y: scroll
+    border-radius: 8px
+    background-color: $basic-extra-light
+    box-shadow: 0 15px 40px 0 rgba($basic-extra-dark, 12%)
+    z-index: $z-mobile-menu
+
+  &__item
