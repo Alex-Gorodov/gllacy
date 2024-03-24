@@ -78,6 +78,7 @@ export function Navigation(): JSX.Element {
                         }
                         onClick={() => {
                           dispatch(setCatalogType({type: type}));
+                          isMobile && dispatch(toggleMobileMenu({isOpened: false}));
                           setTypesShowed(false);
                         }}
                         onMouseLeave={() => setTypesShowed(false)}
