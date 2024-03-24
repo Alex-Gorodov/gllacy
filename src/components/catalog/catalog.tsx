@@ -7,15 +7,17 @@ import { useEffect, useState } from "react";
 import cn from 'classnames';
 import { Link } from 'react-router-dom';
 import { AppRoute, ITEMS_BY_PAGE, SPINNER_TIMEOUT } from '../../const';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/RootState';
 import { Spinner } from '../spinner/spinner';
 import { SortingForm } from './sorting-form';
+import { setCatalogType } from '../../store/page/page-actions';
 
 export function Catalog(): JSX.Element {
 
   const [page, setPage] = useState(1);
 
+  const dispatch = useDispatch();
   const iceCreamType = useSelector((state: RootState) => state.page.catalogType);
   const [isLoading, setIsLoading] = useState(false);
   const [itemsByPage, setItemsByPage] = useState(ITEMS_BY_PAGE);
@@ -31,6 +33,7 @@ export function Catalog(): JSX.Element {
 
   useEffect(() => {
     setPage(1)
+    setItemsByPage(ITEMS_BY_PAGE)
   }, [iceCreamType])
 
   return (
@@ -40,7 +43,9 @@ export function Catalog(): JSX.Element {
           <Link className="breadcrumbs__link" to={AppRoute.Root}>Main</Link>
         </li>
         <li className="breadcrumbs__item">
-          <Link className="breadcrumbs__link" to={AppRoute.Catalog}>Catalog</Link>
+          <Link className="breadcrumbs__link" to={AppRoute.Catalog} onClick={() => {
+            dispatch(setCatalogType({type: IceCreamTypes.All}))
+          }}>Catalog</Link>
         </li>
         <li className="breadcrumbs__item">
           <Link className="breadcrumbs__link breadcrumbs__link--active" to="#">{iceCreamType}</Link>
@@ -87,7 +92,6 @@ export function Catalog(): JSX.Element {
               <span className='catalog__spinner'>
                 <Spinner size='20' color='#2d3440'/>
               </span>
-              
             }
           </button>
           <ul className="catalog-pagination">
