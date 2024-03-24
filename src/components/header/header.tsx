@@ -10,8 +10,7 @@ import { Cart } from '../cart/cart';
 import cn from 'classnames'
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/RootState';
-import { setCatalogType, toggleCart, toggleMobileMenu } from '../../store/page/page-actions';
-import { useState } from 'react';
+import { toggleCart, toggleMobileMenu, toggleSearch } from '../../store/page/page-actions';
 import { Search } from '../search/search';
 
 type HeaderProps = {
@@ -19,9 +18,14 @@ type HeaderProps = {
 }
 
 export function Header({hasNav}: HeaderProps): JSX.Element{
-  const dispatch = useDispatch();
   const isMenuOpened = useSelector((state: RootState) => state.page.isMenuOpened);
+  const isCartOpened = useSelector((state: RootState) => state.page.isCartOpened);
   const cartItems = useSelector((state: RootState) => state.page.cartItems);
+  const isShortNames = useResizeListener() > OVERFLOW_WIDTH;
+  const isMobileSize = useResizeListener() < MOBILE_WIDTH;
+  const isSearchOpened = useSelector((state: RootState) => state.page.isSearchOpened);
+  const dispatch = useDispatch();
+
   const burgerBtnClassName = cn('burger-btn__line', {
     'burger-btn__line--active' : isMenuOpened
   })
@@ -29,41 +33,39 @@ export function Header({hasNav}: HeaderProps): JSX.Element{
     'header__wrapper--opened' : isMenuOpened
   })
 
-  const [isSearchOpen, setSearchOpen] = useState(false);
-  const isCartOpened = useSelector((state: RootState) => state.page.isCartOpened);
-
-  const isMobileSize = useResizeListener() > MOBILE_WIDTH;
-
-  const isShortNames = useResizeListener() > OVERFLOW_WIDTH;
-
   isMenuOpened ? document.body.style.overflow = 'hidden' : document.body.style.overflow = ''
 
   return (
     <header className="header">
-      <Link to={AppRoute.Root} className="navigation__logo" onClick={() => dispatch(setCatalogType({type: null}))}>
+      <Link to={AppRoute.Root} className="navigation__logo">
         <Logo />
         <span className="visually-hidden">Go to home page</span>
       </Link>
       {hasNav && <div className={mobileHeaderWrapperClassName}>
         <Navigation/>
         <div className="header__user-nav user-navigation">
-          <button className="user-navigation__btn button button--circle" onClick={() => setSearchOpen(!isSearchOpen)}>
+          <button className="user-navigation__btn button button--circle" onClick={() => {
+            dispatch(toggleSearch({isOpened: !isSearchOpened}));
+            isMobileSize && dispatch(toggleMobileMenu({isOpened: !isMenuOpened}));
+          }}>
             <SearchIcon/>
             <span className="visually-hidden">Search</span>
           </button>
           {
-            isSearchOpen && <Search/>
+            isSearchOpened && <Search/>
           }
           <button className="user-navigation__btn button">
             <LoginIcon/>
             {
               isShortNames ? 'Enter' : ''
             }
+            <span className="visually-hidden">Login</span>
           </button>
           <button className="user-navigation__btn button" onClick={() => {
             dispatch(toggleCart({isOpened: !isCartOpened}))
-            dispatch(toggleMobileMenu({isOpened: !isMenuOpened}))
-            }}>
+            isMobileSize && dispatch(toggleMobileMenu({isOpened: !isMenuOpened}))
+            isSearchOpened && dispatch(toggleSearch({isOpened: false}))
+          }}>
             <CartIcon/>
             {
               isShortNames
@@ -72,13 +74,14 @@ export function Header({hasNav}: HeaderProps): JSX.Element{
               :
               ''
             }
+            <span className="visually-hidden">Cart</span>
           </button>
           <Cart/>
         </div>
       </div>
       }
       {
-        isMobileSize && hasNav
+        !isMobileSize && hasNav
         ?
         ''
         :

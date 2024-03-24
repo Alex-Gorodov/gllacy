@@ -6,7 +6,7 @@ export const shopItems: ShopItem[] = [
     name: "malinka",
     description: "creamy ice cream with raspberry jam",
     price: 3.1,
-    img: process.env.PUBLIC_URL + "/img/shop/item-1.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-1.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -15,7 +15,7 @@ export const shopItems: ShopItem[] = [
     name: "pistachio",
     description: "pistachio ice cream with chocolate pieces",
     price: 3.4,
-    img: process.env.PUBLIC_URL + "/img/shop/item-2.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-2.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -24,7 +24,7 @@ export const shopItems: ShopItem[] = [
     name: "blueberry",
     description: "creme brulee with blueberry jam",
     price: 3.3,
-    img: process.env.PUBLIC_URL + "/img/shop/item-3.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-3.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -33,7 +33,7 @@ export const shopItems: ShopItem[] = [
     name: "bubble gum",
     description: "vanilla ice cream with sweet sprinkles",
     price: 3.2,
-    img: process.env.PUBLIC_URL + "/img/shop/item-4.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-4.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -42,7 +42,7 @@ export const shopItems: ShopItem[] = [
     name: "blackberry",
     description: "creamy ice cream with blackberry jam",
     price: 3.3,
-    img: process.env.PUBLIC_URL + "/img/shop/item-5.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-5.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -51,7 +51,7 @@ export const shopItems: ShopItem[] = [
     name: "banana",
     description: "creamy ice cream with banana flavor",
     price: 3.4,
-    img: process.env.PUBLIC_URL + "/img/shop/item-6.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-6.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -60,7 +60,7 @@ export const shopItems: ShopItem[] = [
     name: "chocolate",
     description: "classic chocolate ice cream",
     price: 2.7,
-    img: process.env.PUBLIC_URL + "/img/shop/item-7.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-7.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -69,7 +69,7 @@ export const shopItems: ShopItem[] = [
     name: "strawberry",
     description: "creamy ice cream with strawberry flavor",
     price: 3,
-    img: process.env.PUBLIC_URL + "/img/shop/item-8.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-8.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -78,7 +78,7 @@ export const shopItems: ShopItem[] = [
     name: "lemon",
     description: "refreshing lemon sorbet",
     price: 3.1,
-    img: process.env.PUBLIC_URL + "/img/shop/item-9.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-9.webp",
     fats: 10,
     type: IceCreamTypes.Sorbet
   },
@@ -87,7 +87,7 @@ export const shopItems: ShopItem[] = [
     name: "menthol",
     description: "creamy ice cream with menthol syrup",
     price: 3.2,
-    img: process.env.PUBLIC_URL + "/img/shop/item-10.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-10.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -96,7 +96,7 @@ export const shopItems: ShopItem[] = [
     name: "nut",
     description: "pistachio ice cream with chocolate syrup",
     price: 3.6,
-    img: process.env.PUBLIC_URL + "/img/shop/item-11.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-11.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -105,7 +105,7 @@ export const shopItems: ShopItem[] = [
     name: "creme brulee",
     description: "classic creme brulee",
     price: 2.8,
-    img: process.env.PUBLIC_URL + "/img/shop/item-12.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-12.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -114,7 +114,7 @@ export const shopItems: ShopItem[] = [
     name: "coffee",
     description: "creamy ice cream with espresso flavor",
     price: 3.5,
-    img: process.env.PUBLIC_URL + "/img/shop/item-1.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-1.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -123,7 +123,7 @@ export const shopItems: ShopItem[] = [
     name: "mango",
     description: "creamy ice cream with mango flavor",
     price: 3.3,
-    img: process.env.PUBLIC_URL + "/img/shop/item-2.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-2.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -132,7 +132,7 @@ export const shopItems: ShopItem[] = [
     name: "matcha",
     description: "green tea ice cream with matcha powder",
     price: 3.6,
-    img: process.env.PUBLIC_URL + "/img/shop/item-3.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-3.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -141,7 +141,7 @@ export const shopItems: ShopItem[] = [
     name: "cookies and cream",
     description: "vanilla ice cream with cookie pieces",
     price: 3.2,
-    img: process.env.PUBLIC_URL + "/img/shop/item-4.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-4.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -150,7 +150,7 @@ export const shopItems: ShopItem[] = [
     name: "raspberry sorbet",
     description: "refreshing raspberry sorbet",
     price: 3.1,
-    img: process.env.PUBLIC_URL + "/img/shop/item-5.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-5.webp",
     fats: 10,
     type: IceCreamTypes.Sorbet
   },
@@ -159,7 +159,7 @@ export const shopItems: ShopItem[] = [
     name: "tiramisu",
     description: "creamy ice cream with tiramisu flavor",
     price: 3.7,
-    img: process.env.PUBLIC_URL + "/img/shop/item-6.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-6.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -168,7 +168,7 @@ export const shopItems: ShopItem[] = [
     name: "salted caramel",
     description: "creamy ice cream with salted caramel swirls",
     price: 3.4,
-    img: process.env.PUBLIC_URL + "/img/shop/item-7.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-7.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -177,7 +177,7 @@ export const shopItems: ShopItem[] = [
     name: "hazelnut",
     description: "creamy ice cream with hazelnut flavor",
     price: 3.3,
-    img: process.env.PUBLIC_URL + "/img/shop/item-8.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-8.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -186,7 +186,7 @@ export const shopItems: ShopItem[] = [
     name: "vanilla bean",
     description: "classic vanilla bean ice cream",
     price: 2.9,
-    img: process.env.PUBLIC_URL + "/img/shop/item-9.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-9.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -195,7 +195,7 @@ export const shopItems: ShopItem[] = [
     name: "red velvet",
     description: "creamy ice cream with red velvet cake chunks",
     price: 3.5,
-    img: process.env.PUBLIC_URL + "/img/shop/item-10.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-10.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -204,7 +204,7 @@ export const shopItems: ShopItem[] = [
     name: "coconut",
     description: "creamy ice cream with coconut flakes",
     price: 3.1,
-    img: process.env.PUBLIC_URL + "/img/shop/item-11.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-11.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -213,7 +213,7 @@ export const shopItems: ShopItem[] = [
     name: "peach",
     description: "creamy ice cream with peach flavor",
     price: 3.2,
-    img: process.env.PUBLIC_URL + "/img/shop/item-12.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-12.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -222,7 +222,7 @@ export const shopItems: ShopItem[] = [
     name: "raspberry cheesecake",
     description: "creamy ice cream with raspberry swirls and cheesecake pieces",
     price: 3.6,
-    img: process.env.PUBLIC_URL + "/img/shop/item-1.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-1.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -231,7 +231,7 @@ export const shopItems: ShopItem[] = [
     name: "mint chocolate chip",
     description: "mint flavored ice cream with chocolate chips",
     price: 3.3,
-    img: process.env.PUBLIC_URL + "/img/shop/item-2.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-2.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -240,7 +240,7 @@ export const shopItems: ShopItem[] = [
     name: "peanut butter cup",
     description: "creamy ice cream with peanut butter cups",
     price: 3.7,
-    img: process.env.PUBLIC_URL + "/img/shop/item-3.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-3.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -249,7 +249,7 @@ export const shopItems: ShopItem[] = [
     name: "rocky road",
     description: "chocolate ice cream with marshmallows and nuts",
     price: 3.4,
-    img: process.env.PUBLIC_URL + "/img/shop/item-4.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-4.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -258,7 +258,7 @@ export const shopItems: ShopItem[] = [
     name: "butter pecan",
     description: "butter pecan flavored ice cream with pecan nuts",
     price: 3.5,
-    img: process.env.PUBLIC_URL + "/img/shop/item-5.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-5.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -267,7 +267,7 @@ export const shopItems: ShopItem[] = [
     name: "salted caramel brownie",
     description: "creamy ice cream with salted caramel and brownie chunks",
     price: 3.8,
-    img: process.env.PUBLIC_URL + "/img/shop/item-6.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-6.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -276,7 +276,7 @@ export const shopItems: ShopItem[] = [
     name: "cherry garcia",
     description: "cherry flavored ice cream with chocolate chunks and cherries",
     price: 3.6,
-    img: process.env.PUBLIC_URL + "/img/shop/item-7.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-7.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -285,7 +285,7 @@ export const shopItems: ShopItem[] = [
     name: "cotton candy",
     description: "cotton candy flavored ice cream with colorful sprinkles",
     price: 3.3,
-    img: process.env.PUBLIC_URL + "/img/shop/item-8.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-8.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -294,7 +294,7 @@ export const shopItems: ShopItem[] = [
     name: "lavender",
     description: "lavender infused ice cream with honey",
     price: 3.4,
-    img: process.env.PUBLIC_URL + "/img/shop/item-8.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-8.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -303,7 +303,7 @@ export const shopItems: ShopItem[] = [
     name: "maple walnut",
     description: "maple flavored ice cream with walnuts",
     price: 3.5,
-    img: process.env.PUBLIC_URL + "/img/shop/item-10.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-10.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -312,7 +312,7 @@ export const shopItems: ShopItem[] = [
     name: "s'mores",
     description: "chocolate ice cream with marshmallows and graham cracker pieces",
     price: 3.7,
-    img: process.env.PUBLIC_URL + "/img/shop/item-11.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-11.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -321,7 +321,7 @@ export const shopItems: ShopItem[] = [
     name: "cinnamon roll",
     description: "creamy ice cream with cinnamon swirls",
     price: 3.4,
-    img: process.env.PUBLIC_URL + "/img/shop/item-12.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-12.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -330,7 +330,7 @@ export const shopItems: ShopItem[] = [
     name: "neapolitan",
     description: "strawberry, chocolate, and vanilla ice cream",
     price: 3.6,
-    img: process.env.PUBLIC_URL + "/img/shop/item-1.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-1.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -339,7 +339,7 @@ export const shopItems: ShopItem[] = [
     name: "mocha almond fudge",
     description: "coffee flavored ice cream with almonds and fudge",
     price: 3.8,
-    img: process.env.PUBLIC_URL + "/img/shop/item-2.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-2.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -348,7 +348,7 @@ export const shopItems: ShopItem[] = [
     name: "pistachio almond",
     description: "pistachio flavored ice cream with almond pieces",
     price: 3.9,
-    img: process.env.PUBLIC_URL + "/img/shop/item-3.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-3.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -357,7 +357,7 @@ export const shopItems: ShopItem[] = [
     name: "strawberry cheesecake",
     description: "creamy ice cream with strawberry swirls and cheesecake pieces",
     price: 3.7,
-    img: process.env.PUBLIC_URL + "/img/shop/item-4.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-4.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -366,7 +366,7 @@ export const shopItems: ShopItem[] = [
     name: "peach cobbler",
     description: "peach flavored ice cream with cobbler crumbles",
     price: 3.8,
-    img: process.env.PUBLIC_URL + "/img/shop/item-5.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-5.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -375,7 +375,7 @@ export const shopItems: ShopItem[] = [
     name: "chocolate fudge brownie",
     description: "chocolate ice cream with fudge swirls and brownie chunks",
     price: 3.9,
-    img: process.env.PUBLIC_URL + "/img/shop/item-6.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-6.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -384,7 +384,7 @@ export const shopItems: ShopItem[] = [
     name: "key lime pie",
     description: "creamy ice cream with key lime flavor and graham cracker pieces",
     price: 3.7,
-    img: process.env.PUBLIC_URL + "/img/shop/item-7.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-7.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -393,7 +393,7 @@ export const shopItems: ShopItem[] = [
     name: "toasted marshmallow",
     description: "marshmallow flavored ice cream with toasted marshmallow swirls",
     price: 3.6,
-    img: process.env.PUBLIC_URL + "/img/shop/item-8.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-8.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -402,7 +402,7 @@ export const shopItems: ShopItem[] = [
     name: "apple pie",
     description: "apple flavored ice cream with pie crust pieces",
     price: 3.8,
-    img: process.env.PUBLIC_URL + "/img/shop/item-9.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-9.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -411,7 +411,7 @@ export const shopItems: ShopItem[] = [
     name: "peanut butter banana",
     description: "creamy ice cream with peanut butter and banana flavor",
     price: 3.9,
-    img: process.env.PUBLIC_URL + "/img/shop/item-10.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-10.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -420,7 +420,7 @@ export const shopItems: ShopItem[] = [
     name: "black forest",
     description: "chocolate ice cream with cherry pieces and chocolate chunks",
     price: 3.7,
-    img: process.env.PUBLIC_URL + "/img/shop/item-11.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-11.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -429,7 +429,7 @@ export const shopItems: ShopItem[] = [
     name: "butterfinger",
     description: "creamy ice cream with butterfinger candy pieces",
     price: 3.6,
-    img: process.env.PUBLIC_URL + "/img/shop/item-12.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-12.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -438,7 +438,7 @@ export const shopItems: ShopItem[] = [
     name: "cookies 'n cream",
     description: "vanilla ice cream with oreo cookie pieces",
     price: 3.7,
-    img: process.env.PUBLIC_URL + "/img/shop/item-1.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-1.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -447,7 +447,7 @@ export const shopItems: ShopItem[] = [
     name: "mint oreo",
     description: "mint flavored ice cream with oreo cookie pieces",
     price: 3.8,
-    img: process.env.PUBLIC_URL + "/img/shop/item-2.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-2.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -456,7 +456,7 @@ export const shopItems: ShopItem[] = [
     name: "pumpkin spice",
     description: "pumpkin flavored ice cream with spices",
     price: 3.9,
-    img: process.env.PUBLIC_URL + "/img/shop/item-3.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-3.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -465,7 +465,7 @@ export const shopItems: ShopItem[] = [
     name: "caramel swirl",
     description: "creamy ice cream with caramel swirls",
     price: 3.7,
-    img: process.env.PUBLIC_URL + "/img/shop/item-4.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-4.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -474,7 +474,7 @@ export const shopItems: ShopItem[] = [
     name: "chocolate chip cookie dough",
     description: "vanilla ice cream with chunks of chocolate chip cookie dough",
     price: 3.8,
-    img: process.env.PUBLIC_URL + "/img/shop/item-5.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-5.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -483,7 +483,7 @@ export const shopItems: ShopItem[] = [
     name: "rainbow sherbet",
     description: "assorted fruit flavored sherbet",
     price: 3.6,
-    img: process.env.PUBLIC_URL + "/img/shop/item-6.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-6.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -492,7 +492,7 @@ export const shopItems: ShopItem[] = [
     name: "mango tango",
     description: "mango flavored ice cream with a hint of lime",
     price: 3.7,
-    img: process.env.PUBLIC_URL + "/img/shop/item-7.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-7.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -501,7 +501,7 @@ export const shopItems: ShopItem[] = [
     name: "caramel macchiato",
     description: "coffee flavored ice cream with caramel swirls",
     price: 3.9,
-    img: process.env.PUBLIC_URL + "/img/shop/item-8.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-8.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -510,7 +510,7 @@ export const shopItems: ShopItem[] = [
     name: "cotton candy explosion",
     description: "cotton candy flavored ice cream with popping candy",
     price: 3.8,
-    img: process.env.PUBLIC_URL + "/img/shop/item-9.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-9.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -519,7 +519,7 @@ export const shopItems: ShopItem[] = [
     name: "nutella swirl",
     description: "creamy ice cream with swirls of nutella",
     price: 3.7,
-    img: process.env.PUBLIC_URL + "/img/shop/item-10.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-10.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -528,7 +528,7 @@ export const shopItems: ShopItem[] = [
     name: "mint mojito",
     description: "mint flavored ice cream with a hint of lime and rum",
     price: 3.9,
-    img: process.env.PUBLIC_URL + "/img/shop/item-11.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-11.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -537,7 +537,7 @@ export const shopItems: ShopItem[] = [
     name: "blue moon",
     description: "blue colored ice cream with fruity flavors",
     price: 3.6,
-    img: process.env.PUBLIC_URL + "/img/shop/item-12.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-12.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -546,7 +546,7 @@ export const shopItems: ShopItem[] = [
     name: "honey lavender",
     description: "honey flavored ice cream with lavender infusion",
     price: 3.7,
-    img: process.env.PUBLIC_URL + "/img/shop/item-1.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-1.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -555,7 +555,7 @@ export const shopItems: ShopItem[] = [
     name: "cinnamon toast crunch",
     description: "cinnamon flavored ice cream with pieces of cinnamon toast crunch cereal",
     price: 3.8,
-    img: process.env.PUBLIC_URL + "/img/shop/item-2.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-2.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -564,7 +564,7 @@ export const shopItems: ShopItem[] = [
     name: "horchata",
     description: "horchata flavored ice cream with cinnamon and rice milk",
     price: 3.7,
-    img: process.env.PUBLIC_URL + "/img/shop/item-3.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-3.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -573,7 +573,7 @@ export const shopItems: ShopItem[] = [
     name: "cookie dough blizzard",
     description: "vanilla ice cream with chunks of cookie dough and chocolate fudge",
     price: 3.9,
-    img: process.env.PUBLIC_URL + "/img/shop/item-4.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-4.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -582,7 +582,7 @@ export const shopItems: ShopItem[] = [
     name: "cherry almond",
     description: "cherry flavored ice cream with almond slices",
     price: 3.8,
-    img: process.env.PUBLIC_URL + "/img/shop/item-5.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-5.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -591,7 +591,7 @@ export const shopItems: ShopItem[] = [
     name: "mocha chip",
     description: "coffee flavored ice cream with chocolate chips",
     price: 3.7,
-    img: process.env.PUBLIC_URL + "/img/shop/item-6.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-6.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -600,7 +600,7 @@ export const shopItems: ShopItem[] = [
     name: "almond joy",
     description: "coconut flavored ice cream with almond pieces and chocolate chunks",
     price: 3.9,
-    img: process.env.PUBLIC_URL + "/img/shop/item-7.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-7.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -609,7 +609,7 @@ export const shopItems: ShopItem[] = [
     name: "pina colada",
     description: "pineapple and coconut flavored ice cream",
     price: 3.6,
-    img: process.env.PUBLIC_URL + "/img/shop/item-8.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-8.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   },
@@ -618,7 +618,7 @@ export const shopItems: ShopItem[] = [
     name: "chocolate hazelnut",
     description: "chocolate ice cream with hazelnut pieces",
     price: 3.8,
-    img: process.env.PUBLIC_URL + "/img/shop/item-9.png",
+    img: process.env.PUBLIC_URL + "/img/shop/item-9.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
   }

@@ -1,6 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { PageState } from "../../types/state";
-import { addToCart, removeFromCart, setCatalogType, toggleCart, toggleMobileMenu, toggleModal } from "./page-actions";
+import { addToCart, removeFromCart, setCatalogType, toggleCart, toggleMobileMenu, toggleFeedbackForm, toggleSearch } from "./page-actions";
 import { shopItems } from "../../mocks/shopItems";
 import { IceCreamTypes } from "../../types/shopItem";
 
@@ -10,17 +10,14 @@ const initialState: PageState = {
     {...shopItems[3], amountInCart: 1.5},
   ],
   isCartOpened: false,
-  catalogType: null,
+  catalogType: IceCreamTypes.All,
   isMenuOpened: false,
-  isModalOpened: false,
+  isFeedbackFormOpened: false,
+  isSearchOpened: false,
 }
 
 export const PageReducer = createReducer(initialState, (builder) => {
   builder
-    .addCase(toggleCart, (state, action) => {
-      const {isOpened} = action.payload;
-      state.isCartOpened = isOpened;
-    })
     .addCase(addToCart, (state, action) => {
       const { item } = action.payload;
       const existingItemIndex = state.cartItems.findIndex(cartItem => cartItem.id === item.id);
@@ -45,13 +42,20 @@ export const PageReducer = createReducer(initialState, (builder) => {
       const {type} = action.payload;
       state.catalogType = type;
     })
+    .addCase(toggleCart, (state, action) => {
+      const {isOpened} = action.payload;
+      state.isCartOpened = isOpened;
+    })
     .addCase(toggleMobileMenu, (state, action) => {
       const {isOpened} = action.payload;
       state.isMenuOpened = isOpened;
     })
-    .addCase(toggleModal, (state, action) => {
+    .addCase(toggleFeedbackForm, (state, action) => {
       const {isOpened} = action.payload;
-      state.isModalOpened = isOpened;
-      
+      state.isFeedbackFormOpened = isOpened;
+    })
+    .addCase(toggleSearch, (state, action) => {
+      const {isOpened} = action.payload;
+      state.isSearchOpened = isOpened;
     })
 })

@@ -19,9 +19,9 @@ async function updateDocuments() {
     // Обновляем объекты в коллекции
     const result = await collection.updateMany(
       { name: "Malinka" },
-      { $set: { img: process.env.PUBLIC_URL + "/img/shop/item-1.png" } },
+      { $set: { img: process.env.PUBLIC_URL + "/img/shop/item-1.webp" } },
       { name: "Pistachio" },
-      { $set: {img:process.env.PUBLIC_URL + "/img/shop/item-2.png"}}
+      { $set: {img:process.env.PUBLIC_URL + "/img/shop/item-2.webp"}}
     );
 
     console.log(`${result.modifiedCount} documents updated`);

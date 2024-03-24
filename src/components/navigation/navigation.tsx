@@ -15,7 +15,7 @@ export function Navigation(): JSX.Element {
   const catalogType = useSelector((state: RootState) => state.page.catalogType);
   const dispatch = useDispatch();
   const [typesShowed, setTypesShowed] = useState(false);
-  const isMenuOpened = useSelector((state: RootState) => state.page.isMenuOpened);
+  const isMobile = useResizeListener() <= MOBILE_WIDTH;
 
   useEffect(() => {
     const pathname = location.pathname;
@@ -35,31 +35,27 @@ export function Navigation(): JSX.Element {
       'navigation__link--active': activePage === page,
     });
 
-  const catalogTypeChangeHandler = (type: IceCreamTypes) => {
-    dispatch(setCatalogType({type: type}));
-    dispatch(toggleMobileMenu({isOpened: !isMenuOpened}))
-    setTypesShowed(false);
-  }
 
   return (
     <nav className="navigation">
       <ul className="navigation__list">
         {
-          useResizeListener() < MOBILE_WIDTH &&
+          isMobile &&
           <li className="navigation__item">
             <Link to={AppRoute.Root} className={pageClassName(AppRoute.Root)} onClick={() => {
-              dispatch(setCatalogType({type: null}));
-              dispatch(toggleMobileMenu({isOpened: !isMenuOpened}))
+              isMobile && dispatch(toggleMobileMenu({isOpened: false}));
             }}>Home</Link>
           </li>
         }
-        <li className="navigation__item">
+        <li className="navigation__item"
+          onMouseEnter={() => setTypesShowed(true)}
+          onMouseLeave={() => setTypesShowed(false)}
+        >
           <Link
             to={AppRoute.Catalog}
             className={pageClassName(AppRoute.Catalog)}
-            onMouseEnter={() => setTypesShowed(!typesShowed)}
             onClick={() => {
-              dispatch(toggleMobileMenu({isOpened: !isMenuOpened}));
+              isMobile && dispatch(toggleMobileMenu({isOpened: false}));
               dispatch(setCatalogType({type: IceCreamTypes.All}));
               if (typesShowed) setTypesShowed(false);
             }}
@@ -80,7 +76,10 @@ export function Navigation(): JSX.Element {
                           :
                           `${AppRoute.Catalog}/${type}`
                         }
-                        onClick={() => {catalogTypeChangeHandler(type); setActivePage(AppRoute.Catalog)}}
+                        onClick={() => {
+                          dispatch(setCatalogType({type: type}));
+                          setTypesShowed(false);
+                        }}
                         onMouseLeave={() => setTypesShowed(false)}
                         onMouseEnter={() => setTypesShowed(true)}
                         key={`type-${type}`}
@@ -95,14 +94,12 @@ export function Navigation(): JSX.Element {
         </li>
         <li className="navigation__item">
           <Link to={AppRoute.Shipping} className={pageClassName(AppRoute.Shipping)} onClick={() => {
-            dispatch(setCatalogType({type: null}))
-            dispatch(toggleMobileMenu({isOpened: !isMenuOpened}))
+            isMobile && dispatch(toggleMobileMenu({isOpened: false}))
           }}>Shipping and payment</Link>
         </li>
         <li className="navigation__item">
           <Link to={AppRoute.About} className={pageClassName(AppRoute.About)} onClick={() => {
-            dispatch(setCatalogType({type: null}))
-            dispatch(toggleMobileMenu({isOpened: !isMenuOpened}))
+            isMobile && dispatch(toggleMobileMenu({isOpened: false}))
           }}>About company</Link>
         </li>
         <li className="navigation__item navigation__item--phone">

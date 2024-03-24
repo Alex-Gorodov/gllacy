@@ -2,13 +2,13 @@ import { ReactComponent as CloseCross } from '../../img/icons/cross.svg';
 import cn from "classnames";
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/RootState';
-import { toggleModal } from '../../store/page/page-actions';
+import { toggleFeedbackForm } from '../../store/page/page-actions';
 import { useRef, useState } from 'react';
 import { Spinner } from '../spinner/spinner';
 import { SPINNER_TIMEOUT } from '../../const';
 
 export function FeedBackForm(): JSX.Element {
-  const isFormOpened = useSelector((state: RootState) => state.page.isModalOpened);
+  const isFormOpened = useSelector((state: RootState) => state.page.isFeedbackFormOpened);
   const dispatch = useDispatch();
   const formClassName = cn('feedback-form__wrapper', {
     'feedback-form__wrapper--opened' : isFormOpened
@@ -52,7 +52,7 @@ export function FeedBackForm(): JSX.Element {
   const handleResetForm = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setShowSpinner(false);
-    dispatch(toggleModal({ isOpened: false }));
+    dispatch(toggleFeedbackForm({ isOpened: false }));
     setTimeout(() => {
       setFormSent(false);
     }, 500);
@@ -89,7 +89,7 @@ export function FeedBackForm(): JSX.Element {
           </>
          : 
           <>
-            <button className="feedback-form__close-btn" type="button" onClick={() => dispatch(toggleModal({isOpened: false}))}>
+            <button className="feedback-form__close-btn" type="button" onClick={() => dispatch(toggleFeedbackForm({isOpened: false}))}>
               <CloseCross/>
               <span className="visually-hidden">close</span>
             </button>

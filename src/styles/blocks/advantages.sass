@@ -3,16 +3,25 @@
 .advantages
   padding: 24px
   border-radius: 16px
-  background-image: url("/img/advantages-bg.png")
+  background-image: url("/img/advantages-bg.webp")
   background-repeat: no-repeat
   background-position: center
   background-size: cover
   @media (max-width: $mobile)
+    width: 100vw
+    padding: 16px
     margin-inline: -54px
+    border-radius: 0
+    &.section
+      margin-left: -20px
+      padding-inline: 0
   &__wrapper
     background-color: $basic-extra-light
     padding: 56px 40px
     border-radius: 16px
+    @media (max-width: $mobile)
+      padding: 20px
+      border-radius: 0
   &__list
     @include list-reset
     display: grid

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { FeedBackForm } from "../../feedback-form/feedback-form";
 import "../../../styles/blocks/feedback-form.sass"
 import { useDispatch } from "react-redux";
-import { toggleModal } from "../../../store/page/page-actions";
+import { toggleFeedbackForm } from "../../../store/page/page-actions";
 
 export function FeedbackSection(): JSX.Element {
   const dispatch = useDispatch();
@@ -15,7 +15,7 @@ export function FeedbackSection(): JSX.Element {
         <p className="feedback__description">For orders by phone:</p>
         <Link className="feedback__bold" to="tel:037770077">03-777-0077</Link>
         <span className="feedback__subtitle">(from 9 to 22 daily)</span>
-        <button className="feedback__btn button" onClick={() => dispatch(toggleModal({isOpened: true}))}>Feedback form</button>
+        <button className="feedback__btn button" onClick={() => dispatch(toggleFeedbackForm({isOpened: true}))}>Feedback form</button>
       </div>
       <FeedBackForm/>
     </section>

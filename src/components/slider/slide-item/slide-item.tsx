@@ -33,7 +33,12 @@ export function SlideItem({slide}: SlideProps): JSX.Element {
       <p className="slide__description">{slide.description}</p>
       <button className="slide__add-to-cart-btn button button--white" onClick={() => dispatch(addToCart({item: shopItems[activeSlide]}))}>Order</button>
       <div className='slide__image-wrapper'>
-        <img className={imageClassName} src={slide.image} alt={slide.title} width="306" height="507"/>
+        <picture>
+          <source className={imageClassName} srcSet={`${slide.image}.webp`} type="image/webp" width={306} height={507}/>
+          <source media="(min-width: 1170px)" srcSet={`${slide.image}.webp 1x, ${slide.image}@2x.webp 2x`} type="image/webp"/>
+          <source media="(min-width: 900px)" srcSet={`${slide.image}.webp 1x, ${slide.image}@2x.webp 2x`} type="image/webp"/>
+          <img src={`${slide.image}.png`}  alt={slide.title}/>
+        </picture> 
         <div className="slider__buttons">
           <button className="slider__btn button button--circle" onClick={() => dispatch(setActiveSlide({activeSlide: activeSlide - 1}))}>
             <ArrowPrev/>

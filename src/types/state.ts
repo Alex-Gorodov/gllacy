@@ -6,11 +6,12 @@ export type State = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 
 export type PageState = {
-  isCartOpened: boolean;
   cartItems: ShopItem[];
-  catalogType: IceCreamTypes | null;
+  catalogType: IceCreamTypes;
+  isCartOpened: boolean;
   isMenuOpened: boolean;
-  isModalOpened: boolean;
+  isFeedbackFormOpened: boolean;
+  isSearchOpened: boolean;
 }
 
 export type SliderState = {

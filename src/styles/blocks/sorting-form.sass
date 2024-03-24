@@ -1,0 +1,189 @@
+.sorting-form 
+  display: flex
+  flex-wrap: wrap
+  margin-bottom: 140px
+  align-items: center
+
+.sort-item 
+  display: flex
+  padding: 0
+  margin: 0
+  margin-bottom: 16px
+  flex-direction: column
+  border: none
+  font-size: 14px
+  line-height: 20px
+
+.sort-item:not(:last-child) 
+  margin-right: 24px
+
+.sort-item:nth-of-type(3) 
+  margin-right: 0
+
+.sorting-label 
+  margin-left: 16px
+  margin-bottom: 8px
+
+.sort-item select 
+  padding: 10.5px 16px
+  padding-right: 118px
+  background-color: rgba(252, 252, 252, 0.3)
+  background-image: url("../../img/icons/select-arrow.svg")
+  background-size: 10px 6px
+  background-repeat: no-repeat
+  background-position: 90% 50%
+  border: none
+  border-radius: 20px
+  appearance: none
+  -webkit-appearance: none
+  -moz-appearance: none
+
+.range-wrapper 
+  position: relative
+  display: block
+  width: 196px
+  background-color: rgba(252, 252, 252, 0.3)
+  border: none
+  border-radius: 20px
+  padding: 18px 16px
+
+.range-scale 
+  position: absolute
+  top: 50%
+  display: inline-block
+  height: 2px
+  width: 164px
+  background-color: #565C66
+  opacity: 0.3
+
+.range-bar 
+  position: absolute
+  top: 50%
+  left: 25%
+  background-color: #565C66
+  display: inline-block
+  height: 2px
+  width: 56px
+
+.range-toggle 
+  position: absolute
+  top: 50%
+  display: inline-block
+  width: 16px
+  height: 16px
+  padding: 0
+  background-color: $basic-extra-dark
+  border: none
+  border-radius: 50%
+  cursor: pointer
+
+.range-toggle::after 
+  content: ""
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translateX(-50%) translateY(-50%)
+  display: inline-block
+  width: 4px
+  height: 4px
+  background-color: #ffffff
+  border-radius: 50%
+
+.toggle-min 
+  left: 0
+  transform: translateX(-50%) translateY(-50%)
+
+.toggle-max 
+  left: 100%
+  transform: translateX(-50%) translateY(-50%)
+
+.fat-list 
+  display: flex
+  flex-wrap: wrap
+  margin: 0
+  list-style-type: none
+  background-color: rgba(252, 252, 252, 0.3)
+  border-radius: 20px
+  padding: 8px 16px
+
+.fat-list label 
+  display: flex
+  align-items: center
+
+.fats-mark 
+  display: inline-block
+  position: relative
+  width: 16px
+  height: 16px
+  background-color: transparent
+  border: 2px solid $basic-extra-dark
+  border-radius: 50%
+  margin-right: 8px
+
+.filters-item:not(:last-of-type) .fats-label 
+  margin-right: 16px
+  white-space: nowrap
+
+.fats-input:checked + .fats-mark::after 
+  position: absolute
+  top: 50%
+  left: 50%
+  display: block
+  width: 6px
+  height: 6px
+  transform: translateX(-50%) translateY(-50%)
+  background-color: $basic-extra-dark
+  border-radius: 50%
+  content: ""
+
+.toppings-list 
+  display: flex
+  flex-wrap: wrap
+  padding: 8px 45px
+  margin: 0
+  list-style-type: none
+  background-color: rgba(252, 252, 252, 0.3)
+  border-radius: 20px
+
+.toppings-list .filters-item 
+  margin-right: 17px
+
+.toppings-list label 
+  display: flex
+  align-items: center
+
+.toppings-input:not(:checked) + .toppings-mark 
+  display: inline-block
+  width: 16px
+  height: 16px
+  margin-right: 16px
+  background-color: transparent
+  background-image: url("../../img/icons/checkbox-unchecked.svg")
+  background-size: 16px 16px
+  background-repeat: no-repeat
+  background-position: center
+  transition: 0s
+
+.toppings-input:checked + .toppings-mark 
+  display: inline-block
+  width: 16px
+  height: 16px
+  margin-right: 16px
+  background-color: transparent
+  background-image: url("../../img/icons/checkbox-checked.svg")
+  background-size: 16px 16px
+  background-repeat: no-repeat
+  background-position: center  
+  transition: 0s
+  border: none
+  
+.form-btn 
+  display: inline-block
+  padding: 8.25px 84px
+  margin-top: 8px
+  vertical-align: middle
+  background-color: rgba(252, 252, 252, 0.3)
+  border: 2px solid #ffffff
+  border-radius: 20px
+  font-weight: 700
+  cursor: pointer
