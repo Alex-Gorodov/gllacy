@@ -71,13 +71,13 @@ export function SortingForm(): JSX.Element {
       <fieldset className="sort-item">
         <legend className="sorting-label">Price: {(leftPrice/10).toFixed(1)} $ – {(rightPrice/10).toFixed(1)} $</legend>
         <div className="range-wrapper">
-          <span className="range-scale"></span>
           <TwoThumbInputRange
             min={minPrice}
+            max={maxPrice}
             trackColor="#565C66"
             thumbColor="#2d3440"
             railColor="rgba(252, 252, 252, 0.3)"
-            max={maxPrice}
+            inputStyle={{width: '100%'}}
             values={[leftPrice, rightPrice]}
             showLabels={false}
             onChange={(values: [number, number]) => {
