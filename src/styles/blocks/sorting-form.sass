@@ -1,28 +1,41 @@
+@import '../../style'
+  
 .sorting-form 
   display: flex
   flex-wrap: wrap
   margin-bottom: 140px
   align-items: center
+  gap: 16px 24px
+  @media (max-width: $mobile)
+    justify-content: center
+
+  &__submit-btn.button.button--white
+    background-color: rgba($basic-light, 30%)
+    border: 2px solid $basic-light
+    outline: none
+    align-self: end
+    &:hover
+      background-color: $basic-light
+      border: 2px solid rgba($basic-light, 30%)
+      outline: none
+    @media (max-width: $mobile)
+      width: 100%
 
 .sort-item 
   display: flex
   padding: 0
   margin: 0
-  margin-bottom: 16px
   flex-direction: column
   border: none
   font-size: 14px
   line-height: 20px
-
-.sort-item:not(:last-child) 
-  margin-right: 24px
-
-.sort-item:nth-of-type(3) 
-  margin-right: 0
+  @media (max-width: $mobile)
+    width: 100%
 
 .sorting-label 
   margin-left: 16px
   margin-bottom: 8px
+  cursor: pointer
 
 .sort-item select 
   padding: 10.5px 16px
@@ -31,17 +44,17 @@
   background-image: url("../../img/icons/select-arrow.svg")
   background-size: 10px 6px
   background-repeat: no-repeat
-  background-position: 90% 50%
+  background-position: calc(100% - 16px) 50%
   border: none
   border-radius: 20px
   appearance: none
   -webkit-appearance: none
   -moz-appearance: none
+  cursor: pointer
 
 .range-wrapper 
   position: relative
   display: block
-  width: 196px
   background-color: rgba(252, 252, 252, 0.3)
   border: none
   border-radius: 20px
@@ -52,7 +65,7 @@
   top: 50%
   display: inline-block
   height: 2px
-  width: 164px
+  width: calc(100% - 32px)
   background-color: #565C66
   opacity: 0.3
 
@@ -63,7 +76,7 @@
   background-color: #565C66
   display: inline-block
   height: 2px
-  width: 56px
+  // width: 56px
 
 .range-toggle 
   position: absolute
@@ -76,6 +89,15 @@
   border: none
   border-radius: 50%
   cursor: pointer
+  transition: 0.3s
+  &:hover
+    background-color: rgba($basic-extra-dark, 50%)
+  &:active
+    width: 15px
+    height: 15px
+    &::after
+      width: 3.5px
+      height: 3.5px
 
 .range-toggle::after 
   content: ""
@@ -86,7 +108,7 @@
   display: inline-block
   width: 4px
   height: 4px
-  background-color: #ffffff
+  background-color: $white
   border-radius: 50%
 
 .toggle-min 
@@ -101,14 +123,18 @@
   display: flex
   flex-wrap: wrap
   margin: 0
+  gap: 8px
   list-style-type: none
   background-color: rgba(252, 252, 252, 0.3)
   border-radius: 20px
   padding: 8px 16px
+  @media (max-width: $mobile)
+    flex-direction: column
 
 .fat-list label 
   display: flex
   align-items: center
+  cursor: pointer
 
 .fats-mark 
   display: inline-block
@@ -121,7 +147,6 @@
   margin-right: 8px
 
 .filters-item:not(:last-of-type) .fats-label 
-  margin-right: 16px
   white-space: nowrap
 
 .fats-input:checked + .fats-mark::after 
@@ -134,23 +159,26 @@
   transform: translateX(-50%) translateY(-50%)
   background-color: $basic-extra-dark
   border-radius: 50%
+  cursor: pointer
   content: ""
 
 .toppings-list 
   display: flex
   flex-wrap: wrap
-  padding: 8px 45px
+  padding: 10px 16px
+  gap: 8px
   margin: 0
   list-style-type: none
   background-color: rgba(252, 252, 252, 0.3)
   border-radius: 20px
-
-.toppings-list .filters-item 
-  margin-right: 17px
+  @media (max-width: $mobile)
+    padding: 16px
+    flex-direction: column
 
 .toppings-list label 
   display: flex
   align-items: center
+  cursor: pointer
 
 .toppings-input:not(:checked) + .toppings-mark 
   display: inline-block
@@ -163,6 +191,7 @@
   background-repeat: no-repeat
   background-position: center
   transition: 0s
+  cursor: pointer
 
 .toppings-input:checked + .toppings-mark 
   display: inline-block

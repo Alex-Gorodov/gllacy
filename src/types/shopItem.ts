@@ -1,10 +1,4 @@
-// export type IceCreamTypes = 'creamy' | 'sorbet' | 'all';
-
-export enum IceCreamTypes {
-  All = 'all',
-  Creamy = 'creamy',
-  Sorbet = 'sorbet',
-}
+import { IceCreamTypes } from "../const";
 
 export type ShopItem = {
   id: string;

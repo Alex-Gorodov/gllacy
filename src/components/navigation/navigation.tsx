@@ -1,9 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
-import { AppRoute, MOBILE_WIDTH } from "../../const";
+import { AppRoute, IceCreamTypes, MOBILE_WIDTH } from "../../const";
 import { useState, useEffect } from "react";
 import cn from 'classnames';
 import { useResizeListener } from "../../hooks/useResizeListener";
-import { IceCreamTypes } from "../../types/shopItem";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/RootState";
 import { setCatalogType, toggleMobileMenu } from "../../store/page/page-actions";

@@ -1,6 +1,11 @@
-import { IceCreamTypes, ShopItem } from "../types/shopItem";
+import { IceCreamTypes } from "../const";
+import { ShopItem } from "../types/shopItem";
 
-export const shopItems: ShopItem[] = [
+function getRandomInt(min: number, max: number) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+const noFatsItems: ShopItem[] = [
   {
     id: "65c5160b91ea1662c851c29b",
     name: "malinka",
@@ -20,6 +25,15 @@ export const shopItems: ShopItem[] = [
     type: IceCreamTypes.Creamy
   },
   {
+    id: "65c51b1e91ea1662c851c2e3",
+    name: "watermelon",
+    description: "refreshing watermelon sorbet",
+    price: 3.4,
+    img: process.env.PUBLIC_URL + "/img/shop/item-12.webp",
+    fats: 10,
+    type: IceCreamTypes.Sorbet
+  },
+  {
     id: "65c519dd91ea1662c851c29e",
     name: "blueberry",
     description: "creme brulee with blueberry jam",
@@ -34,7 +48,7 @@ export const shopItems: ShopItem[] = [
     description: "vanilla ice cream with sweet sprinkles",
     price: 3.2,
     img: process.env.PUBLIC_URL + "/img/shop/item-4.webp",
-    fats: 10,
+    fats: 13,
     type: IceCreamTypes.Creamy
   },
   {
@@ -61,7 +75,7 @@ export const shopItems: ShopItem[] = [
     description: "classic chocolate ice cream",
     price: 2.7,
     img: process.env.PUBLIC_URL + "/img/shop/item-7.webp",
-    fats: 10,
+    fats: 21,
     type: IceCreamTypes.Creamy
   },
   {
@@ -245,6 +259,15 @@ export const shopItems: ShopItem[] = [
     type: IceCreamTypes.Creamy
   },
   {
+    id: "65c51b1e91ea1662c851c2e5",
+    name: "mango",
+    description: "exotic mango sorbet",
+    price: 3.6,
+    img: process.env.PUBLIC_URL + "/img/shop/item-3.webp",
+    fats: 10,
+    type: IceCreamTypes.Sorbet
+  },
+  {
     id: "65c51b1e91ea1662c851c2b7",
     name: "rocky road",
     description: "chocolate ice cream with marshmallows and nuts",
@@ -279,6 +302,15 @@ export const shopItems: ShopItem[] = [
     img: process.env.PUBLIC_URL + "/img/shop/item-7.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
+  },
+  {
+    id: "65c51b1e91ea1662c851c2e2",
+    name: "strawberry",
+    description: "delicious strawberry sorbet",
+    price: 3.3,
+    img: process.env.PUBLIC_URL + "/img/shop/item-11.webp",
+    fats: 10,
+    type: IceCreamTypes.Sorbet
   },
   {
     id: "65c51b1e91ea1662c851c2bb",
@@ -414,6 +446,15 @@ export const shopItems: ShopItem[] = [
     img: process.env.PUBLIC_URL + "/img/shop/item-10.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
+  },
+  {
+    id: "65c51b1e91ea1662c851c2e4",
+    name: "pineapple",
+    description: "tropical pineapple sorbet",
+    price: 3.5,
+    img: process.env.PUBLIC_URL + "/img/shop/item-8.webp",
+    fats: 10,
+    type: IceCreamTypes.Sorbet
   },
   {
     id: "65c51b1e91ea1662c851c2ca",
@@ -621,5 +662,27 @@ export const shopItems: ShopItem[] = [
     img: process.env.PUBLIC_URL + "/img/shop/item-9.webp",
     fats: 10,
     type: IceCreamTypes.Creamy
-  }
+  },
+  {
+    id: "65c51b1e91ea1662c851c2e1",
+    name: "orange",
+    description: "zingy orange sorbet",
+    price: 3.2,
+    img: process.env.PUBLIC_URL + "/img/shop/item-10.webp",
+    fats: 10,
+    type: IceCreamTypes.Sorbet
+  },
+  
 ]
+export const shopItems = noFatsItems.map(item => {
+  let fatsRange = [8, 42];
+  
+  if (item.type === IceCreamTypes.Sorbet) {
+    fatsRange = [0, 3];
+  }
+  
+  return {
+    ...item,
+    fats: getRandomInt(fatsRange[0], fatsRange[1])
+  };
+});

@@ -1,12 +1,12 @@
 import {ReactComponent as SliderArrowPrev} from '../../img/icons/slider-arrow-prev.svg'
 import {ReactComponent as SliderArrowNext} from '../../img/icons/slider-arrow-next.svg'
-import { shopItems } from "../../mocks/shopItems";
-import { IceCreamTypes } from '../../types/shopItem';
+
+
 import { Good } from "../home/shop-section/good";
 import { useEffect, useState } from "react";
 import cn from 'classnames';
 import { Link } from 'react-router-dom';
-import { AppRoute, ITEMS_BY_PAGE, SPINNER_TIMEOUT } from '../../const';
+import { AppRoute, ITEMS_BY_PAGE, IceCreamTypes, SPINNER_TIMEOUT } from '../../const';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/RootState';
 import { Spinner } from '../spinner/spinner';
@@ -19,6 +19,7 @@ export function Catalog(): JSX.Element {
 
   const dispatch = useDispatch();
   const iceCreamType = useSelector((state: RootState) => state.page.catalogType);
+  const shopItems = useSelector((state: RootState) => state.page.catalog);
   const [isLoading, setIsLoading] = useState(false);
   const [itemsByPage, setItemsByPage] = useState(ITEMS_BY_PAGE);
   const [pagesNum, setPagesNum] = useState(Math.round(

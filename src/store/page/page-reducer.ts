@@ -1,13 +1,14 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { PageState } from "../../types/state";
-import { addToCart, removeFromCart, setCatalogType, toggleCart, toggleMobileMenu, toggleFeedbackForm, toggleSearch } from "./page-actions";
+import { addToCart, removeFromCart, setCatalogType, toggleCart, toggleMobileMenu, toggleFeedbackForm, toggleSearch, sortCatalog, filterByFat } from "./page-actions";
 import { shopItems } from "../../mocks/shopItems";
-import { IceCreamTypes } from "../../types/shopItem";
+import { FatsAmount, IceCreamTypes, SortTypes } from "../../const";
 
 const initialState: PageState = {
+  catalog: shopItems,
   cartItems: [
-    {...shopItems[0], amountInCart: 1},
-    {...shopItems[3], amountInCart: 1.5},
+    { ...shopItems[0], amountInCart: 1 },
+    { ...shopItems[3], amountInCart: 1.5 },
   ],
   isCartOpened: false,
   catalogType: IceCreamTypes.All,
@@ -58,4 +59,42 @@ export const PageReducer = createReducer(initialState, (builder) => {
       const {isOpened} = action.payload;
       state.isSearchOpened = isOpened;
     })
+    .addCase(sortCatalog, (state, action) => {
+      const { sortBy } = action.payload;
+      switch (sortBy) {
+        case SortTypes.Fats:
+          state.catalog.sort((a, b) => a.fats - b.fats);
+          break;
+        case SortTypes.Price:
+          state.catalog.sort((a, b) => a.price - b.price);
+          break;
+        default:
+          state.catalog = shopItems;
+          break;
+      }
+    })
+    .addCase(filterByFat, (state, action) => {
+      const { fat } = action.payload;
+      switch (fat) {
+        case FatsAmount.NoFats:
+          state.catalog = shopItems
+          state.catalog = state.catalog.filter((item) => item.fats === FatsAmount.NoFats)
+          break;
+        case FatsAmount.Ten:
+          state.catalog = shopItems
+          state.catalog = state.catalog.filter((item) => item.fats <= FatsAmount.Ten)
+          break;
+        case FatsAmount.Thirty:
+          state.catalog = shopItems
+          state.catalog = state.catalog.filter((item) => item.fats <= FatsAmount.Thirty)
+          break;
+        case FatsAmount.More:
+          state.catalog = shopItems
+          state.catalog = state.catalog.filter((item) => item.fats >= FatsAmount.More)
+          break;
+        default:
+          state.catalog = shopItems;
+      }
+    })
+    
 })

@@ -15,6 +15,25 @@ export enum BackgroundColors {
   thirdSlide = '#fcc850'
 }
 
+export enum IceCreamTypes {
+  All = 'all',
+  Creamy = 'creamy',
+  Sorbet = 'sorbet',
+}
+
+export enum SortTypes {
+  Popular = 'popular',
+  Price = 'price',
+  Fats = 'fats'
+}
+
+export enum FatsAmount {
+  NoFats = 0,
+  Ten = 10,
+  Thirty = 30,
+  More = 31,
+}
+
 export const ITEMS_BY_PAGE = 12;
 
 export const MOBILE_WIDTH = 900;
