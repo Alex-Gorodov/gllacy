@@ -1,6 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { PageState } from "../../types/state";
-import { addToCart, removeFromCart, setCatalogType, toggleCart, toggleMobileMenu, toggleFeedbackForm, toggleSearch, sortCatalog, filterByFat } from "./page-actions";
+import { addToCart, removeFromCart, setCatalogType, toggleCart, toggleMobileMenu, toggleFeedbackForm, toggleSearch, sortCatalog, filterByFat, filterByPrice } from "./page-actions";
 import { shopItems } from "../../mocks/shopItems";
 import { FatsAmount, IceCreamTypes, SortTypes } from "../../const";
 
@@ -78,23 +78,44 @@ export const PageReducer = createReducer(initialState, (builder) => {
       switch (fat) {
         case FatsAmount.NoFats:
           state.catalog = shopItems
-          state.catalog = state.catalog.filter((item) => item.fats === FatsAmount.NoFats)
+          state.catalog.length
+          ?
+            state.catalog = state.catalog.filter((item) => item.fats === FatsAmount.NoFats)
+          :
+            state.catalog = []
           break;
         case FatsAmount.Ten:
           state.catalog = shopItems
-          state.catalog = state.catalog.filter((item) => item.fats <= FatsAmount.Ten)
+          state.catalog.length
+          ?
+            state.catalog = state.catalog.filter((item) => item.fats <= FatsAmount.Ten)
+          :
+            state.catalog = []
           break;
         case FatsAmount.Thirty:
           state.catalog = shopItems
-          state.catalog = state.catalog.filter((item) => item.fats <= FatsAmount.Thirty)
+          state.catalog.length
+          ?
+            state.catalog = state.catalog.filter((item) => item.fats <= FatsAmount.Thirty)
+          :
+            state.catalog = []
           break;
         case FatsAmount.More:
           state.catalog = shopItems
-          state.catalog = state.catalog.filter((item) => item.fats >= FatsAmount.More)
+          state.catalog.length
+          ?
+            state.catalog = state.catalog.filter((item) => item.fats >= FatsAmount.More)
+          :
+            state.catalog = []
           break;
         default:
           state.catalog = shopItems;
       }
     })
+    .addCase(filterByPrice, (state, action) => {
+      const { min, max } = action.payload;
+      state.catalog = state.catalog.filter(item => item.price >= min / 10 && item.price <= max / 10);
+    })
+    
     
 })

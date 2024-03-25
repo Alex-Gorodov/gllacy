@@ -1,17 +1,15 @@
 import {ReactComponent as SliderArrowPrev} from '../../img/icons/slider-arrow-prev.svg'
 import {ReactComponent as SliderArrowNext} from '../../img/icons/slider-arrow-next.svg'
-
-
-import { Good } from "../home/shop-section/good";
-import { useEffect, useState } from "react";
-import cn from 'classnames';
-import { Link } from 'react-router-dom';
 import { AppRoute, ITEMS_BY_PAGE, IceCreamTypes, SPINNER_TIMEOUT } from '../../const';
+import { setCatalogType } from '../../store/page/page-actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/RootState';
+import { Good } from "../home/shop-section/good";
 import { Spinner } from '../spinner/spinner';
 import { SortingForm } from './sorting-form';
-import { setCatalogType } from '../../store/page/page-actions';
+import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
+import cn from 'classnames';
 
 export function Catalog(): JSX.Element {
 
@@ -54,23 +52,30 @@ export function Catalog(): JSX.Element {
       </ul>
       <h2 className="title title--2 catalog__title">{iceCreamType} Ice Cream</h2>
       <SortingForm/>
-      <ul className="products__list">
-        {
-          iceCreamType === IceCreamTypes.All
-          ?
-          shopItems.slice(itemsByPage * (page - 1), itemsByPage * page).map((item) => {
-            return (
-              <Good item={item} key={item.id}/>
-            )
-          })
-          :
-          shopItems.filter((item) => item.type === iceCreamType).slice(itemsByPage * (page - 1), itemsByPage * page).map((item) => {
-            return (
-              <Good item={item} key={item.id}/>
-            )
-          })
-        }
-      </ul>
+      {
+        shopItems.length ?
+        <ul className="products__list">
+          {
+            iceCreamType === IceCreamTypes.All
+            ?
+            shopItems.slice(itemsByPage * (page - 1), itemsByPage * page).map((item) => {
+              return (
+                <Good item={item} key={item.id}/>
+              )
+            })
+            :
+            shopItems.filter((item) => item.type === iceCreamType).slice(itemsByPage * (page - 1), itemsByPage * page).map((item) => {
+              return (
+                <Good item={item} key={item.id}/>
+              )
+            })
+          }
+        </ul>
+        :
+        <p className="catalog__error-message">
+          Oops! It seems like there are no products that match your current filter settings. You might want to tweak your filters a bit or check back later. Thanks for understanding!
+        </p>
+      }
       {
         itemsByPage &&
         <div className="catalog__buttons-wrapper">

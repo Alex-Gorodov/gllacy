@@ -19,3 +19,5 @@ export const toggleSearch = createAction<{ isOpened: boolean }>('page/toggleSear
 export const sortCatalog = createAction<{ sortBy: SortTypes }>('page/sortCatalog');
 
 export const filterByFat = createAction<{ fat: FatsAmount }>('page/filterByFat');
+
+export const filterByPrice = createAction<{ min: number, max: number}>('page/filterByPrice');

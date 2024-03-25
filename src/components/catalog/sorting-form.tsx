@@ -4,14 +4,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/RootState";
 import { FatsAmount, SortTypes } from "../../const";
 import { filterByFat, sortCatalog } from "../../store/page/page-actions";
+import { TwoThumbInputRange } from "react-two-thumb-input-range";
 
 export function SortingForm(): JSX.Element {
   const dispatch = useDispatch();
   const shopItems = useSelector((state: RootState) => state.page.catalog);
 
   const [sortType, setSortType] = useState<SortTypes>(SortTypes.Popular);
-  const [leftPrice, setLeftPrice] = useState(3.0);
-  const [rightPrice, setRightPrice] = useState(3.5);
+  
+  const [leftPrice, setLeftPrice] = useState(30);
+  const [rightPrice, setRightPrice] = useState(35);
+
+  const [formData, setFormData] = useState({
+    sorting: SortTypes.Popular,
+    fat: FatsAmount.Ten,
+    toppings: null,
+  });
 
   const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const sortBy = event.target.value as SortTypes;
@@ -19,19 +27,36 @@ export function SortingForm(): JSX.Element {
     dispatch(sortCatalog({ sortBy }));
   };
 
+  const handleResetForm = (e: React.FormEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setSortType(SortTypes.Popular);
+    setLeftPrice(30);
+    setRightPrice(35);
+    setFormData({
+      sorting: SortTypes.Popular,
+      fat: FatsAmount.Ten,
+      toppings: null,
+    });
+    dispatch(sortCatalog({sortBy: SortTypes.Popular}))
+  };
+
   const handleFatsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const fat = Number(event.target.value);
+    setFormData({
+      ...formData,
+      fat: fat
+    })
     dispatch(filterByFat({ fat }));
-  }
+  };
 
   function sortByPrice(a: ShopItem, b: ShopItem) {
     return a.price - b.price;
   }
   const sortedItems = [...shopItems];
-  
-  const minPrice = sortedItems.sort(sortByPrice)[0].price;
-  const maxPrice = sortedItems.sort(sortByPrice)[sortedItems.length - 1].price;
-  const priceRange = Math.ceil(maxPrice - minPrice).toFixed(1);
+
+  const minPrice = sortedItems.length ? sortedItems.sort(sortByPrice)[0].price * 10 : 0;
+  const maxPrice = sortedItems.length ? sortedItems.sort(sortByPrice)[sortedItems.length - 1].price * 10 : 0;
+
   return (
     <form className="sorting-form" action="https://echo.htmlacademy.ru/" method="get">
       <fieldset className="sort-item">
@@ -42,57 +67,60 @@ export function SortingForm(): JSX.Element {
           <option value={SortTypes.Fats}>by fats</option>
         </select>
       </fieldset>
+    
       <fieldset className="sort-item">
-        <legend className="sorting-label">Price: {leftPrice.toFixed(1)} $ – {rightPrice.toFixed(1)} $</legend>
+        <legend className="sorting-label">Price: {(leftPrice/10).toFixed(1)} $ – {(rightPrice/10).toFixed(1)} $</legend>
         <div className="range-wrapper">
           <span className="range-scale"></span>
-          {/* <input type="range" name="range-scale" id="range-scale" min={minPrice} max={maxPrice} step={0.1}/> */}
-          <div className="range-bar" style={{
-            width: `60px`
-            // width: `calc(${maxPrice - minPrice} / ${priceRange} * 100%)`
-          }}>
-            <div className="range-toggle-wrapper left-toggle">
-              <button className="range-toggle toggle-min" type="button">
-                <span className="visually-hidden">Change minimal price.</span>
-              </button>
-              {/* <label className="range-label min-label" htmlFor="lowest-price"></label> */}
-            </div>
-            <div className="range-toggle-wrapper right-toggle">
-              <button className="range-toggle toggle-max" type="button">
-                <span className="visually-hidden">Change maximal price.</span>
-              </button>
-              {/* <label className="range-label max-label" htmlFor="highest-price"></label> */}
-            </div>
-          </div>
+          <TwoThumbInputRange
+            min={minPrice}
+            trackColor="#565C66"
+            thumbColor="#2d3440"
+            railColor="rgba(252, 252, 252, 0.3)"
+            max={maxPrice}
+            values={[leftPrice, rightPrice]}
+            showLabels={false}
+            onChange={(values: [number, number]) => {
+              setLeftPrice(values[0]);
+              setRightPrice(values[1]);
+              if (values[0] + 1 > values[1]) {
+                setRightPrice(values[1] + 1)
+              }
+              if (values[1] - 1 < values[0]) {
+                setLeftPrice(values[0] - 1)
+              }
+            }}
+          />
         </div>
       </fieldset>
+
       <fieldset className="sort-item">
         <legend className="sorting-label">Fat:</legend>
         <ul className="fat-list">
           <li className="filters-item">
             <label htmlFor="zero-fats">
-              <input type="radio" id="zero-fats" value={FatsAmount.NoFats} onChange={handleFatsChange} name="percent of fat" className="fats-input visually-hidden"/>
+              <input type="radio" id="zero-fats" value={FatsAmount.NoFats} onChange={handleFatsChange} name="percent of fat" checked={formData.fat === FatsAmount.NoFats} className="fats-input visually-hidden"/>
               <span className="fats-mark"></span>
               <span className="fats-label">0%</span>
             </label>
           </li>
           <li className="filters-item">
             <label htmlFor="under-ten-fats">
-              <input type="radio" id="under-ten-fats" value={FatsAmount.Ten} onChange={handleFatsChange} name="percent of fat" className="fats-input visually-hidden"/>
+              <input type="radio" id="under-ten-fats" value={FatsAmount.Ten} onChange={handleFatsChange} name="percent of fat" checked={formData.fat === FatsAmount.Ten} className="fats-input visually-hidden"/>
               <span className="fats-mark"></span>
               <span className="fats-label">Under 10%</span>
             </label>
           </li>
           <li className="filters-item">
             <label htmlFor="under-thirty-fats">
-              <input type="radio" id="under-thirty-fats" value={FatsAmount.Thirty} onChange={handleFatsChange} name="percent of fat" className="fats-input visually-hidden"/>
+              <input type="radio" id="under-thirty-fats" value={FatsAmount.Thirty} onChange={handleFatsChange} name="percent of fat" checked={formData.fat === FatsAmount.Thirty} className="fats-input visually-hidden"/>
               <span className="fats-mark"></span>
               <span className="fats-label">Under 30%</span>
             </label>
           </li>
           <li className="filters-item">
             <label htmlFor="above-thirty-fats">
-              <input type="radio" id="above-thirty-fats" value={FatsAmount.More} onChange={handleFatsChange} name="percent of fat" className="fats-input visually-hidden"/>
+              <input type="radio" id="above-thirty-fats" value={FatsAmount.More} onChange={handleFatsChange} name="percent of fat" checked={formData.fat === FatsAmount.More} className="fats-input visually-hidden"/>
               <span className="fats-mark"></span>
               <span className="fats-label">Above 30%</span>
             </label>
@@ -139,7 +167,56 @@ export function SortingForm(): JSX.Element {
           </li>
         </ul>
       </fieldset>
-      <button className="button button--white sorting-form__submit-btn" type="submit">Submit</button>
+      <button className="button button--white sorting-form__submit-btn" type="button" onClick={handleResetForm}>Reset</button>
     </form>
   )
 }
+
+
+
+
+
+
+
+
+  // const dispatch = useDispatch();
+  // const shopItems = useSelector((state: RootState) => state.page.catalog);
+
+  // const [sortType, setSortType] = useState<SortTypes>(SortTypes.Popular);
+  // const [leftPrice, setLeftPrice] = useState(3.0);
+  // const [rightPrice, setRightPrice] = useState(3.5);
+
+  // const [formData, setFormData] = useState({
+  //   sorting: SortTypes.Popular,
+  //   fat: null,
+  //   toppings: null,
+  // })
+
+  // const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  //   const sortBy = event.target.value as SortTypes;
+  //   setSortType(sortBy);
+  //   dispatch(sortCatalog({ sortBy }));
+  // };
+
+  // const handleResetForm = (e: React.FormEvent<HTMLButtonElement>) => {
+  //   e.preventDefault();
+  //   setFormData({
+  //     sorting: SortTypes.Popular,
+  //     fat: null,
+  //     toppings: null
+  //   })
+  // }
+
+  // const handleFatsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   const fat = Number(event.target.value);
+  //   dispatch(filterByFat({ fat }));
+  // }
+
+  // function sortByPrice(a: ShopItem, b: ShopItem) {
+  //   return a.price - b.price;
+  // }
+  // const sortedItems = [...shopItems];
+  
+  // const minPrice = sortedItems.length ? sortedItems.sort(sortByPrice)[0].price : 0;
+  // const maxPrice = sortedItems.length ? sortedItems.sort(sortByPrice)[sortedItems.length - 1].price : 0;
+  // const priceRange = Math.ceil(maxPrice - minPrice).toFixed(1);
