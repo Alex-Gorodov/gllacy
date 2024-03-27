@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/gllacy/static/css/main.45be1370.css",
-    "main.js": "/gllacy/static/js/main.8428c9cc.js",
+    "main.css": "/gllacy/static/css/main.a21de717.css",
+    "main.js": "/gllacy/static/js/main.405ebbf5.js",
     "static/media/delivery-bg.webp": "/gllacy/static/media/delivery-bg.fa85605c7de500348137.webp",
     "static/media/not-found.webp": "/gllacy/static/media/not-found.d384714da5b31f60a7af.webp",
     "static/media/advantages-bg.webp": "/gllacy/static/media/advantages-bg.e6cdd27faa385e0638bf.webp",
@@ -11,10 +11,10 @@
     "static/media/blog-bg.webp": "/gllacy/static/media/blog-bg.52874e8a6e01135e7e01.webp",
     "static/media/Instagram.svg": "/gllacy/static/media/Instagram.a048d2ec0b675527be458604a09ec896.svg",
     "static/media/vk.svg": "/gllacy/static/media/vk.cffb7a6aa5ac29629209e49ad46484e9.svg",
-    "static/media/checkbox-checked.svg": "/gllacy/static/media/checkbox-checked.327f2d7075590b899eaa.svg",
+    "static/media/checkbox-checked.svg": "/gllacy/static/media/checkbox-checked.c165ea5007e4895aa515.svg",
     "static/media/cart.svg": "/gllacy/static/media/cart.47e5f919d8e7d5c31d9f1be3f3fa082a.svg",
     "static/media/product-cart.svg": "/gllacy/static/media/product-cart.2e7bd412546938353d4ab0fc84ec8f90.svg",
-    "static/media/checkbox-unchecked.svg": "/gllacy/static/media/checkbox-unchecked.6d362fa4a3cca5b965a7.svg",
+    "static/media/checkbox-unchecked.svg": "/gllacy/static/media/checkbox-unchecked.69311207e595a97b4f59.svg",
     "static/media/login.svg": "/gllacy/static/media/login.29b1ea6687d1f18e33755b0dd985cddf.svg",
     "index.html": "/gllacy/index.html",
     "static/media/search.svg": "/gllacy/static/media/search.3ade7be7d90bab040c99fb22deecc287.svg",
@@ -24,11 +24,11 @@
     "static/media/slider-arrow-prev.svg": "/gllacy/static/media/slider-arrow-prev.513d6848cb3d078072545473a823aeb3.svg",
     "static/media/slider-arrow-next.svg": "/gllacy/static/media/slider-arrow-next.7dabf49da5c17c8710becab8411ba38d.svg",
     "static/media/facebook.svg": "/gllacy/static/media/facebook.18ce47ddc8ba909b2c5a0a2930c1328a.svg",
-    "main.45be1370.css.map": "/gllacy/static/css/main.45be1370.css.map",
-    "main.8428c9cc.js.map": "/gllacy/static/js/main.8428c9cc.js.map"
+    "main.a21de717.css.map": "/gllacy/static/css/main.a21de717.css.map",
+    "main.405ebbf5.js.map": "/gllacy/static/js/main.405ebbf5.js.map"
   },
   "entrypoints": [
-    "static/css/main.45be1370.css",
-    "static/js/main.8428c9cc.js"
+    "static/css/main.a21de717.css",
+    "static/js/main.405ebbf5.js"
   ]
 }
