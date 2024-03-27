@@ -1,6 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { PageState } from "../../types/state";
-import { addToCart, removeFromCart, setCatalogType, toggleCart, toggleMobileMenu, toggleFeedbackForm, toggleSearch, sortCatalog, filterByFat, filterByPrice } from "./page-actions";
+import { addToCart, removeFromCart, setCatalogType, toggleCart, toggleMobileMenu, toggleFeedbackForm, toggleSearch, sortCatalog, filterByFat, filterByPrice, refreshCatalog } from "./page-actions";
 import { shopItems } from "../../mocks/shopItems";
 import { FatsAmount, IceCreamTypes, SortTypes } from "../../const";
 
@@ -114,8 +114,17 @@ export const PageReducer = createReducer(initialState, (builder) => {
     })
     .addCase(filterByPrice, (state, action) => {
       const { min, max } = action.payload;
-      state.catalog = state.catalog.filter(item => item.price >= min / 10 && item.price <= max / 10);
+      state.catalog = 
+        state.catalog.filter(item => item.price >= min / 10 && item.price <= max / 10).length
+        ?
+        state.catalog.filter(item => item.price >= min / 10 && item.price <= max / 10)
+        :
+        [];
     })
-    
-    
+    .addCase(refreshCatalog, (state, action) => {
+      const {min, max, fat} = action.payload;
+      state.catalog = shopItems.filter(
+        item => item.price >= min / 10 && item.price <= max / 10 && item.fats <= fat
+      )
+    })
 })

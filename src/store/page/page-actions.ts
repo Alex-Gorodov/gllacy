@@ -21,3 +21,5 @@ export const sortCatalog = createAction<{ sortBy: SortTypes }>('page/sortCatalog
 export const filterByFat = createAction<{ fat: FatsAmount }>('page/filterByFat');
 
 export const filterByPrice = createAction<{ min: number, max: number}>('page/filterByPrice');
+
+export const refreshCatalog = createAction<{min: number, max: number, fat: FatsAmount}>('page/refreshCatalog');
