@@ -122,9 +122,10 @@ export const PageReducer = createReducer(initialState, (builder) => {
         [];
     })
     .addCase(refreshCatalog, (state, action) => {
-      const {min, max, fat} = action.payload;
+      const {min, max, fat, sorting} = action.payload;
       state.catalog = shopItems.filter(
         item => item.price >= min / 10 && item.price <= max / 10 && item.fats <= fat
       )
+      sortCatalog({sortBy: sorting})
     })
 })

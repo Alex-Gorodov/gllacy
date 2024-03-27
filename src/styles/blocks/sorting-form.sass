@@ -91,6 +91,15 @@
   border: 2px solid $basic-extra-dark
   border-radius: 50%
   margin-right: 8px
+  transition: 0.3s
+
+.fats-input:hover + .fats-mark
+  border-color: $white
+
+.fats-input:checked:hover + .fats-mark
+  border-color: $white
+  &::after
+    background-color: $white
 
 .filters-item:not(:last-of-type) .fats-label 
   white-space: nowrap
@@ -152,6 +161,12 @@
   transition: 0s
   border: none
   
+.toppings-input:hover
+  color: red  
+  
+.toppings-mark:hover
+  color: red
+
 .form-btn 
   display: inline-block
   padding: 8.25px 84px

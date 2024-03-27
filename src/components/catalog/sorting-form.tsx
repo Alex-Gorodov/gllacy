@@ -32,7 +32,7 @@ export function SortingForm(): JSX.Element {
     const max = sortedItems.length !== 0 ? sortedItems.sort(sortByPrice)[sortedItems.length - 1].price * 10 : 33;
     setLeftPrice(min);
     setRightPrice(max);
-    dispatch(filterByPrice({ min: min, max: max }));
+    // dispatch(filterByPrice({ min: min, max: max }));
   }
 
   const [formData, setFormData] = useState({
@@ -54,13 +54,13 @@ export function SortingForm(): JSX.Element {
     e.preventDefault();
     setSortType(SortTypes.Popular);
     setFormData({
-      sorting: SortTypes.Popular,
+      sorting: sortType,
       fat: FatsAmount.Ten,
       priceRange: [30, 35],
       toppings: null,
     });
     clearRange();
-    dispatch(sortCatalog({sortBy: SortTypes.Popular}))
+    dispatch(sortCatalog({sortBy: sortType}))
   };
 
   const handleFatsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -68,17 +68,20 @@ export function SortingForm(): JSX.Element {
     const fat = Number(event.target.value);
     setFormData({
       ...formData,
+      sorting: sortType,
       priceRange: [31,32],
       fat: fat
     })
     clearRange();
     dispatch(filterByFat({ fat }));
+    dispatch(sortCatalog({ sortBy: sortType }));
+    dispatch(refreshCatalog({min, max, fat: fat, sorting: sortType}))
   };
 
   const handlePriceRangeChange = (min: number, max: number) => {
     setInitialShopItems(shopItems)
     dispatch(filterByPrice({min, max}))
-    dispatch(refreshCatalog({min, max, fat: formData.fat}))
+    dispatch(refreshCatalog({min, max, fat: formData.fat, sorting: sortType}))
   }
 
   return (
@@ -99,17 +102,14 @@ export function SortingForm(): JSX.Element {
             min={min}
             max={max}
             trackColor="#565C66"
-            thumbColor="#2d3440"
+            thumbColor="radial-gradient(circle at center, white 25%, #2d3440 25%, #2d3440 100%)"
+            thumbStyle={{transition: '0.3s'}}
+            thumbFocusStyle={{background: 'radial-gradient(circle at center, #2d3440 25%, white 25%, white 100%)', outline: '2px solid #2d3440'}}
             railColor="#fcfcfc4d"
             inputStyle={{width: '100%'}}
             values={[leftPrice, rightPrice]}
             showLabels={false}
             onChange={(values: [number, number]) => {
-              console.log(
-                'left: ' + leftPrice,
-                'right: ' + rightPrice
-              );
-              
               setLeftPrice(values[0])
               setRightPrice(values[1])
               if (values[0] + 1 > values[1]) {
