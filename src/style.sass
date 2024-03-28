@@ -29,6 +29,8 @@ $z-pagination: 5
 $z-mobile-menu: 10
 $z-burger-btn: 15
 $z-modal: 20
+
+$slide-transition: 0.7s
   
 @mixin list-reset
   padding: 0
@@ -61,6 +63,14 @@ $z-modal: 20
     transform: translateX(3px)
   100%
     transform: translateX(0)
+
+@keyframes slide-loading
+  0%
+    opacity: 0
+    transform: translateY(-40px)
+  100%
+    opacity: 1
+    transform: translateY(0)
 
 *,
 *::before,
@@ -133,3 +143,7 @@ body
   max-width: 1170px
   @media (min-width: $tablet)
     margin: auto
+
+.loading
+  animation-name: slide-loading
+  animation-duration: $slide-transition

@@ -1,13 +1,18 @@
 @import '../../../style'
 
 .slide
-  max-width: 803px
-  display: grid
-  grid-template-columns: auto 312px
-  grid-template-rows: 220px 100px 2fr
-  align-items: center
-  // margin-left: 5%
-
+  &__wrapper
+    max-width: 803px
+    display: grid
+    grid-template-columns: auto 312px
+    grid-template-rows: 220px 100px 2fr
+    align-items: center
+    @media(max-width: $desktop)
+      grid-template-columns: 1fr
+      grid-template-rows: 8em 1fr auto min-content
+      justify-items: center
+      margin: 0
+  
   &__title
     @include font-black
     padding-right: 40px
@@ -27,6 +32,7 @@
     grid-column: 1
     width: 140px
     height: 32px
+    margin: auto 0
     align-self: start
     background-color: $basic-extra-light
     outline: $btn-outline
@@ -39,15 +45,7 @@
       color: $basic-extra-dark
       outline: 2px solid $basic-extra-dark
   &__image
-    transform: translateY(0)
-    opacity: 1
-    transition: all 1s, opacity 0.5s
-    &--loading
-      transform: translateY(-200px)
-      opacity: 0
-    &--animated
-      transform: scale(0.261, 0.296)
-      opacity: 0
+    transition: $slide-transition
     &-wrapper
       position: relative
       grid-column: 2
@@ -64,12 +62,7 @@
         border-radius: 50%
         z-index: $z-before
       
-
   @media(max-width: $desktop)
-    grid-template-columns: 1fr
-    grid-template-rows: 8em 1fr auto min-content
-    justify-items: center
-    margin: 0
     &__title
       max-width: 100%
       padding: 0
@@ -88,4 +81,5 @@
       grid-column: 1
       grid-row: 2
     &__add-to-cart-btn
+      margin: 0
       align-self: center
