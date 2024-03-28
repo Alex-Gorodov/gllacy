@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/gllacy/static/css/main.bc309b2a.css",
-    "main.js": "/gllacy/static/js/main.a38ee9d7.js",
+    "main.css": "/gllacy/static/css/main.64085ccb.css",
+    "main.js": "/gllacy/static/js/main.00b4e743.js",
     "static/media/delivery-bg.webp": "/gllacy/static/media/delivery-bg.fa85605c7de500348137.webp",
     "static/media/not-found.webp": "/gllacy/static/media/not-found.d384714da5b31f60a7af.webp",
     "static/media/advantages-bg.webp": "/gllacy/static/media/advantages-bg.e6cdd27faa385e0638bf.webp",
@@ -24,11 +24,11 @@
     "static/media/slider-arrow-prev.svg": "/gllacy/static/media/slider-arrow-prev.513d6848cb3d078072545473a823aeb3.svg",
     "static/media/slider-arrow-next.svg": "/gllacy/static/media/slider-arrow-next.7dabf49da5c17c8710becab8411ba38d.svg",
     "static/media/facebook.svg": "/gllacy/static/media/facebook.18ce47ddc8ba909b2c5a0a2930c1328a.svg",
-    "main.bc309b2a.css.map": "/gllacy/static/css/main.bc309b2a.css.map",
-    "main.a38ee9d7.js.map": "/gllacy/static/js/main.a38ee9d7.js.map"
+    "main.64085ccb.css.map": "/gllacy/static/css/main.64085ccb.css.map",
+    "main.00b4e743.js.map": "/gllacy/static/js/main.00b4e743.js.map"
   },
   "entrypoints": [
-    "static/css/main.bc309b2a.css",
-    "static/js/main.a38ee9d7.js"
+    "static/css/main.64085ccb.css",
+    "static/js/main.00b4e743.js"
   ]
 }
