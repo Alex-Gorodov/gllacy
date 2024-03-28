@@ -92,12 +92,19 @@ export function Catalog(): JSX.Element {
               }, SPINNER_TIMEOUT);
             }}
           >
-            Show more
             {
-              isLoading && 
-              <span className='catalog__spinner'>
-                <Spinner size='20' color='#2d3440'/>
-              </span>
+              isLoading
+                ?
+                <>
+                Loading...
+                <span className='catalog__spinner'>
+                  <Spinner size='16' color='#2d3440'/>
+                </span>
+                </>
+                :
+                <>
+                  Show more 
+                </>
             }
           </button>
           <ul className="catalog-pagination">
