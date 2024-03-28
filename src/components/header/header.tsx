@@ -18,13 +18,17 @@ type HeaderProps = {
 }
 
 export function Header({hasNav}: HeaderProps): JSX.Element{
+  const isSearchOpened = useSelector((state: RootState) => state.page.isSearchOpened);
   const isMenuOpened = useSelector((state: RootState) => state.page.isMenuOpened);
   const isCartOpened = useSelector((state: RootState) => state.page.isCartOpened);
   const cartItems = useSelector((state: RootState) => state.page.cartItems);
   const isShortNames = useResizeListener() > OVERFLOW_WIDTH;
   const isMobileSize = useResizeListener() < MOBILE_WIDTH;
-  const isSearchOpened = useSelector((state: RootState) => state.page.isSearchOpened);
   const dispatch = useDispatch();
+
+  const openModal = () => {
+
+  }
 
   const burgerBtnClassName = cn('burger-btn__line', {
     'burger-btn__line--active' : isMenuOpened
@@ -46,6 +50,7 @@ export function Header({hasNav}: HeaderProps): JSX.Element{
         <div className="header__user-nav user-navigation">
           <button className="user-navigation__btn button button--circle" onClick={() => {
             dispatch(toggleSearch({isOpened: !isSearchOpened}));
+            dispatch(toggleCart({isOpened: false}))
             isMobileSize && dispatch(toggleMobileMenu({isOpened: !isMenuOpened}));
           }}>
             <SearchIcon/>
@@ -62,9 +67,9 @@ export function Header({hasNav}: HeaderProps): JSX.Element{
             <span className="visually-hidden">Login</span>
           </button>
           <button className="user-navigation__btn button" onClick={() => {
-            dispatch(toggleCart({isOpened: !isCartOpened}))
             isMobileSize && dispatch(toggleMobileMenu({isOpened: !isMenuOpened}))
-            isSearchOpened && dispatch(toggleSearch({isOpened: false}))
+            dispatch(toggleCart({isOpened: !isCartOpened}))
+            dispatch(toggleSearch({isOpened: false}))
           }}>
             <CartIcon/>
             {
@@ -85,7 +90,12 @@ export function Header({hasNav}: HeaderProps): JSX.Element{
         ?
         ''
         :
-        <button className="header__burger burger-btn" onClick={() => dispatch(toggleMobileMenu({isOpened: !isMenuOpened}))}>
+        <button className="header__burger burger-btn" onClick={() => {
+          dispatch(toggleMobileMenu({isOpened: !isMenuOpened}))
+          dispatch(toggleCart({isOpened: false}))
+          dispatch(toggleSearch({isOpened: false}))
+        }
+        }>
           <span className={burgerBtnClassName}></span>
           <span className="visually-hidden">
             {
