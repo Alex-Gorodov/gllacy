@@ -1,10 +1,10 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { ShopItem } from "../../types/shopItem";
 import { shopItems } from "../../mocks/shopItems";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, toggleSearch } from "../../store/page/page-actions";
 import { RootState } from "../../store/RootState";
-import { useClickOutside } from "../../hooks/useClickOutside";
+import { useOutsideClick } from "../../hooks/useOutsideClick";
 
 export function Search(): JSX.Element {
   const [search, setSearch] = useState("");
@@ -18,26 +18,12 @@ export function Search(): JSX.Element {
     setResult(inputValue.length ? shopItems.filter((item) => item.name.includes(inputValue)) : []);
   };
 
-  const searchRef = useRef<HTMLDivElement>(null);
-
-  // useEffect(() => {
-  //   const handleClickOutside = (e: MouseEvent) => {
-  //     if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
-  //       dispatch(toggleSearch({ isOpened: false }));
-  //     }
-  //   };
-
-  //   document.addEventListener('click', handleClickOutside);
-
-  //   return () => {
-  //     document.removeEventListener('click', handleClickOutside);
-  //   };
-  // }, [dispatch]);
-
-  // useClickOutside(searchRef, () => dispatch(toggleSearch({isOpened: false})));
+  const ref = useOutsideClick(() => {
+    dispatch(toggleSearch({isOpened: false}))
+  }) as React.RefObject<HTMLDivElement>;
 
   return (
-    <div className={`search user-navigation__search ${isSearchOpened ? 'opened' : ''}`} ref={searchRef}>
+    <div className={`search user-navigation__search ${isSearchOpened ? 'opened' : ''}`} ref={ref}>
       <form action="" className="search__form">
         <label className="search__input-wrapper" htmlFor="search">
           <input

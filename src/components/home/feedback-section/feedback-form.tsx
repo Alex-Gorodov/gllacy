@@ -1,11 +1,12 @@
-import { ReactComponent as CloseCross } from '../../img/icons/cross.svg';
+import { ReactComponent as CloseCross } from '../../../img/icons/cross.svg';
 import cn from "classnames";
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../store/RootState';
-import { toggleFeedbackForm } from '../../store/page/page-actions';
+import { RootState } from '../../../store/RootState';
+import { toggleFeedbackForm } from '../../../store/page/page-actions';
 import { useRef, useState } from 'react';
-import { Spinner } from '../spinner/spinner';
-import { SPINNER_TIMEOUT } from '../../const';
+import { Spinner } from '../../spinner/spinner';
+import { SPINNER_TIMEOUT } from '../../../const';
+import { useOutsideClick } from '../../../hooks/useOutsideClick';
 
 export function FeedBackForm(): JSX.Element {
   const isFormOpened = useSelector((state: RootState) => state.page.isFeedbackFormOpened);
@@ -61,13 +62,17 @@ export function FeedBackForm(): JSX.Element {
     })
   };
 
+  const ref = useOutsideClick(() => {
+    isFormOpened && dispatch(toggleFeedbackForm({ isOpened: false }));
+  }) as React.RefObject<HTMLFormElement>;
+
   const matches = formData.name.match(/(\w+)/);
   const firstWord = matches !== null ? `, ${matches[1]},` : '';
 
 
   return (
     <div className={formClassName}>
-      <form className="feedback__form feedback-form" action="">
+      <form className="feedback__form feedback-form" action="" ref={ref}>
         {showSpinner && 
           <span className="feedback-form__spinner">
             <Spinner size={'40'} color={'#2d3440'}/>

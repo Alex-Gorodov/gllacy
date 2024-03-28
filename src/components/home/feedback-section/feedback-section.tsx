@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FeedBackForm } from "../../feedback-form/feedback-form";
+import { FeedBackForm } from "./feedback-form";
 import "../../../styles/blocks/feedback-form.sass"
 import { useDispatch } from "react-redux";
 import { toggleFeedbackForm } from "../../../store/page/page-actions";

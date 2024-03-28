@@ -3,6 +3,7 @@ import { RootState } from "../../store/RootState";
 import cn from 'classnames';
 import { removeFromCart, toggleCart } from "../../store/page/page-actions";
 import { ReactComponent as CloseCross} from '../../img/icons/cross.svg';
+import { useOutsideClick } from "../../hooks/useOutsideClick";
 
 export function Cart(): JSX.Element {
   const dispatch = useDispatch();
@@ -13,10 +14,14 @@ export function Cart(): JSX.Element {
     'cart--empty' : cartItems.length === 0
   });
 
+  const ref = useOutsideClick(() => {
+    dispatch(toggleCart({isOpened: false}));
+  }) as React.RefObject<HTMLDivElement>;
+
   const totalCost = cartItems.reduce((acc, item) => acc + (item.amountInCart ? item.amountInCart * item.price : item.price), 0);
 
   return (
-    <div className={cartClassName}>
+    <div className={cartClassName} ref={ref}>
       {
         cartItems.length < 1
         ?
