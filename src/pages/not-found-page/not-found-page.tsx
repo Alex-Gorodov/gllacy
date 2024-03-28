@@ -7,8 +7,8 @@ export function NotFoundPage() {
     <div className="not-found">
       <p className='not-found__text'>
         <span>404</span>
-        <span>Page Not Found</span>
-        <Link className="not-found__link" to={AppRoute.Root}>To homepage</Link>
+        {/* <span>Page Not Found</span> */}
+        <Link className="not-found__link button button--red" to={AppRoute.Root}>To homepage</Link>
       </p>
     </div>
   )
