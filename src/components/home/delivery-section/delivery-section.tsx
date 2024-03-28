@@ -2,6 +2,7 @@
 import { useRef, useState } from 'react';
 import { Spinner } from "../../spinner/spinner";
 import { SPINNER_TIMEOUT } from '../../../const';
+import { useOutsideClick } from '../../../hooks/useOutsideClick';
 
 export function DeliverySection(): JSX.Element {
   const inputRef = useRef<HTMLInputElement>(null);

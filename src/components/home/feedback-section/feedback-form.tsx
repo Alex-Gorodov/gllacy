@@ -64,6 +64,14 @@ export function FeedBackForm(): JSX.Element {
 
   const ref = useOutsideClick(() => {
     isFormOpened && dispatch(toggleFeedbackForm({ isOpened: false }));
+    setTimeout(() => {
+      setFormSent(false);
+      setFormData({
+        name: '',
+        email: '',
+        review: ''
+      })
+    }, 300);
   }) as React.RefObject<HTMLFormElement>;
 
   const matches = formData.name.match(/(\w+)/);
