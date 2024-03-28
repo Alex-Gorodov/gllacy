@@ -3,17 +3,22 @@
 .product
   position: relative
   display: grid
-  grid-template-rows: 50px auto 32px
   padding: 76px 40px 28px
   border-radius: 8px
+  grid-template-rows: 50px auto 32px
   background-color: $basic-extra-light
   text-align: center
   gap: 8px
+  @media (max-width: $mobile)
+    padding: 68px 20px 20px
+    grid-template-rows: 30px auto 30px 30px
   &__image
     position: absolute
     top: -20px
     left: 50%
     transform: translate(-50%, -50%)
+    @media (max-width: $mobile)
+      top: 0
   &__title
     text-transform: capitalize
   &__description
@@ -23,6 +28,9 @@
       display: flex
       justify-content: space-between
       align-items: center
+      @media (max-width: $mobile)
+        flex-direction: column
+        gap: 20px
   &__btn
     display: flex
     align-items: center
@@ -35,6 +43,10 @@
     color: $basic-extra-light
     transition: 0.3s
     cursor: pointer
+    @media (max-width: $mobile)
+      padding: 10px 0
+      border-radius: 8px
+      width: 120px
     &:hover
       background-color: $basic-extra-light
       box-shadow: 0 0 0 2px $special-extra-bright inset

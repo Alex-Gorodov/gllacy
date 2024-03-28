@@ -2,6 +2,8 @@ import {ReactComponent as CartIcon} from './../../../img/icons/product-cart.svg'
 import { ShopItem } from "../../../types/shopItem"
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../../store/page/page-actions';
+import { useResizeListener } from '../../../hooks/useResizeListener';
+import { MOBILE_WIDTH } from '../../../const';
 
 type ShopItemProps = {
   item: ShopItem;
@@ -9,10 +11,11 @@ type ShopItemProps = {
 
 export function Good({item}: ShopItemProps): JSX.Element {
   const dispatch = useDispatch();
+  const imageSize = useResizeListener() <= MOBILE_WIDTH ? 120 : 168;
 
   return (
     <li className="products__item product" key={item.id}>
-      <img className="product__image" src={item.img} alt={item.name} width={168} height={168}/>
+      <img className="product__image" src={item.img} alt={item.name} width={imageSize} height={imageSize}/>
       <p className="title title--4 product__title">{item.name}</p>
       <p className="product__description">{item.description}</p>
       <div className="product__price-wrapper">
