@@ -54,6 +54,8 @@ $slide-transition: 0.7s
   border: 1px solid $basic-neutral
   border-radius: 4px
 
+  //animations
+
 @keyframes error-animation 
   0%
     transform: translateX(0)
@@ -71,6 +73,12 @@ $slide-transition: 0.7s
   100%
     opacity: 1
     transform: translateY(0)
+
+@keyframes add-to-card-animation
+  0%
+    background-color: $special-extra-bright
+  100%
+    background-color: $white
 
 *,
 *::before,

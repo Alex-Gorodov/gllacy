@@ -4,12 +4,12 @@ import { AppRoute, ITEMS_BY_PAGE, IceCreamTypes, SPINNER_TIMEOUT } from '../../c
 import { setCatalogType } from '../../store/page/page-actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/RootState';
-import { Good } from "../home/shop-section/good";
 import { Spinner } from '../spinner/spinner';
 import { SortingForm } from './sorting-form';
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import cn from 'classnames';
+import { ProductCard } from '../product-card/good';
 
 export function Catalog(): JSX.Element {
 
@@ -60,13 +60,13 @@ export function Catalog(): JSX.Element {
             ?
             shopItems.slice(itemsByPage * (page - 1), itemsByPage * page).map((item) => {
               return (
-                <Good item={item} key={item.id}/>
+                <ProductCard item={item} key={item.id}/>
               )
             })
             :
             shopItems.filter((item) => item.type === iceCreamType).slice(itemsByPage * (page - 1), itemsByPage * page).map((item) => {
               return (
-                <Good item={item} key={item.id}/>
+                <ProductCard item={item} key={item.id}/>
               )
             })
           }

@@ -1,5 +1,5 @@
 import { shopItems } from "../../../mocks/shopItems";
-import { Good } from "./good";
+import { ProductCard } from "../../product-card/good";
 
 export function ShopSection(): JSX.Element {
   return (
@@ -9,7 +9,7 @@ export function ShopSection(): JSX.Element {
         {
           shopItems.slice(0,4).map((item) => {
             return (
-              <Good item={item} key={item.id}/>
+              <ProductCard item={item} key={item.id}/>
             )
           })
         }

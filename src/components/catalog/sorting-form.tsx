@@ -32,7 +32,6 @@ export function SortingForm(): JSX.Element {
     const max = sortedItems.length !== 0 ? sortedItems.sort(sortByPrice)[sortedItems.length - 1].price * 10 : 33;
     setLeftPrice(min);
     setRightPrice(max);
-    // dispatch(filterByPrice({ min: min, max: max }));
   }
 
   const [formData, setFormData] = useState({
@@ -84,9 +83,20 @@ export function SortingForm(): JSX.Element {
     dispatch(refreshCatalog({min, max, fat: formData.fat, sorting: sortType}))
   }
 
+  const style = {
+    background: 'radial-gradient(circle at center, white 25%, #2d3440 25%, #2d3440 100%)',
+    transition: '0.3s',
+    width: '16px',
+    height: '16px',
+    ':hover': {
+      outline: '2px solid #2d3440',
+      background: 'radial-gradient(circle at center, #2d3440 25%, white 25%, white 100%)'
+    }
+  };
+
   return (
     <form className="sorting-form" action="https://echo.htmlacademy.ru/" method="get">
-      <fieldset className="sort-item">
+      <fieldset className="sort-item sort-item--sorting">
         <legend className="sorting-label">Sorting by:</legend>
         <select name="sort by" id="sorting-by" onChange={handleSortChange} value={sortType}>
           <option value={SortTypes.Popular}>by popular</option>
@@ -95,15 +105,14 @@ export function SortingForm(): JSX.Element {
         </select>
       </fieldset>
     
-      <fieldset className="sort-item">
+      <fieldset className="sort-item sort-item--price">
         <legend className="sorting-label">Price: {(leftPrice/10).toFixed(1)} $ – {(rightPrice/10).toFixed(1)} $</legend>
         <div className="range-wrapper">
           <TwoThumbInputRange
             min={min}
             max={max}
             trackColor="#565C66"
-            thumbColor="radial-gradient(circle at center, white 25%, #2d3440 25%, #2d3440 100%)"
-            thumbStyle={{transition: '0.3s'}}
+            thumbStyle={style}
             thumbFocusStyle={{background: 'radial-gradient(circle at center, #2d3440 25%, white 25%, white 100%)', outline: '2px solid #2d3440'}}
             railColor="#fcfcfc4d"
             inputStyle={{width: '100%'}}
@@ -124,7 +133,7 @@ export function SortingForm(): JSX.Element {
         </div>
       </fieldset>
 
-      <fieldset className="sort-item">
+      <fieldset className="sort-item sort-item--fat">
         <legend className="sorting-label">Fat:</legend>
         <ul className="fat-list">
           <li className="filters-item">
@@ -158,7 +167,7 @@ export function SortingForm(): JSX.Element {
         </ul>
       </fieldset>
 
-      <fieldset className="sort-item">
+      <fieldset className="sort-item sort-item--toppings">
         <legend className="sorting-label">Toppings:</legend>
         <ul className="toppings-list">
           <li className="filters-item">
@@ -199,8 +208,7 @@ export function SortingForm(): JSX.Element {
         </ul>
       </fieldset>
 
-      <button className="button button--white sorting-form__submit-btn" type="button" onClick={handleResetForm}>Reset</button>
-      
+      <button className="button button--white sorting-form__submit-btn" type="button" onClick={handleResetForm}>Reset</button>      
     </form>
   )
 }

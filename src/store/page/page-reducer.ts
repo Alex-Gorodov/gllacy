@@ -6,10 +6,7 @@ import { FatsAmount, IceCreamTypes, SortTypes } from "../../const";
 
 const initialState: PageState = {
   catalog: shopItems,
-  cartItems: [
-    { ...shopItems[0], amountInCart: 1 },
-    { ...shopItems[3], amountInCart: 1.5 },
-  ],
+  cartItems: [],
   isCartOpened: false,
   catalogType: IceCreamTypes.All,
   isMenuOpened: false,

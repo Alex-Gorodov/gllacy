@@ -1,6 +1,6 @@
 @import '../../style'
   
-.sorting-form 
+.sorting-form
   display: flex
   flex-wrap: wrap
   margin-bottom: 140px
@@ -8,18 +8,24 @@
   gap: 16px 24px
   @media (max-width: $mobile)
     justify-content: center
+  // @media (min-width: $desktop)
+  //   display: grid
+  //   max-width: 840px
+  //   grid-template-columns: 196px 196px 86px minmax(min-content, auto)
 
   &__submit-btn.button.button--white
     background-color: rgba($basic-light, 30%)
     border: 2px solid $basic-light
     outline: none
     align-self: end
+    @media (max-width: $mobile)
+      width: 100%
+    // @media (min-width: $desktop)
+    //   grid-column: 4/5
     &:hover
       background-color: $basic-light
       border: 2px solid rgba($basic-light, 30%)
       outline: none
-    @media (max-width: $mobile)
-      width: 100%
 
 .sort-item 
   display: flex
@@ -31,6 +37,17 @@
   line-height: 20px
   @media (max-width: $mobile)
     width: 100%
+  // @media (min-width: $desktop)
+  //   &--sorting
+  //     grid-column: 1/2
+  //   &--price
+  //     grid-column: 2/3
+  //   &--fat
+  //     grid-column: 3/5
+  //   &--toppings
+  //     grid-row: 2
+  //     grid-column: 1/4
+    
 
 .sorting-label 
   margin-left: 16px
