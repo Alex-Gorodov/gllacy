@@ -59,7 +59,7 @@ export function Header({hasNav}: HeaderProps): JSX.Element{
           {
             isSearchOpened && <Search/>
           }
-          <button className="user-navigation__btn button">
+          <button className="user-navigation__btn button" disabled>
             <LoginIcon/>
             {
               isShortNames ? 'Enter' : ''

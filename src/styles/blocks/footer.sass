@@ -8,9 +8,19 @@
   width: 100%
   margin: auto
   padding-bottom: 50px
-  & p
+  @media (max-width: $tablet)
+    flex-direction: column
+    gap: 16px
+  &__text
+    display: flex
+    align-items: center
+    gap: 8px
     margin: 0
   &__author
+    display: flex
+    align-items: center
+    justify-content: center
+    gap: 2px
     color: $basic-extra-dark
     text-decoration: underline dotted
     transition: 0.3s
