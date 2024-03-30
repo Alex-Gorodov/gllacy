@@ -1,23 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Gllacy(ice cream store) - studying project on React/Redux/Typescript"/>
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <title>Gllacy</title>
 </head>
   <body>
     <div class="not-found">
       <p class='not-found__text'>
         <span>404</span>
-        <span>Page Not Found</span>
-        <a class="not-found__link" href="https://alex-gorodov.github.io/gllacy/">To homepage</a>
+        <a class="not-found__link button button--red" href="https://alex-gorodov.github.io/gllacy/">To homepage</a>
       </p>
     </div>
     <style>
+      :root {
+        --basic-extra-dark: #2d3440;
+        --basic-extra-light: #fcfcfc;
+        --special-extra-bright: #ff2f64;
+        --mobile: 600px;
+      }
       .not-found {
         position: absolute;
         inset: 0;
-        display: flex;
+        /* display: flex; */
         background-image: url("img/not-found.webp");
         background-size: cover;
         background-position: center;
@@ -36,8 +49,50 @@
       .not-found__link {
         margin-top: auto;
         margin-bottom: 10px;
-        color: rgb(45, 52, 64);
+        color: var(--basic-extra-dark);
         text-decoration: none;
+      }
+      .button {
+        font-family: "Inter", "Arial", sans-serif;
+        font-weight: 700;
+        margin: auto;
+        background-color: rgba(var(--basic-extra-light), 0.3);
+        border: none;
+        border-radius: 26px;
+        padding: 8px 20px;
+        gap: 10px;
+        cursor: pointer;
+        color: var(--basic-extra-dark);
+        transition: 0.3s;
+      }
+      .button:hover {
+          background-color: var(--basic-extra-light);
+          border-color: rgba(var(--basic-extra-light), 50%);
+          color: var(--basic-extra-dark);
+      }
+      .button:active {
+          border-color: var(--basic-extra-dark);
+      }
+      .button:focus-visible {
+          border-color: var(--basic-extra-dark);
+          color: var(--basic-extra-dark);
+          outline: none;
+      }
+      .button--red {
+        background-color: var(--special-extra-bright);
+        color: var(--basic-extra-light);
+        box-shadow: 0px 0px 0px 4px rgba(var(--special-extra-bright), 30%);
+      }
+      .button--red:hover {
+          box-shadow: 0px 0px 0px 4px var(--special-extra-bright);
+      }
+      .button--red:focus-visible {
+          box-shadow: 0px 0px 0px 4px var(--special-extra-bright);
+          background-color: var(--basic-extra-light);
+          color: var(--basic-extra-dark);
+      }
+      .button-red:active {
+        box-shadow: 0px 0px 0px 4px var(--basic-extra-dark);
       }
     </style>
   </body>

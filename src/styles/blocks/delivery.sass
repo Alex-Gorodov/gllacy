@@ -9,7 +9,24 @@
   gap: 135px
   border-radius: 16px
   align-items: center
-  background-image: url('../../img/delivery-bg.webp')
+  
+  background-image: url("/img/delivery-bg.webp")
+  @media (min-resolution: 2dppx)
+    background-image: url("/img/delivery-bg.webp"), url("/img/delivery-bg@2x.webp")
+
+
+  @media (min-width: $tablet)
+    background-image: url("/img/delivery-bg.webp")
+
+    @media (min-resolution: 2dppx)
+      background-image: url("/img/delivery-bg.webp"), url("/img/delivery-bg@2x.webp")
+  
+
+
+  @media (min-width: $desktop)
+    background-image: url("/img/delivery-bg.webp")
+    @media (min-resolution: 2dppx)
+      background-image: url("/img/delivery-bg.webp"), url("/img/delivery-bg@2x.webp")
   background-repeat: no-repeat
   background-size: cover
   @media (max-width: $tablet)

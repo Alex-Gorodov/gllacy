@@ -5,7 +5,24 @@
   display: flex
   padding: 64px
   border-radius: 26px
-  background-image: url("../../img/feedback-bg.webp")
+  
+  background-image: url("/img/feedback-bg.webp")
+  @media (min-resolution: 2dppx)
+    background-image: url("/img/feedback-bg.webp"), url("/img/feedback-bg@2x.webp")
+
+
+  @media (min-width: $tablet)
+    background-image: url("/img/feedback-bg.webp")
+
+    @media (min-resolution: 2dppx)
+      background-image: url("/img/feedback-bg.webp"), url("/img/feedback-bg@2x.webp")
+  
+
+
+  @media (min-width: $desktop)
+    background-image: url("/img/feedback-bg.webp")
+    @media (min-resolution: 2dppx)
+      background-image: url("/img/feedback-bg.webp"), url("/img/feedback-bg@2x.webp")
   background-repeat: no-repeat
   background-position: center
   background-size: cover
