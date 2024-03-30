@@ -81,7 +81,7 @@ export function Catalog(): JSX.Element {
         <div className="catalog__buttons-wrapper">
           <button
             className="button button--white catalog__load-btn"
-            disabled={pagesAmount.length < 2}
+            disabled={pagesAmount.length < 2 || page === pagesAmount.length}
             onClick={() => {
               setIsLoading(true);
               setTimeout(() => {
