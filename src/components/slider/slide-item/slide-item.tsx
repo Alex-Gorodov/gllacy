@@ -1,5 +1,6 @@
 import { ReactComponent as ArrowNext } from "../../../img/icons/slider-arrow-next.svg";
 import { ReactComponent as ArrowPrev } from "../../../img/icons/slider-arrow-prev.svg";
+import { ReactComponent as SuccessIcon } from "../../../img/icons/success.svg";
 import { setActiveSlide } from "../../../store/slider/slider-actions";
 import { useResizeListener } from "../../../hooks/useResizeListener";
 import { InactiveSlide } from "../inactive-slide/inactive-slide";
@@ -10,9 +11,11 @@ import { Slide } from "../../../types/slide";
 import { Social } from "../../social/social";
 import { Pagination } from "../pagination";
 import cn from 'classnames';
-import { MOBILE_WIDTH } from "../../../const";
+import { MOBILE_WIDTH, SPINNER_TIMEOUT } from "../../../const";
 import { addToCart } from "../../../store/page/page-actions";
 import { shopItems } from "../../../mocks/shopItems";
+import { Spinner } from "../../spinner/spinner";
+import { useState } from "react";
 
 type SlideProps = {
   slide: Slide;
@@ -21,18 +24,44 @@ type SlideProps = {
 export function SlideItem({slide}: SlideProps): JSX.Element {
   const isSliderMoving = useSelector((state: RootState) => state.slider.isMoving);
   const dispatch = useDispatch();
-  const activeSlide = useSelector((state: RootState) => state.slider.activeSlide)
+  const activeSlide = useSelector((state: RootState) => state.slider.activeSlide);
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [isAdded, setIsAdded] = useState(false);
 
   const loading = cn({
     'loading': isSliderMoving,
   });
+
+  const handleAddToCart = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      setIsAdded(true);
+      setTimeout(() => {
+        setIsAdded(false);
+      }, SPINNER_TIMEOUT / 2);
+    }, SPINNER_TIMEOUT / 2);
+  };
 
   return (
     <div className="slider__item slide">
       <div className="slide__wrapper">
         <h2 className={`slide__title ${loading}`}>{slide.title}</h2>
         <p className={`slide__description ${loading}`}>{slide.description}</p>
-        <button className="slide__add-to-cart-btn button button--white" onClick={() => dispatch(addToCart({item: shopItems[activeSlide]}))}>Order</button>
+        <button
+          className="slide__add-to-cart-btn button button--white"
+          onClick={() => {
+            handleAddToCart();
+            setTimeout(() => {
+              dispatch(addToCart({item: shopItems[activeSlide]}));
+            }, SPINNER_TIMEOUT);
+            }
+          }>
+          {isLoading && <Spinner size={"18"} color={"#2d3440"} />}
+          {!isLoading && isAdded && <SuccessIcon/>}
+          {!isLoading && !isAdded && <>Order</>}
+        </button>
         <div className='slide__image-wrapper'>
           <picture className={`${loading}`}>
             <source className={`slide__image ${loading}`} srcSet={`${slide.image}.webp`} type="image/webp" width={306} height={507}/>

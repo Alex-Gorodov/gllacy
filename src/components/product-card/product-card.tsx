@@ -25,14 +25,16 @@ export function ProductCard({item}: ShopItemProps): JSX.Element {
 
   const handleAddToCart = () => {
     setLoading(true);
-    dispatch(addToCart({item: {...item, amountInCart: 1}}));
+    setTimeout(() => {
+      dispatch(addToCart({item: {...item, amountInCart: 1}}));
+    }, SPINNER_TIMEOUT);
     setTimeout(() => {
       setLoading(false);
       setAdded(true);
       setTimeout(() => {
         setAdded(false);
-      }, SPINNER_TIMEOUT);
-    }, SPINNER_TIMEOUT);
+      }, SPINNER_TIMEOUT / 2);
+    }, SPINNER_TIMEOUT / 2);
   };
 
   return (

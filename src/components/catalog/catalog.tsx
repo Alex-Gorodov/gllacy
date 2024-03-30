@@ -9,7 +9,7 @@ import { SortingForm } from './sorting-form';
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import cn from 'classnames';
-import { ProductCard } from '../product-card/good';
+import { ProductCard } from '../product-card/product-card';
 
 export function Catalog(): JSX.Element {
 

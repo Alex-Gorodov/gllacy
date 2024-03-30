@@ -1,5 +1,5 @@
 import { shopItems } from "../../../mocks/shopItems";
-import { ProductCard } from "../../product-card/good";
+import { ProductCard } from "../../product-card/product-card";
 
 export function ShopSection(): JSX.Element {
   return (
