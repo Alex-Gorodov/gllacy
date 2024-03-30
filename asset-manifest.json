@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/gllacy/static/css/main.6476f1da.css",
-    "main.js": "/gllacy/static/js/main.dfcb29a2.js",
+    "main.js": "/gllacy/static/js/main.00466512.js",
     "static/media/advantages-bg@2x.webp": "/gllacy/static/media/advantages-bg@2x.76de7a24883166f398b0.webp",
     "static/media/delivery-bg@2x.webp": "/gllacy/static/media/delivery-bg@2x.3e643236856145f727a3.webp",
     "static/media/feedback-bg@2x.webp": "/gllacy/static/media/feedback-bg@2x.46b3a1fcc471809cc4b0.webp",
@@ -29,10 +29,10 @@
     "static/media/facebook.svg": "/gllacy/static/media/facebook.18ce47ddc8ba909b2c5a0a2930c1328a.svg",
     "static/media/success.svg": "/gllacy/static/media/success.8b881186084a6c19876447c37cccd81e.svg",
     "main.6476f1da.css.map": "/gllacy/static/css/main.6476f1da.css.map",
-    "main.dfcb29a2.js.map": "/gllacy/static/js/main.dfcb29a2.js.map"
+    "main.00466512.js.map": "/gllacy/static/js/main.00466512.js.map"
   },
   "entrypoints": [
     "static/css/main.6476f1da.css",
-    "static/js/main.dfcb29a2.js"
+    "static/js/main.00466512.js"
   ]
 }
