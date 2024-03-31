@@ -7,8 +7,8 @@ import { FatsAmount, IceCreamTypes, SortTypes } from "../../const";
 const initialState: PageState = {
   catalog: shopItems,
   cartItems: [],
-  isCartOpened: false,
   catalogType: IceCreamTypes.All,
+  isCartOpened: false,
   isMenuOpened: false,
   isFeedbackFormOpened: false,
   isSearchOpened: false,

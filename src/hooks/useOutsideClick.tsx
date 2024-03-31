@@ -5,7 +5,11 @@ export const useOutsideClick = (callback: () => void) => {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (ref.current && !ref.current.contains(event.target as Node)) {
+      const target = event.target as HTMLElement;
+
+      const isNavButton = target.classList.contains('user-navigation__btn') || target.closest('button')?.classList.contains('user-navigation__btn');
+
+      if (!isNavButton && ref.current && !ref.current.contains(target)) {
         callback();
       }
     };

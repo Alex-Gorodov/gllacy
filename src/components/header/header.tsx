@@ -17,7 +17,7 @@ type HeaderProps = {
   hasNav?: boolean;
 }
 
-export function Header({hasNav}: HeaderProps): JSX.Element{
+export function Header({ hasNav }: HeaderProps): JSX.Element {
   const isSearchOpened = useSelector((state: RootState) => state.page.isSearchOpened);
   const isMenuOpened = useSelector((state: RootState) => state.page.isMenuOpened);
   const isCartOpened = useSelector((state: RootState) => state.page.isCartOpened);
@@ -26,18 +26,14 @@ export function Header({hasNav}: HeaderProps): JSX.Element{
   const isMobileSize = useResizeListener() < MOBILE_WIDTH;
   const dispatch = useDispatch();
 
-  const openModal = () => {
-
-  }
-
   const burgerBtnClassName = cn('burger-btn__line', {
-    'burger-btn__line--active' : isMenuOpened
-  })
+    'burger-btn__line--active': isMenuOpened,
+  });
   const mobileHeaderWrapperClassName = cn('header__wrapper', {
-    'header__wrapper--opened' : isMenuOpened
-  })
+    'header__wrapper--opened': isMenuOpened,
+  });
 
-  isMenuOpened ? document.body.style.overflow = 'hidden' : document.body.style.overflow = ''
+  isMenuOpened ? (document.body.style.overflow = 'hidden') : (document.body.style.overflow = '');
 
   return (
     <header className="header">
@@ -45,65 +41,58 @@ export function Header({hasNav}: HeaderProps): JSX.Element{
         <Logo />
         <span className="visually-hidden">Go to home page</span>
       </Link>
-      {hasNav && <div className={mobileHeaderWrapperClassName}>
-        <Navigation/>
-        <div className="header__user-nav user-navigation">
-          <button className="user-navigation__btn button button--circle" onClick={() => {
-            dispatch(toggleSearch({isOpened: !isSearchOpened}));
-            dispatch(toggleCart({isOpened: false}))
-            isMobileSize && dispatch(toggleMobileMenu({isOpened: !isMenuOpened}));
-          }}>
-            <SearchIcon/>
-            <span className="visually-hidden">Search</span>
-          </button>
-          {
-            isSearchOpened && <Search/>
-          }
-          <button className="user-navigation__btn button" disabled>
-            <LoginIcon/>
-            {
-              isShortNames ? 'Enter' : ''
-            }
-            <span className="visually-hidden">Login</span>
-          </button>
-          <button className="user-navigation__btn button" onClick={() => {
-            isMobileSize && dispatch(toggleMobileMenu({isOpened: !isMenuOpened}))
-            dispatch(toggleCart({isOpened: !isCartOpened}))
-            dispatch(toggleSearch({isOpened: false}))
-          }}>
-            <CartIcon/>
-            {
-              isShortNames
-              ?
-              cartItems.length > 0 ? `${cartItems.length} items` : 'Empty'
-              :
-              ''
-            }
-            <span className="visually-hidden">Cart</span>
-          </button>
-          <Cart/>
+      {hasNav && (
+        <div className={mobileHeaderWrapperClassName}>
+          <Navigation />
+          <div className="header__user-nav user-navigation">
+            <button
+              className="user-navigation__btn button button--circle"
+              onClick={() => {
+                dispatch(toggleSearch({ isOpened: !isSearchOpened }));
+                dispatch(toggleCart({ isOpened: false }));
+                isMobileSize && dispatch(toggleMobileMenu({ isOpened: !isMenuOpened }));
+              }}
+            >
+              <SearchIcon />
+              <span className="visually-hidden">Search</span>
+            </button>
+            {isSearchOpened && <Search />}
+            <button className="user-navigation__btn button" disabled>
+              <LoginIcon />
+              {isShortNames ? 'Enter' : ''}
+              <span className="visually-hidden">Login</span>
+            </button>
+            <button
+              className="user-navigation__btn button"
+              onClick={() => {
+                dispatch(toggleCart({ isOpened: !isCartOpened }));
+                dispatch(toggleSearch({ isOpened: false }));
+                isMobileSize && dispatch(toggleMobileMenu({ isOpened: false }));
+              }}
+            >
+              <CartIcon />
+              {isShortNames ? (cartItems.length > 0 ? `${cartItems.length} items` : 'Empty') : ''}
+              <span className="visually-hidden">Cart</span>
+            </button>
+            <Cart />
+          </div>
         </div>
-      </div>
-      }
-      {
-        !isMobileSize && hasNav
-        ?
+      )}
+      {!isMobileSize && hasNav ? (
         ''
-        :
-        <button className="header__burger burger-btn" onClick={() => {
-          dispatch(toggleMobileMenu({isOpened: !isMenuOpened}))
-          dispatch(toggleCart({isOpened: false}))
-          dispatch(toggleSearch({isOpened: false}))
-        }
-        }>
+      ) : (
+        <button
+          className="header__burger burger-btn"
+          onClick={() => {
+            dispatch(toggleMobileMenu({ isOpened: !isMenuOpened }));
+            dispatch(toggleCart({ isOpened: false }));
+            dispatch(toggleSearch({ isOpened: false }));
+          }}
+        >
           <span className={burgerBtnClassName}></span>
-          <span className="visually-hidden">
-            {
-              isMenuOpened ? 'close menu' : 'open menu'
-            }
-          </span>
+          <span className="visually-hidden">{isMenuOpened ? 'close menu' : 'open menu'}</span>
         </button>
-      }
+      )}
     </header>
-  )
+  );
 }
