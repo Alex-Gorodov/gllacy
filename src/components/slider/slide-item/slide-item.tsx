@@ -30,7 +30,7 @@ export function SlideItem({slide}: SlideProps): JSX.Element {
   const [isAdded, setIsAdded] = useState(false);
 
   const loading = cn({
-    'loading': isSliderMoving,
+    'slide__image--loading': isSliderMoving,
   });
 
   const handleAddToCart = () => {
@@ -63,11 +63,11 @@ export function SlideItem({slide}: SlideProps): JSX.Element {
           {!isLoading && !isAdded && <>Order</>}
         </button>
         <div className='slide__image-wrapper'>
-          <picture className={`${loading}`}>
-            <source className={`slide__image ${loading}`} srcSet={`${slide.image}.webp`} type="image/webp" width={306} height={507}/>
+          <picture>
+            <source srcSet={`${slide.image}.webp`} type="image/webp" width={306} height={507}/>
             <source media="(min-width: 1170px)" srcSet={`${slide.image}.webp 1x, ${slide.image}@2x.webp 2x`} type="image/webp"/>
             <source media="(min-width: 900px)" srcSet={`${slide.image}.webp 1x, ${slide.image}@2x.webp 2x`} type="image/webp"/>
-            <img src={`${slide.image}.png`}  alt={slide.title}/>
+            <img className={`slide__image ${loading}`} src={`${slide.image}.png`}  alt={slide.title}/>
           </picture>
           <div className="slider__buttons">
             <button className="slider__btn button button--circle" onClick={() => dispatch(setActiveSlide({activeSlide: activeSlide - 1}))}>
